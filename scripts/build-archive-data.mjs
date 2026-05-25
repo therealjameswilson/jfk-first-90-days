@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { basename } from 'node:path';
 import { DOMParser } from '@xmldom/xmldom';
+import { formatRandomHouseCitation } from './citation-style.mjs';
 import { supplementalRecords } from './supplemental-sources.mjs';
 
 const START_DATE = '1961-01-20';
@@ -579,7 +580,10 @@ async function main() {
   const supplemental = buildSupplementalDocuments();
   const docsById = new Map();
   for (const doc of [...frus, ...nara, ...supplemental]) docsById.set(doc.id, doc);
-  const documents = Array.from(docsById.values()).sort((a, b) => {
+  const documents = Array.from(docsById.values()).map((doc) => ({
+    ...doc,
+    citation: formatRandomHouseCitation(doc),
+  })).sort((a, b) => {
     const aDate = a.date || '9999-12-31';
     const bDate = b.date || '9999-12-31';
     if (aDate !== bDate) return aDate.localeCompare(bDate);

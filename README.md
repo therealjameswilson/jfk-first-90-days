@@ -42,3 +42,5 @@ npm run lint
 ```
 
 `npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, curated DOD History/JCS History/GovInfo PPP/CIA FOIA/State FOIA/ISCAP/National Security Archive source files, and the selected Nitze interview PDFs.
+
+Citations are normalized during data generation into a trade nonfiction notes format: issuing body or author, quoted document title, collection or volume, locator, and date.
