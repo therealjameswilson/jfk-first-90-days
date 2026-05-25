@@ -6,6 +6,9 @@ const NARA_BERLIN_URL =
 const STATE_FOIA_BASE = 'https://foia.state.gov';
 const NSARCHIVE_BASE = 'https://nsarchive.gwu.edu';
 const DOD_HISTORY_BASE = 'https://history.defense.gov';
+const JCS_HISTORY_BASE = 'https://www.jcs.mil';
+const JCS_HISTORY_PAGE = `${JCS_HISTORY_BASE}/About/Joint-Staff-History/`;
+const JCS_POLICY_V008_PDF = `${JCS_HISTORY_BASE}/Portals/36/Documents/History/Policy/Policy_V008.pdf`;
 const GOVINFO_PPP_1961_BOOK1 = 'https://www.govinfo.gov/app/details/PPP-1961-book1/summary';
 const GOVINFO_PPP_1961_BOOK1_PDF =
   'https://www.govinfo.gov/content/pkg/PPP-1961-book1/pdf/PPP-1961-book1.pdf';
@@ -28,6 +31,7 @@ const stateFoiaCase = (caseNumber) =>
 const stateFoiaPdf = (path) => `${STATE_FOIA_BASE}/${path}`;
 const dodHistoryPage = (path) => `${DOD_HISTORY_BASE}${path}`;
 const dodHistoryPdf = (path) => `${DOD_HISTORY_BASE}${path}`;
+const jcsHistoryPdf = (page) => `${JCS_POLICY_V008_PDF}#page=${page}`;
 const nitzePdf = (fileName) => `${SITE_BASE}/documents/nitze/${fileName}`;
 
 const iscapDefaults = {
@@ -1091,6 +1095,184 @@ const govinfoPppRecords = [
   },
 ];
 
+const jcsHistoryDefaults = {
+  source: 'JCS History',
+  repository: 'Joint History and Research Office, Joint Chiefs of Staff',
+  collection: 'Joint Chiefs of Staff and National Policy Series',
+  container: 'The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964',
+  section: 'Official JCS history passages',
+  documentType: 'JCS official history passage',
+  url: JCS_HISTORY_PAGE,
+  officialUrl: JCS_HISTORY_PAGE,
+  dataUrl: JCS_POLICY_V008_PDF,
+  topics: ['Defense', 'Diplomacy'],
+  sourceNote:
+    'Official Joint History and Research Office volume hosted by the Joint Chiefs of Staff; page citations refer to the printed volume, with links to the corresponding PDF view.',
+};
+
+const jcsHistoryRecords = [
+  {
+    ...jcsHistoryDefaults,
+    id: 'jcs-history-v8-new-frontier-civil-military-process',
+    title: 'Entering the New Frontier: Kennedy, McNamara, and the JCS decision environment',
+    date: '1961-01-20',
+    endDate: '1961-04-20',
+    displayDate: 'January-April 1961',
+    documentNumber: 'Volume VIII, pp. 1-6',
+    topics: ['Defense', 'Diplomacy', 'Cuba', 'Laos', 'Congo', 'Berlin'],
+    url: jcsHistoryPdf(17),
+    dataUrl: jcsHistoryPdf(17),
+    citation:
+      'Walter S. Poole, The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964, Office of Joint History, 2011, pp. 1-6.',
+    summary:
+      'Official JCS history passage framing the Kennedy transition, the Chiefs relationship with Kennedy and McNamara, and the Cuba-Laos-Congo-Berlin crisis setting that shaped early foreign-policy decisions.',
+  },
+  {
+    ...jcsHistoryDefaults,
+    id: 'jcs-history-v8-mcnamara-task-forces-ppbs',
+    title: 'McNamara task forces, the FY 1962 supplement, and the first PPBS moves',
+    date: '1961-01-24',
+    endDate: '1961-04-17',
+    displayDate: 'January 24-April 17, 1961',
+    documentNumber: 'Volume VIII, pp. 6-8',
+    topics: ['Defense', 'Nuclear', 'Foreign Aid', 'Diplomacy'],
+    url: jcsHistoryPdf(22),
+    dataUrl: jcsHistoryPdf(22),
+    citation:
+      'Walter S. Poole, The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964, Office of Joint History, 2011, pp. 6-8.',
+    summary:
+      "Passage tracing McNamara's January 24 task forces, Kennedy's March 28 defense supplemental request, the 96 defense-policy questions, and the first programming-budgeting changes affecting military and foreign-policy planning.",
+  },
+  {
+    ...jcsHistoryDefaults,
+    id: 'jcs-history-v8-flexible-response-bnsp',
+    title: 'Flexible response and the abortive Basic National Security Policy revision',
+    date: '1961-02-04',
+    endDate: '1961-04-05',
+    displayDate: 'February 4-April 5, 1961',
+    documentNumber: 'Volume VIII, pp. 17-19',
+    topics: ['Defense', 'Nuclear', 'NATO', 'Europe', 'USSR', 'Diplomacy'],
+    url: jcsHistoryPdf(33),
+    dataUrl: jcsHistoryPdf(33),
+    citation:
+      'Walter S. Poole, The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964, Office of Joint History, 2011, pp. 17-19.',
+    summary:
+      'Passage on Rusk, McNamara, Kennedy, and the JCS as the administration shifted from massive retaliation toward flexible response, conventional reinforcement, and a higher nuclear threshold.',
+  },
+  {
+    ...jcsHistoryDefaults,
+    id: 'jcs-history-v8-counterinsurgency-first-steps',
+    title: 'Kennedy presses the JCS on counter-guerrilla and counterinsurgency capabilities',
+    date: '1961-02-01',
+    endDate: '1961-04-11',
+    displayDate: 'February 1-April 11, 1961',
+    documentNumber: 'Volume VIII, pp. 23-24',
+    topics: ['Defense', 'Vietnam', 'Laos', 'Latin America', 'Africa', 'Asia', 'Diplomacy'],
+    url: jcsHistoryPdf(39),
+    dataUrl: jcsHistoryPdf(39),
+    citation:
+      'Walter S. Poole, The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964, Office of Joint History, 2011, pp. 23-24.',
+    summary:
+      "Passage covering Kennedy's February NSC and JCS meetings on counter-guerrilla capabilities, the JCS training recommendations to McNamara, and the April 11 reporting system for services and unified commands.",
+  },
+  {
+    ...jcsHistoryDefaults,
+    id: 'jcs-history-v8-siop-controlled-response',
+    title: "SIOP-62 and McNamara's request for controlled nuclear-response options",
+    date: '1961-03-01',
+    endDate: '1961-04-18',
+    displayDate: 'March-April 18, 1961',
+    documentNumber: 'Volume VIII, pp. 27-29',
+    topics: ['Nuclear', 'Defense', 'USSR', 'Diplomacy'],
+    url: jcsHistoryPdf(43),
+    dataUrl: jcsHistoryPdf(43),
+    citation:
+      'Walter S. Poole, The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964, Office of Joint History, 2011, pp. 27-29.',
+    summary:
+      "Passage on SIOP-62 becoming effective April 2, the McNamara team's concern over a spasm-war plan, and the JCS April 18 response on controlled-response and negotiating-pause concepts.",
+  },
+  {
+    ...jcsHistoryDefaults,
+    id: 'jcs-history-v8-missile-gap-strategic-forces',
+    title: 'Missile gap reversal, Minuteman, Polaris, and early strategic-force review',
+    date: '1961-01-20',
+    endDate: '1961-02-17',
+    displayDate: 'January-February 1961',
+    documentNumber: 'Volume VIII, pp. 35-37',
+    topics: ['Nuclear', 'Defense', 'USSR', 'Diplomacy'],
+    url: jcsHistoryPdf(51),
+    dataUrl: jcsHistoryPdf(51),
+    citation:
+      'Walter S. Poole, The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964, Office of Joint History, 2011, pp. 35-37.',
+    summary:
+      "Passage connecting the fading missile-gap argument, Lemnitzer's January testimony, McNamara's February Omaha briefing, Minuteman's February 1 test, and the Hitch task-force review of Polaris and Minuteman acceleration.",
+  },
+  {
+    ...jcsHistoryDefaults,
+    id: 'jcs-history-v8-conventional-forces-laos-congo',
+    title: 'Limited-war force planning for simultaneous Laos and Congo contingencies',
+    date: '1961-02-01',
+    endDate: '1961-03-28',
+    displayDate: 'February 1-March 28, 1961',
+    documentNumber: 'Volume VIII, pp. 61-63',
+    topics: ['Laos', 'Congo', 'Defense', 'Africa', 'Asia', 'Diplomacy'],
+    url: jcsHistoryPdf(77),
+    dataUrl: jcsHistoryPdf(77),
+    citation:
+      'Walter S. Poole, The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964, Office of Joint History, 2011, pp. 61-63.',
+    summary:
+      'Passage showing how Laos and Congo contingencies pushed early Kennedy limited-war planning, airlift improvements, special-forces additions, and the first steps toward Strike Command.',
+  },
+  {
+    ...jcsHistoryDefaults,
+    id: 'jcs-history-v8-nuclear-test-ban-geneva',
+    title: 'JCS advice on nuclear testing and the Geneva test-ban position',
+    date: '1961-02-02',
+    endDate: '1961-04-18',
+    displayDate: 'February 2-April 18, 1961',
+    documentNumber: 'Volume VIII, pp. 93-94',
+    topics: ['Nuclear', 'USSR', 'United Nations', 'Defense', 'Diplomacy'],
+    url: jcsHistoryPdf(109),
+    dataUrl: jcsHistoryPdf(109),
+    citation:
+      'Walter S. Poole, The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964, Office of Joint History, 2011, pp. 93-94.',
+    summary:
+      "Passage on Kennedy-era test-ban preparations, McCloy's February 2 proposal, the JCS February 21 recommendation to renew non-atmospheric testing absent agreement, and the April 18 US-UK draft treaty at Geneva.",
+  },
+  {
+    ...jcsHistoryDefaults,
+    id: 'jcs-history-v8-bay-of-pigs-jcs-review',
+    title: 'JCS review of the Trinidad and Zapata plans for the Bay of Pigs operation',
+    date: '1961-01-27',
+    endDate: '1961-04-17',
+    displayDate: 'January 27-April 17, 1961',
+    documentNumber: 'Volume VIII, pp. 108-112',
+    topics: ['Bay of Pigs', 'Cuba', 'Latin America', 'Intelligence', 'Defense', 'Diplomacy'],
+    url: jcsHistoryPdf(124),
+    dataUrl: jcsHistoryPdf(124),
+    citation:
+      'Walter S. Poole, The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964, Office of Joint History, 2011, pp. 108-112.',
+    summary:
+      "Passage reconstructing Kennedy's early Cuba review, the JCS February evaluation of the Trinidad plan, the March shift toward Zapata, and the communication failures that shaped Bay of Pigs advice.",
+  },
+  {
+    ...jcsHistoryDefaults,
+    id: 'jcs-history-v8-laos-kennedy-intervention-planning',
+    title: "Laos becomes Kennedy's top crisis and a test of SEATO intervention planning",
+    date: '1961-01-23',
+    endDate: '1961-04-20',
+    displayDate: 'January 23-April 20, 1961',
+    documentNumber: 'Volume VIII, pp. 123-127',
+    topics: ['Laos', 'Asia', 'SEATO', 'Defense', 'Diplomacy'],
+    url: jcsHistoryPdf(140),
+    dataUrl: jcsHistoryPdf(140),
+    citation:
+      'Walter S. Poole, The Joint Chiefs of Staff and National Policy, Volume VIII, 1961-1964, Office of Joint History, 2011, pp. 123-127.',
+    summary:
+      "Passage tracing the Kennedy administration's January Laos task-force work, first JCS meeting with Kennedy, March Plain of Jars planning, March 23 public warning, SEATO planning, and April 20 MAAG/FAL decisions.",
+  },
+];
+
 const nitzeDefaults = {
   source: 'Nitze Interviews',
   repository: 'Paul H. Nitze interview files',
@@ -1112,6 +1294,7 @@ export const supplementalRecords = [
   ...naraBerlinRecords,
   ...dodHistoryRecords,
   ...govinfoPppRecords,
+  ...jcsHistoryRecords,
   {
     ...iscapDefaults,
     id: 'iscap-2014-030-doc-1',

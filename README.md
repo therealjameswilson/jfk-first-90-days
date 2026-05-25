@@ -2,7 +2,7 @@
 
 An interactive archive site for John F. Kennedy foreign-policy primary sources from January 20 through April 20, 1961.
 
-The corpus starts with the State Department's official FRUS Kennedy administration volumes and supplements, then adds JFK Library, National Archives Catalog, DOD History, GovInfo Public Papers, FOIA, ISCAP, and National Security Archive records that overlap the same date window and match foreign-policy topics.
+The corpus starts with the State Department's official FRUS Kennedy administration volumes and supplements, then adds JFK Library, National Archives Catalog, DOD History, JCS History, GovInfo Public Papers, FOIA, ISCAP, and National Security Archive records that overlap the same date window and match foreign-policy topics.
 
 ## Sources
 
@@ -16,6 +16,8 @@ The corpus starts with the State Department's official FRUS Kennedy administrati
 - DOD Historical Office: https://history.defense.gov/
 - DOD Secretary of Defense Historical Series: https://history.defense.gov/Publications/Secretary-of-Defense-Historical-Series/
 - DOD oral history transcripts: https://history.defense.gov/DOD-History/Oral-History/
+- JCS Joint Staff History: https://www.jcs.mil/About/Joint-Staff-History/
+- JCS and National Policy, Vol. VIII, 1961-1964 PDF: https://www.jcs.mil/Portals/36/Documents/History/Policy/Policy_V008.pdf
 - GovInfo Public Papers of the Presidents, Kennedy 1961 Book 1: https://www.govinfo.gov/app/details/PPP-1961-book1/summary
 - GovInfo PPP 1961 Book 1 PDF: https://www.govinfo.gov/content/pkg/PPP-1961-book1/pdf/PPP-1961-book1.pdf
 - CIA FOIA Electronic Reading Room: https://www.cia.gov/readingroom/
@@ -39,4 +41,4 @@ npm run build
 npm run lint
 ```
 
-`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, curated DOD History/GovInfo PPP/CIA FOIA/State FOIA/ISCAP/National Security Archive source files, and the selected Nitze interview PDFs.
+`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, curated DOD History/JCS History/GovInfo PPP/CIA FOIA/State FOIA/ISCAP/National Security Archive source files, and the selected Nitze interview PDFs.

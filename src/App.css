@@ -337,6 +337,12 @@
   background: #eef0f2;
 }
 
+.source-chip--jcs-history {
+  border-color: #98a4b3;
+  color: #27384e;
+  background: #eef3f8;
+}
+
 .source-chip--govinfo-ppp {
   border-color: #9db6a1;
   color: #315642;
