@@ -3,6 +3,7 @@ export type ArchiveSource =
   | 'JFK Library'
   | 'NARA Catalog'
   | 'DOD History'
+  | 'GovInfo PPP'
   | 'CIA FOIA'
   | 'State FOIA'
   | 'ISCAP'

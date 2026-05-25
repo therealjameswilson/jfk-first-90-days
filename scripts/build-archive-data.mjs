@@ -595,8 +595,8 @@ async function main() {
       windowStart: START_DATE,
       windowEnd: END_DATE,
       scopeNote:
-        'Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy, JFK Library digital pages, JFK public-statement pages, and NARA thematic release pages. DOD History passages come from official Defense Historical Office pages, historical series volumes, special studies, and oral-history transcripts. CIA FOIA, State FOIA, ISCAP, and National Security Archive records are curated from their release pages, search results, and Virtual Reading Room document pages, with direct PDF links where available. Nitze Interviews contains the four local PDF files selected from the Nitze OCR search because they discuss Kennedy foreign-policy work in the first 90 days.',
-      sourceOrder: ['FRUS', 'JFK Library', 'NARA Catalog', 'DOD History', 'CIA FOIA', 'State FOIA', 'ISCAP', 'National Security Archive', 'Nitze Interviews'],
+        'Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy, JFK Library digital pages, JFK public-statement pages, and NARA thematic release pages. DOD History passages come from official Defense Historical Office pages, historical series volumes, special studies, and oral-history transcripts. GovInfo PPP records identify foreign-policy speeches, messages, and statements in the official Public Papers of the Presidents volume. CIA FOIA, State FOIA, ISCAP, and National Security Archive records are curated from their release pages, search results, and Virtual Reading Room document pages, with direct PDF links where available. Nitze Interviews contains the four local PDF files selected from the Nitze OCR search because they discuss Kennedy foreign-policy work in the first 90 days.',
+      sourceOrder: ['FRUS', 'JFK Library', 'NARA Catalog', 'DOD History', 'GovInfo PPP', 'CIA FOIA', 'State FOIA', 'ISCAP', 'National Security Archive', 'Nitze Interviews'],
       officialSources: [
         {
           label: 'FRUS Kennedy Administration volumes',
@@ -637,6 +637,14 @@ async function main() {
         {
           label: 'DOD oral history transcripts',
           url: 'https://history.defense.gov/DOD-History/Oral-History/',
+        },
+        {
+          label: 'GovInfo Public Papers of the Presidents: Kennedy 1961, Book 1',
+          url: 'https://www.govinfo.gov/app/details/PPP-1961-book1/summary',
+        },
+        {
+          label: 'GovInfo PPP 1961 Book 1 PDF',
+          url: 'https://www.govinfo.gov/content/pkg/PPP-1961-book1/pdf/PPP-1961-book1.pdf',
         },
         {
           label: 'CIA FOIA Electronic Reading Room',

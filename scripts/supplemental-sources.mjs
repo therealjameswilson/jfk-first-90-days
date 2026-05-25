@@ -6,6 +6,9 @@ const NARA_BERLIN_URL =
 const STATE_FOIA_BASE = 'https://foia.state.gov';
 const NSARCHIVE_BASE = 'https://nsarchive.gwu.edu';
 const DOD_HISTORY_BASE = 'https://history.defense.gov';
+const GOVINFO_PPP_1961_BOOK1 = 'https://www.govinfo.gov/app/details/PPP-1961-book1/summary';
+const GOVINFO_PPP_1961_BOOK1_PDF =
+  'https://www.govinfo.gov/content/pkg/PPP-1961-book1/pdf/PPP-1961-book1.pdf';
 const NSARCHIVE_BAY_OF_PIGS_2 = 'https://nsarchive2.gwu.edu/bayofpigs/press2.html';
 const NSARCHIVE_BAY_OF_PIGS_3 = 'https://nsarchive2.gwu.edu/bayofpigs/press3.html';
 const SITE_BASE = '/jfk-first-90-days';
@@ -899,6 +902,195 @@ const dodHistoryRecords = [
   },
 ];
 
+const govinfoPppDefaults = {
+  source: 'GovInfo PPP',
+  repository: 'U.S. Government Publishing Office',
+  collection: 'Public Papers of the Presidents of the United States',
+  container: 'John F. Kennedy (1961), Book 1',
+  section: 'Public speeches, messages, and statements',
+  documentType: 'GovInfo public paper',
+  url: GOVINFO_PPP_1961_BOOK1,
+  officialUrl: GOVINFO_PPP_1961_BOOK1,
+  dataUrl: GOVINFO_PPP_1961_BOOK1_PDF,
+  topics: ['Diplomacy'],
+  sourceNote:
+    'GovInfo digitized volume for Public Papers of the Presidents: John F. Kennedy (1961), Book 1. GovInfo lists pre-1991 Public Papers at volume level, so item/page references identify the statement inside the official PDF.',
+};
+
+const govinfoPppRecords = [
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-001-inaugural-address',
+    title: 'Inaugural Address',
+    date: '1961-01-20',
+    documentNumber: 'Item 1',
+    documentType: 'GovInfo speech transcript',
+    topics: ['USSR', 'Nuclear', 'United Nations', 'Latin America', 'Foreign Aid', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 1, Inaugural Address, January 20, 1961, pp. 1-3.',
+    summary:
+      "GovInfo Public Papers version of Kennedy's inaugural address, framing alliance commitments, decolonization, hemispheric policy, the United Nations, and nuclear-age diplomacy.",
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-011-state-of-union',
+    title: 'Annual Message to the Congress on the State of the Union',
+    date: '1961-01-30',
+    documentNumber: 'Item 11',
+    documentType: 'GovInfo speech transcript',
+    topics: ['Diplomacy', 'Defense', 'Foreign Aid', 'Nuclear', 'USSR', 'United Nations'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 11, Annual Message to the Congress on the State of the Union, January 30, 1961, pp. 20-28.',
+    summary:
+      'First Kennedy State of the Union address, laying out the early foreign-policy agenda on allied burdens, nuclear arms, foreign aid, the balance of payments, and free-world economic coordination.',
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-balance-of-payments-message',
+    title: 'Special Message to the Congress on the Balance of Payments',
+    date: '1961-02-06',
+    documentNumber: 'February 6 balance-of-payments message',
+    documentType: 'GovInfo special message',
+    topics: ['Foreign Aid', 'Europe', 'NATO', 'Defense', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Special Message to the Congress on the Balance of Payments, February 6, 1961, pp. 57-66.',
+    summary:
+      'Message presenting the dollar, gold, trade, exports, foreign assistance, and allied burden-sharing as central foreign-economic policy questions for the new administration.',
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-061-peace-corps-order',
+    title: 'Statement Upon Signing Order Establishing the Peace Corps',
+    date: '1961-03-01',
+    documentNumber: 'Item 61',
+    documentType: 'GovInfo statement',
+    topics: ['Peace Corps', 'Foreign Aid', 'Africa', 'Asia', 'Latin America', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 61, Statement Upon Signing Order Establishing the Peace Corps, March 1, 1961.',
+    summary:
+      'Public statement announcing the temporary Peace Corps and describing volunteer service abroad as part of development, peace, and U.S. responsibilities toward newly developing nations.',
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-063-peace-corps-special-message',
+    title: 'Special Message to the Congress on the Peace Corps',
+    date: '1961-03-01',
+    documentNumber: 'Item 63',
+    documentType: 'GovInfo special message',
+    topics: ['Peace Corps', 'Foreign Aid', 'Africa', 'Asia', 'Latin America', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 63, Special Message to the Congress on the Peace Corps, March 1, 1961, pp. 143-146.',
+    summary:
+      'Congressional message requesting a permanent Peace Corps and linking overseas volunteer service to development, self-government, and U.S. Cold War public diplomacy.',
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-079-alliance-for-progress',
+    title:
+      'Address at a White House Reception for Members of Congress and for the Diplomatic Corps of the Latin American Republics',
+    date: '1961-03-13',
+    documentNumber: 'Item 79',
+    documentType: 'GovInfo speech transcript',
+    topics: ['Latin America', 'Foreign Aid', 'Cuba', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 79, Address at a White House Reception for Members of Congress and for the Diplomatic Corps of the Latin American Republics, March 13, 1961, pp. 170-175.',
+    summary:
+      'Alliance for Progress address proposing a long-term hemispheric program for democratic reform, social development, economic growth, and resistance to authoritarian alternatives in Latin America.',
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-080-nuclear-test-ban-conference',
+    title: 'Statement Concerning the Conference on the Discontinuance of Nuclear Weapon Tests',
+    date: '1961-03-14',
+    documentNumber: 'Item 80',
+    documentType: 'GovInfo statement',
+    topics: ['Nuclear', 'USSR', 'United Nations', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 80, Statement Concerning the Conference on the Discontinuance of Nuclear Weapon Tests, March 14, 1961.',
+    summary:
+      'Statement sending Arthur Dean back to Geneva with U.S. proposals for a safeguarded nuclear test-ban agreement and broader arms-control negotiations with the Soviet Union and Britain.',
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-081-inter-american-fund-chile',
+    title:
+      'Special Message to the Congress Requesting Appropriations for the Inter-American Fund for Social Progress and for Reconstruction in Chile',
+    date: '1961-03-14',
+    documentNumber: 'Item 81',
+    documentType: 'GovInfo special message',
+    topics: ['Latin America', 'Foreign Aid', 'Cuba', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 81, Special Message requesting appropriations for the Inter-American Fund for Social Progress and for reconstruction in Chile, March 14, 1961, pp. 176-181.',
+    summary:
+      'Congressional request to fund the Act of Bogota, the Inter-American Fund for Social Progress, and Chilean reconstruction as the immediate financing base for Alliance for Progress policy.',
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-090-foreign-aid',
+    title: 'Special Message to the Congress on Foreign Aid',
+    date: '1961-03-22',
+    documentNumber: 'Item 90',
+    documentType: 'GovInfo special message',
+    topics: ['Foreign Aid', 'Peace Corps', 'Latin America', 'Africa', 'Asia', 'Defense', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 90, Special Message to the Congress on Foreign Aid, March 22, 1961, pp. 203-212.',
+    summary:
+      'Major foreign-aid message calling for a reworked assistance program that emphasized development lending, self-help, multilateral coordination, the Peace Corps, and revised military assistance.',
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-laos-news-conference-statement',
+    title: "Statement on Laos at the President's News Conference of March 23, 1961",
+    date: '1961-03-23',
+    documentNumber: 'News Conference 8',
+    documentType: 'GovInfo news conference statement',
+    topics: ['Laos', 'Asia', 'Defense', 'USSR', 'United Nations', 'Diplomacy'],
+    citation:
+      "Public Papers of the Presidents: John F. Kennedy (1961), Book 1, President's News Conference of March 23, 1961, statement on Laos.",
+    summary:
+      'Public Laos statement declaring U.S. support for a neutral and independent Laos, calling for a cease-fire before negotiations, and placing the crisis in a broader Cold War context.',
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-099-defense-budget',
+    title: 'Special Message to the Congress on the Defense Budget',
+    date: '1961-03-28',
+    documentNumber: 'Item 99',
+    documentType: 'GovInfo special message',
+    topics: ['Defense', 'Nuclear', 'NATO', 'Laos', 'Vietnam', 'Cuba', 'Berlin', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 99, Special Message to the Congress on the Defense Budget, March 28, 1961, pp. 229-240.',
+    summary:
+      "Defense message announcing Kennedy's early flexible-response program, including Polaris, strategic forces, conventional readiness, airlift, sealift, and expanded counter-guerrilla capacity.",
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-132-khrushchev-cuba',
+    title: 'Message to Chairman Khrushchev Concerning the Meaning of Events in Cuba',
+    date: '1961-04-18',
+    documentNumber: 'Item 132',
+    documentType: 'GovInfo presidential message',
+    topics: ['Bay of Pigs', 'Cuba', 'USSR', 'Laos', 'Congo', 'Nuclear', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 132, Message to Chairman Khrushchev Concerning the Meaning of Events in Cuba, April 18, 1961.',
+    summary:
+      'Kennedy reply to Khrushchev during the Bay of Pigs crisis, denying U.S. military intervention in Cuba while linking Cuba, Laos, Congo, nuclear tests, and the inter-American system.',
+  },
+  {
+    ...govinfoPppDefaults,
+    id: 'govinfo-ppp-1961-item-138-newspaper-editors',
+    title: 'Address Before the American Society of Newspaper Editors',
+    date: '1961-04-20',
+    documentNumber: 'Item 138',
+    documentType: 'GovInfo speech transcript',
+    topics: ['Bay of Pigs', 'Cuba', 'Latin America', 'Laos', 'Asia', 'Defense', 'Diplomacy'],
+    citation:
+      'Public Papers of the Presidents: John F. Kennedy (1961), Book 1, Item 138, Address Before the American Society of Newspaper Editors, April 20, 1961.',
+    summary:
+      'Bay of Pigs-era public address to newspaper editors on Cuba, communist expansion, public information, official secrecy, and the pressures facing U.S. foreign policy after the invasion failed.',
+  },
+];
+
 const nitzeDefaults = {
   source: 'Nitze Interviews',
   repository: 'Paul H. Nitze interview files',
@@ -919,6 +1111,7 @@ export const supplementalRecords = [
   ...jfkFolderRecords,
   ...naraBerlinRecords,
   ...dodHistoryRecords,
+  ...govinfoPppRecords,
   {
     ...iscapDefaults,
     id: 'iscap-2014-030-doc-1',

@@ -337,6 +337,12 @@
   background: #eef0f2;
 }
 
+.source-chip--govinfo-ppp {
+  border-color: #9db6a1;
+  color: #315642;
+  background: #edf5ee;
+}
+
 .source-chip--cia-foia {
   border-color: #b5a574;
   color: #5c4a12;
