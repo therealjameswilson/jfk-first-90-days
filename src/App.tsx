@@ -83,7 +83,6 @@ function App() {
   const visibleDocuments = filtered.slice(0, visibleCount);
   const hasFilters =
     query || source !== 'All' || topic !== 'All' || type !== 'All' || week !== null;
-  const heroImages = useMemo(() => getHeroImages(archive.documents), []);
 
   function clearFilters() {
     setQuery('');
@@ -124,11 +123,6 @@ function App() {
             January 20 through April 20, 1961, indexed from FRUS first, then JFK
             Library, NARA, ISCAP, and National Security Archive records.
           </p>
-        </div>
-        <div className="source-mosaic" aria-label="Official source images">
-          {heroImages.map((image) => (
-            <img key={image} src={image} alt="" />
-          ))}
         </div>
       </header>
 
@@ -371,18 +365,6 @@ function sourceIcon(sourceName: ArchiveSource) {
   if (sourceName === 'ISCAP') return <Shield />;
   if (sourceName === 'Nitze Interviews') return <FileText />;
   return <Globe2 />;
-}
-
-function getHeroImages(documents: ArchiveDocument[]) {
-  const seen = new Set<string>();
-  const images: string[] = [];
-  for (const document of documents) {
-    if (!document.thumbnailUrl || seen.has(document.thumbnailUrl)) continue;
-    seen.add(document.thumbnailUrl);
-    images.push(document.thumbnailUrl);
-    if (images.length === 4) break;
-  }
-  return images;
 }
 
 export default App;
