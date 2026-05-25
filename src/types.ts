@@ -1,4 +1,9 @@
-export type ArchiveSource = 'FRUS' | 'JFK Library' | 'NARA Catalog';
+export type ArchiveSource =
+  | 'FRUS'
+  | 'JFK Library'
+  | 'NARA Catalog'
+  | 'ISCAP'
+  | 'National Security Archive';
 
 export interface ArchiveDocument {
   id: string;

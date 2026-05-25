@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { basename } from 'node:path';
 import { DOMParser } from '@xmldom/xmldom';
+import { supplementalRecords } from './supplemental-sources.mjs';
 
 const START_DATE = '1961-01-20';
 const END_DATE = '1961-04-20';
@@ -527,13 +528,61 @@ function buildStats(documents) {
   return { bySource, byTopic, byType, total: documents.length };
 }
 
+function buildSupplementalDocuments() {
+  return supplementalRecords
+    .filter((record) => !record.date || overlapsWindow(record.date, record.endDate || record.date))
+    .map((record) => {
+      const date = record.date || '';
+      const endDate = record.endDate || date;
+      const text = [
+        record.title,
+        record.citation,
+        record.summary,
+        record.sourceNote,
+        record.repository,
+        record.collection,
+        record.container,
+        record.section,
+      ].join(' ');
+
+      return {
+        id: record.id,
+        title: normalizeText(record.title),
+        date,
+        endDate,
+        displayDate:
+          record.displayDate ||
+          (date === endDate ? formatDate(date) : `${formatDate(date)} - ${formatDate(endDate)}`),
+        day: dayNumber(date),
+        source: record.source,
+        repository: record.repository,
+        collection: record.collection,
+        container: record.container,
+        section: record.section,
+        documentNumber: record.documentNumber || '',
+        documentType: record.documentType,
+        topics: record.topics?.length ? record.topics : getTopics(text),
+        url: record.url,
+        officialUrl: record.officialUrl || record.url,
+        dataUrl: record.dataUrl || '',
+        thumbnailUrl: record.thumbnailUrl || '',
+        citation: normalizeText(record.citation),
+        summary: truncate(record.summary, 320),
+        sourceNote: truncate(record.sourceNote, 360),
+      };
+    });
+}
+
 async function main() {
   const frus = await buildFrusDocuments();
   const nara = await buildNaraDocuments();
+  const supplemental = buildSupplementalDocuments();
   const docsById = new Map();
-  for (const doc of [...frus, ...nara]) docsById.set(doc.id, doc);
+  for (const doc of [...frus, ...nara, ...supplemental]) docsById.set(doc.id, doc);
   const documents = Array.from(docsById.values()).sort((a, b) => {
-    if (a.date !== b.date) return a.date.localeCompare(b.date);
+    const aDate = a.date || '9999-12-31';
+    const bDate = b.date || '9999-12-31';
+    if (aDate !== bDate) return aDate.localeCompare(bDate);
     if (a.source !== b.source) return a.source.localeCompare(b.source);
     return a.title.localeCompare(b.title);
   });
@@ -546,8 +595,8 @@ async function main() {
       windowStart: START_DATE,
       windowEnd: END_DATE,
       scopeNote:
-        'Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy and link back to official asset or catalog pages.',
-      sourceOrder: ['FRUS', 'JFK Library', 'NARA Catalog'],
+        'Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy and link back to official asset or catalog pages. ISCAP and National Security Archive records are curated from their release pages and Virtual Reading Room document pages, with direct PDF links where available.',
+      sourceOrder: ['FRUS', 'JFK Library', 'NARA Catalog', 'ISCAP', 'National Security Archive'],
       officialSources: [
         {
           label: 'FRUS Kennedy Administration volumes',
@@ -564,6 +613,22 @@ async function main() {
         {
           label: 'National Archives Catalog',
           url: 'https://catalog.archives.gov/',
+        },
+        {
+          label: 'ISCAP release 2014-030: Laos, 1961',
+          url: 'https://www.archives.gov/declassification/iscap/pdf/2014-030',
+        },
+        {
+          label: 'ISCAP releases',
+          url: 'https://www.archives.gov/declassification/iscap/releases',
+        },
+        {
+          label: 'National Security Archive Virtual Reading Room',
+          url: 'https://nsarchive.gwu.edu/virtual-reading-room',
+        },
+        {
+          label: 'National Security Archive Bay of Pigs release',
+          url: 'https://nsarchive2.gwu.edu/bayofpigs/press3.html',
         },
       ],
     },

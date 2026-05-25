@@ -8,6 +8,7 @@ import {
   ExternalLink,
   FileText,
   Filter,
+  Globe2,
   Library,
   Link as LinkIcon,
   Search,
@@ -69,6 +70,16 @@ function App() {
   }, [query, source, topic, type, week]);
 
   const timeline = useMemo(() => buildTimeline(filtered), [filtered]);
+  const sourceMetrics = useMemo(() => {
+    return [
+      ...archive.metadata.sourceOrder.map((sourceName) => ({
+        icon: sourceIcon(sourceName),
+        label: sourceName === 'NARA Catalog' ? 'NARA' : sourceName,
+        value: archive.stats.bySource[sourceName] || 0,
+      })),
+      { icon: <Database />, label: 'Total', value: archive.stats.total },
+    ];
+  }, []);
   const visibleDocuments = filtered.slice(0, visibleCount);
   const hasFilters =
     query || source !== 'All' || topic !== 'All' || type !== 'All' || week !== null;
@@ -111,7 +122,7 @@ function App() {
           <h1>JFK First 90 Days</h1>
           <p className="lede">
             January 20 through April 20, 1961, indexed from FRUS first, then JFK
-            Library and National Archives records.
+            Library, NARA, ISCAP, and National Security Archive records.
           </p>
         </div>
         <div className="source-mosaic" aria-label="Official source images">
@@ -122,18 +133,9 @@ function App() {
       </header>
 
       <section className="metrics" aria-label="Corpus totals">
-        <Metric icon={<BookOpen />} label="FRUS" value={archive.stats.bySource.FRUS || 0} />
-        <Metric
-          icon={<Library />}
-          label="JFK Library"
-          value={archive.stats.bySource['JFK Library'] || 0}
-        />
-        <Metric
-          icon={<Archive />}
-          label="NARA"
-          value={archive.stats.bySource['NARA Catalog'] || 0}
-        />
-        <Metric icon={<Database />} label="Total" value={archive.stats.total} />
+        {sourceMetrics.map((metric) => (
+          <Metric key={metric.label} icon={metric.icon} label={metric.label} value={metric.value} />
+        ))}
       </section>
 
       <section className="workbench">
@@ -358,6 +360,14 @@ function formatWeekLabel(index: number) {
 
 function sourceClass(sourceName: ArchiveSource) {
   return sourceName.toLowerCase().replace(/\s+/g, '-');
+}
+
+function sourceIcon(sourceName: ArchiveSource) {
+  if (sourceName === 'FRUS') return <BookOpen />;
+  if (sourceName === 'JFK Library') return <Library />;
+  if (sourceName === 'NARA Catalog') return <Archive />;
+  if (sourceName === 'ISCAP') return <Shield />;
+  return <Globe2 />;
 }
 
 function getHeroImages(documents: ArchiveDocument[]) {

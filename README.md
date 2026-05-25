@@ -2,7 +2,7 @@
 
 An interactive archive site for John F. Kennedy foreign-policy primary sources from January 20 through April 20, 1961.
 
-The corpus starts with the State Department's official FRUS Kennedy administration volumes and supplements, then adds JFK Library and National Archives Catalog records that overlap the same date window and match foreign-policy topics.
+The corpus starts with the State Department's official FRUS Kennedy administration volumes and supplements, then adds JFK Library, National Archives Catalog, ISCAP, and National Security Archive records that overlap the same date window and match foreign-policy topics.
 
 ## Sources
 
@@ -10,6 +10,10 @@ The corpus starts with the State Department's official FRUS Kennedy administrati
 - HistoryAtState FRUS XML repository: https://github.com/HistoryAtState/frus
 - JFK Library Digital Archives: https://www.jfklibrary.org/archives
 - National Archives Catalog: https://catalog.archives.gov/
+- ISCAP release 2014-030, Laos 1961: https://www.archives.gov/declassification/iscap/pdf/2014-030
+- ISCAP releases: https://www.archives.gov/declassification/iscap/releases
+- National Security Archive Virtual Reading Room: https://nsarchive.gwu.edu/virtual-reading-room
+- National Security Archive Bay of Pigs release: https://nsarchive2.gwu.edu/bayofpigs/press3.html
 
 ## Commands
 
@@ -21,4 +25,4 @@ npm run build
 npm run lint
 ```
 
-`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML and NARA Catalog records.
+`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, and curated ISCAP/National Security Archive source files.

@@ -70,7 +70,7 @@
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
   margin: 16px 0;
 }
@@ -175,7 +175,7 @@
 
 .segmented {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
   gap: 6px;
 }
 
@@ -188,6 +188,8 @@
   color: var(--text);
   font: inherit;
   font-size: 0.88rem;
+  line-height: 1.18;
+  overflow-wrap: anywhere;
   cursor: pointer;
 }
 
@@ -352,6 +354,18 @@
   border-color: var(--olive-soft-line);
   color: var(--olive-dark);
   background: var(--olive-soft);
+}
+
+.source-chip--iscap {
+  border-color: var(--gold);
+  color: #6f521f;
+  background: var(--gold-soft);
+}
+
+.source-chip--national-security-archive {
+  border-color: #b8c0cc;
+  color: #39475a;
+  background: #edf1f6;
 }
 
 .document-card h3 {
