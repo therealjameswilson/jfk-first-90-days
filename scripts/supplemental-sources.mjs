@@ -1,4 +1,5 @@
 const ISCAP_2014_030_URL = 'https://www.archives.gov/declassification/iscap/pdf/2014-030';
+const STATE_FOIA_BASE = 'https://foia.state.gov';
 const NSARCHIVE_BASE = 'https://nsarchive.gwu.edu';
 const NSARCHIVE_BAY_OF_PIGS_2 = 'https://nsarchive2.gwu.edu/bayofpigs/press2.html';
 const NSARCHIVE_BAY_OF_PIGS_3 = 'https://nsarchive2.gwu.edu/bayofpigs/press3.html';
@@ -9,6 +10,9 @@ const iscapPdf = (number) =>
 
 const nsarchiveDocument = (path) => `${NSARCHIVE_BASE}${path}`;
 const bayOfPigsPdf = (fileName) => `https://nsarchive2.gwu.edu/bayofpigs/${fileName}`;
+const stateFoiaCase = (caseNumber) =>
+  `${STATE_FOIA_BASE}/FOIALIBRARY/SearchResults.aspx?caseNumber=${caseNumber}`;
+const stateFoiaPdf = (path) => `${STATE_FOIA_BASE}/${path}`;
 const nitzePdf = (fileName) => `${SITE_BASE}/documents/nitze/${fileName}`;
 
 const iscapDefaults = {
@@ -44,6 +48,16 @@ const bayOfPigsDefaults = {
   sourceNote: 'Released on the National Security Archive Bay of Pigs 40th anniversary website.',
 };
 
+const stateFoiaDefaults = {
+  source: 'State FOIA',
+  repository: 'U.S. Department of State',
+  collection: 'Department of State FOIA Library',
+  documentType: 'State FOIA release',
+  topics: ['Diplomacy'],
+  sourceNote:
+    'Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library.',
+};
+
 const nitzeDefaults = {
   source: 'Nitze Interviews',
   repository: 'Paul H. Nitze interview files',
@@ -66,6 +80,320 @@ export const supplementalRecords = [
     dataUrl: iscapPdf(1),
     citation: 'ISCAP Appeal 2014-030, document 1. Letter to Chester Clifton from Allen Dulles, February 20, 1961.',
     summary: 'Declassified CIA-related correspondence from Allen Dulles to Brig. Gen. Chester V. Clifton concerning Laos and related regional policy.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199603635-doc1',
+    title: 'Briefings and early reassessments of the CIA Cuba Project',
+    date: '1961-01-23',
+    endDate: '1961-03-31',
+    displayDate: 'January-March 1961',
+    container: 'F-1996-03635: Bay of Pigs, Cuba from 1/61 to 9/62',
+    section: 'Cuba and Bay of Pigs',
+    documentNumber: 'F-1996-03635 doc 1',
+    topics: ['Bay of Pigs', 'Cuba', 'Intelligence', 'Defense'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000001/C09000001.pdf'),
+    officialUrl: stateFoiaCase('F-1996-03635'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000001/C09000001.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1996-03635, document 1, Briefings and Early Reassessments of the CIA Cuba Project by the Kennedy Administration, January-March 1961.',
+    summary:
+      'FOIA microfiche PDF containing Cuba Project briefing and reassessment documents from the opening weeks of the Kennedy administration.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199603635-doc2',
+    title: 'Reactions to and revisions of the CIA revised paramilitary plan for Cuba',
+    date: '1961-03-15',
+    endDate: '1961-04-16',
+    displayDate: 'March-April 1961',
+    container: 'F-1996-03635: Bay of Pigs, Cuba from 1/61 to 9/62',
+    section: 'Cuba and Bay of Pigs',
+    documentNumber: 'F-1996-03635 doc 2',
+    topics: ['Bay of Pigs', 'Cuba', 'Intelligence', 'Defense'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000002/C09000002.pdf'),
+    officialUrl: stateFoiaCase('F-1996-03635'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000002/C09000002.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1996-03635, document 2, Reactions to and Revisions of the CIA Revised Para-Military Plan for an Invasion at the Bay of Pigs, March-April 1961.',
+    summary:
+      'State FOIA PDF covering March-April 1961 revisions to the CIA paramilitary plan for the Cuba operation.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199603635-doc3',
+    title: 'Final decisions and the invasion of Cuba by the Cuban Brigade',
+    date: '1961-04-07',
+    endDate: '1961-04-17',
+    displayDate: 'April 7-17, 1961',
+    container: 'F-1996-03635: Bay of Pigs, Cuba from 1/61 to 9/62',
+    section: 'Cuba and Bay of Pigs',
+    documentNumber: 'F-1996-03635 doc 3',
+    topics: ['Bay of Pigs', 'Cuba', 'Intelligence', 'Defense'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000003/C09000003.pdf'),
+    officialUrl: stateFoiaCase('F-1996-03635'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000003/C09000003.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1996-03635, document 3, Final Decisions and the Invasion of Cuba by the Cuban Brigade at the Bay of Pigs, April 1961.',
+    summary:
+      'State FOIA PDF containing final decision documents, including April 7 and April 10 materials, for the Bay of Pigs operation.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199603635-doc4',
+    title: 'Reports and meetings assessing the Bay of Pigs failure',
+    date: '1961-04-17',
+    endDate: '1961-05-31',
+    displayDate: 'April-May 1961',
+    container: 'F-1996-03635: Bay of Pigs, Cuba from 1/61 to 9/62',
+    section: 'Cuba and Bay of Pigs',
+    documentNumber: 'F-1996-03635 doc 4',
+    topics: ['Bay of Pigs', 'Cuba', 'Intelligence', 'Defense'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000004/C09000004.pdf'),
+    officialUrl: stateFoiaCase('F-1996-03635'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000004/C09000004.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1996-03635, document 4, Reports and Meetings Assessing the Failure of the Bay of Pigs Operation, April-May 1961.',
+    summary:
+      'State FOIA PDF with April 17 and later reporting and meeting records assessing the failed Cuba operation.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199202535-doc1',
+    title: 'Memorandum of conversation: Diefenbaker visit',
+    date: '1961-02-20',
+    container: 'F-1992-02535: 1961 nuclear weapons and Minuteman correspondence',
+    section: 'Canada, NATO, and nuclear policy',
+    documentNumber: 'F-1992-02535 doc 1',
+    topics: ['NATO', 'Nuclear', 'Defense', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000001/C09000001.pdf'),
+    officialUrl: stateFoiaCase('F-1992-02535'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000001/C09000001.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1992-02535, document 1, Memorandum of Conversation, Diefenbaker Visit, February 20, 1961.',
+    summary:
+      "White House memorandum of conversation from Canadian Prime Minister John Diefenbaker's February 1961 visit, released in a State FOIA case on 1961 nuclear weapons and Minuteman correspondence.",
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199202535-doc2',
+    title: 'Memorandum of conversation: NATO',
+    date: '1961-02-21',
+    container: 'F-1992-02535: 1961 nuclear weapons and Minuteman correspondence',
+    section: 'NATO and nuclear policy',
+    documentNumber: 'F-1992-02535 doc 2',
+    topics: ['NATO', 'Nuclear', 'Defense', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000002/C09000002.pdf'),
+    officialUrl: stateFoiaCase('F-1992-02535'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000002/C09000002.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1992-02535, document 2, Memorandum of Conversation, NATO, February 21, 1961.',
+    summary:
+      'State FOIA memorandum of conversation on NATO from February 21, 1961, in the Kennedy administration nuclear-policy case file.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199202535-doc3',
+    title: 'Memorandum of conversation: Adenauer visit, NATO and East-West relations',
+    date: '1961-04-12',
+    container: 'F-1992-02535: 1961 nuclear weapons and Minuteman correspondence',
+    section: 'Germany, NATO, and East-West relations',
+    documentNumber: 'F-1992-02535 doc 3',
+    topics: ['NATO', 'Berlin', 'Nuclear', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000003/C09000003.pdf'),
+    officialUrl: stateFoiaCase('F-1992-02535'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000003/C09000003.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1992-02535, document 3, Memorandum of Conversation, Adenauer Visit, NATO and East-West Relations, April 12, 1961.',
+    summary:
+      'White House memorandum of conversation with Chancellor Adenauer covering NATO and East-West relations during the April 1961 visit.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199202535-doc4',
+    title: 'Memorandum of conversation: Adenauer visit and NATO nuclear questions',
+    date: '1961-04-12',
+    container: 'F-1992-02535: 1961 nuclear weapons and Minuteman correspondence',
+    section: 'Germany, NATO, and nuclear policy',
+    documentNumber: 'F-1992-02535 doc 4',
+    topics: ['NATO', 'Berlin', 'Nuclear', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000004/C09000004.pdf'),
+    officialUrl: stateFoiaCase('F-1992-02535'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000004/C09000004.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1992-02535, document 4, Memorandum of Conversation, Adenauer Visit, April 12, 1961.',
+    summary:
+      'Additional State FOIA memorandum from the Adenauer visit touching NATO, Germany, and early Kennedy nuclear-policy questions.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f198201141-doc83',
+    title: 'Telegram from Saigon reporting signature of U.S.-Viet-Nam treaty',
+    date: '1961-04-03',
+    container: 'F-1982-01141: FCN agreement, U.S.-Vietnam',
+    section: 'Vietnam and treaty relations',
+    documentNumber: 'F-1982-01141 doc 83',
+    topics: ['Vietnam', 'Asia', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_June2024/F-1982-01141/DOC_0C09000083/C09000083.pdf'),
+    officialUrl: stateFoiaCase('F-1982-01141'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_June2024/F-1982-01141/DOC_0C09000083/C09000083.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1982-01141, document 83, Telegram from Saigon, April 3, 1961.',
+    summary:
+      'Incoming State Department telegram from Saigon reporting signature of the Treaty of Amity and Economic Relations with the Republic of Viet-Nam.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f198201141-doc85',
+    title: 'Treaty of Amity and Economic Relations between the United States and Viet-Nam',
+    date: '1961-04-03',
+    container: 'F-1982-01141: FCN agreement, U.S.-Vietnam',
+    section: 'Vietnam and treaty relations',
+    documentNumber: 'F-1982-01141 doc 85',
+    topics: ['Vietnam', 'Asia', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_June2024/F-1982-01141/DOC_0C09000085/C09000085.pdf'),
+    officialUrl: stateFoiaCase('F-1982-01141'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_June2024/F-1982-01141/DOC_0C09000085/C09000085.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1982-01141, document 85, Treaty of Amity and Economic Relations Between the United States of America and Viet-Nam, signed at Saigon, April 3, 1961.',
+    summary:
+      'Treaty text and related State Department material for the U.S.-Viet-Nam agreement signed at Saigon on April 3, 1961.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199104896-doc11',
+    title: 'Memorandum to the Secretary on Ramfis Trujillo',
+    date: '1961-02-18',
+    container: 'F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America',
+    section: 'Dominican Republic',
+    documentNumber: 'F-1991-04896 doc 11',
+    topics: ['Latin America', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000011/C09000011.pdf'),
+    officialUrl: stateFoiaCase('F-1991-04896'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000011/C09000011.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1991-04896, document 11, ARA memorandum to the Secretary, Ramfis Trujillo, February 18, 1961.',
+    summary:
+      'Assistant Secretary-level memorandum to Secretary Rusk on Ramfis Trujillo and a possible orderly transition in the Dominican Republic.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199104896-doc12',
+    title: 'Memorandum of conversation on political and economic conditions in the Dominican Republic',
+    date: '1961-02-22',
+    container: 'F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America',
+    section: 'Dominican Republic',
+    documentNumber: 'F-1991-04896 doc 12',
+    topics: ['Latin America', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000012/C09000012.pdf'),
+    officialUrl: stateFoiaCase('F-1991-04896'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000012/C09000012.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1991-04896, document 12, Memorandum of Conversation, Political and Economic Conditions in the Dominican Republic, February 22, 1961.',
+    summary:
+      'State Department memorandum of conversation with a U.S. businessman familiar with conditions in the Dominican Republic.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199104896-doc15',
+    title: 'Telegram from Ciudad Trujillo on dissidents and regime reaction',
+    date: '1961-02-24',
+    container: 'F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America',
+    section: 'Dominican Republic',
+    documentNumber: 'F-1991-04896 doc 15',
+    topics: ['Latin America', 'Diplomacy', 'Intelligence'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000015/C09000015.pdf'),
+    officialUrl: stateFoiaCase('F-1991-04896'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000015/C09000015.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1991-04896, document 15, Incoming telegram from Ciudad Trujillo, February 24, 1961.',
+    summary:
+      'Incoming telegram reporting conversations about dissidents, Trujillo regime reactions, and possible U.S. policy implications.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199104896-doc18',
+    title: 'Telegram from Ciudad Trujillo on Ramfis Trujillo departure',
+    date: '1961-03-03',
+    container: 'F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America',
+    section: 'Dominican Republic',
+    documentNumber: 'F-1991-04896 doc 18',
+    topics: ['Latin America', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000018/C09000018.pdf'),
+    officialUrl: stateFoiaCase('F-1991-04896'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000018/C09000018.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1991-04896, document 18, Incoming telegram from Ciudad Trujillo, March 3, 1961.',
+    summary:
+      'Telegram on General Trujillo Jr. (Ramfis) departing the Dominican Republic for New York.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199104896-doc20',
+    title: 'Telegram from Ciudad Trujillo on Dominican weekend developments',
+    date: '1961-03-06',
+    container: 'F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America',
+    section: 'Dominican Republic',
+    documentNumber: 'F-1991-04896 doc 20',
+    topics: ['Latin America', 'Diplomacy', 'Intelligence'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000020/C09000020.pdf'),
+    officialUrl: stateFoiaCase('F-1991-04896'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000020/C09000020.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1991-04896, document 20, Incoming telegram from Ciudad Trujillo, March 6, 1961.',
+    summary:
+      'Telegram to the Secretary of State and other agencies on Dominican Republic developments during the Trujillo crisis.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199104896-doc22',
+    title: 'Telegram from Ciudad Trujillo on Dominican Republic developments',
+    date: '1961-03-08',
+    container: 'F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America',
+    section: 'Dominican Republic',
+    documentNumber: 'F-1991-04896 doc 22',
+    topics: ['Latin America', 'Diplomacy', 'Intelligence'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000022/C09000022.pdf'),
+    officialUrl: stateFoiaCase('F-1991-04896'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000022/C09000022.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1991-04896, document 22, Incoming telegram from Ciudad Trujillo, March 8, 1961.',
+    summary:
+      'March 8 telegram from the U.S. post at Ciudad Trujillo during the Dominican Republic transition crisis.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199104896-doc25',
+    title: 'Memorandum of conversation on the current situation in the Dominican Republic',
+    date: '1961-03-15',
+    container: 'F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America',
+    section: 'Dominican Republic',
+    documentNumber: 'F-1991-04896 doc 25',
+    topics: ['Latin America', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000025/C09000025.pdf'),
+    officialUrl: stateFoiaCase('F-1991-04896'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000025/C09000025.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1991-04896, document 25, Memorandum of Conversation, Current Situation in the Dominican Republic, March 15, 1961.',
+    summary:
+      'Conversation with a former Dominican government official on the current situation in the Dominican Republic.',
+  },
+  {
+    ...stateFoiaDefaults,
+    id: 'state-foia-f199104896-doc35',
+    title: 'Dispatch from Ciudad Trujillo on the political significance of 1958-1961',
+    date: '1961-04-17',
+    container: 'F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America',
+    section: 'Dominican Republic',
+    documentNumber: 'F-1991-04896 doc 35',
+    topics: ['Latin America', 'Diplomacy'],
+    url: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000035/C09000035.pdf'),
+    officialUrl: stateFoiaCase('F-1991-04896'),
+    dataUrl: stateFoiaPdf('DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000035/C09000035.pdf'),
+    citation:
+      'Department of State FOIA Library, case F-1991-04896, document 35, Foreign Service dispatch from Ciudad Trujillo, April 17, 1961.',
+    summary:
+      "Foreign Service dispatch assessing the political significance of the 1958-1961 period in the Dominican Republic and the Trujillo regime's position.",
   },
   {
     ...nitzeDefaults,

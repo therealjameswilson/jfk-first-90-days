@@ -2,14 +2,15 @@
   "metadata": {
     "title": "JFK First 90 Days",
     "subtitle": "Foreign policy primary-source index",
-    "generatedAt": "2026-05-25T14:49:05.589Z",
+    "generatedAt": "2026-05-25T15:20:49.008Z",
     "windowStart": "1961-01-20",
     "windowEnd": "1961-04-20",
-    "scopeNote": "Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy and link back to official asset or catalog pages. ISCAP and National Security Archive records are curated from their release pages and Virtual Reading Room document pages, with direct PDF links where available. Nitze Interviews contains the four local PDF files selected from the Nitze OCR search because they discuss Kennedy foreign-policy work in the first 90 days.",
+    "scopeNote": "Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy and link back to official asset or catalog pages. State FOIA, ISCAP, and National Security Archive records are curated from their release pages, search results, and Virtual Reading Room document pages, with direct PDF links where available. Nitze Interviews contains the four local PDF files selected from the Nitze OCR search because they discuss Kennedy foreign-policy work in the first 90 days.",
     "sourceOrder": [
       "FRUS",
       "JFK Library",
       "NARA Catalog",
+      "State FOIA",
       "ISCAP",
       "National Security Archive",
       "Nitze Interviews"
@@ -30,6 +31,14 @@
       {
         "label": "National Archives Catalog",
         "url": "https://catalog.archives.gov/"
+      },
+      {
+        "label": "Department of State FOIA Library",
+        "url": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx"
+      },
+      {
+        "label": "Department of State FOIA microfiche releases",
+        "url": "https://foia.state.gov/FOIALIBRARY/Microfiche2.aspx"
       },
       {
         "label": "ISCAP release 2014-030: Laos, 1961",
@@ -56,7 +65,8 @@
   "stats": {
     "bySource": {
       "FRUS": 682,
-      "NARA Catalog": 42,
+      "State FOIA": 18,
+      "NARA Catalog": 50,
       "National Security Archive": 49,
       "JFK Library": 6,
       "ISCAP": 6,
@@ -64,37 +74,38 @@
     },
     "byTopic": {
       "USSR": 104,
-      "NATO": 68,
-      "Diplomacy": 412,
+      "NATO": 70,
+      "Diplomacy": 431,
       "Congo": 51,
-      "Cuba": 206,
-      "Latin America": 46,
-      "Intelligence": 72,
+      "Cuba": 213,
+      "Latin America": 54,
+      "Intelligence": 80,
       "Laos": 66,
-      "Defense": 178,
+      "Defense": 188,
       "United Nations": 93,
+      "Bay of Pigs": 36,
       "Africa": 50,
       "Foreign Aid": 16,
-      "Nuclear": 115,
+      "Nuclear": 120,
       "General": 29,
-      "Middle East": 48,
-      "Bay of Pigs": 32,
-      "Berlin": 30,
-      "Vietnam": 30,
-      "Asia": 73,
-      "Europe": 5,
-      "Peace Corps": 3
+      "Middle East": 49,
+      "Berlin": 32,
+      "Vietnam": 33,
+      "Asia": 75,
+      "Peace Corps": 4,
+      "Europe": 5
     },
     "byType": {
       "FRUS primary document": 682,
-      "NARA item": 42,
+      "State FOIA release": 18,
+      "NARA item": 50,
       "National Security Archive document": 35,
       "NARA file unit": 6,
       "National Security Archive Bay of Pigs release": 14,
       "ISCAP release": 6,
       "Nitze interview PDF": 4
     },
-    "total": 789
+    "total": 815
   },
   "documents": [
     {
@@ -458,6 +469,34 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume XX, Congo Crisis, Document 9",
       "summary": "1358. I am seriously concerned about rapidly deteriorating situation in Congo and ill-considered Belgian attempts to respond to it ( Deptel 1355) which come at time when we are re-thinking our own position and have no firm guidance to offer.",
       "sourceNote": ""
+    },
+    {
+      "id": "state-foia-f199603635-doc1",
+      "title": "Briefings and early reassessments of the CIA Cuba Project",
+      "date": "1961-01-23",
+      "endDate": "1961-03-31",
+      "displayDate": "January-March 1961",
+      "day": 4,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1996-03635: Bay of Pigs, Cuba from 1/61 to 9/62",
+      "section": "Cuba and Bay of Pigs",
+      "documentNumber": "F-1996-03635 doc 1",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Bay of Pigs",
+        "Cuba",
+        "Intelligence",
+        "Defense"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000001/C09000001.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1996-03635",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000001/C09000001.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1996-03635, document 1, Briefings and Early Reassessments of the CIA Cuba Project by the Kennedy Administration, January-March 1961.",
+      "summary": "FOIA microfiche PDF containing Cuba Project briefing and reassessment documents from the opening weeks of the Kennedy administration.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
     },
     {
       "id": "frus-frus1961-63v24-d11",
@@ -3098,6 +3137,31 @@
       "sourceNote": "Use restriction: Unrestricted"
     },
     {
+      "id": "nara-193405",
+      "title": "National Security Action Memorandum No. 5 Study of the Office of Civil and Defense Mobilization",
+      "date": "1961-02-03",
+      "endDate": "1961-02-03",
+      "displayDate": "Feb 3, 1961",
+      "day": 15,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, International relations",
+      "documentNumber": "193405",
+      "documentType": "NARA item",
+      "topics": [
+        "Defense"
+      ],
+      "url": "https://catalog.archives.gov/id/193405",
+      "officialUrl": "https://catalog.archives.gov/id/193405",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/5/1934/193405/content/arcmedia/media/images/40/24/40-2314a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/5/1934/193405/content/arcmedia/media/images/40/24/40-2314a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 5 Study of the Office of Civil and Defense Mobilization. NAID 193405.",
+      "summary": "Memorandum for the Director of the Bureau of the Budget concerning a study of the Office of Civil and Defense Mobilization.",
+      "sourceNote": "Use restriction: Unrestricted"
+    },
+    {
       "id": "nara-193406",
       "title": "National Security Action Memorandum No. 6 Plan of Reorganization of the Foreign Aid Program",
       "date": "1961-02-03",
@@ -3386,6 +3450,31 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume XXIII: Southeast Asia, Document 42",
       "summary": "354. Reference Deptel 312 repeated Vientiane 754 and Embtel 394 repeated Vientiane 11.",
       "sourceNote": ""
+    },
+    {
+      "id": "nara-193404",
+      "title": "National Security Action Memorandum No. 4 Purchase of Uranium From Foreign Countries",
+      "date": "1961-02-04",
+      "endDate": "1961-02-04",
+      "displayDate": "Feb 4, 1961",
+      "day": 16,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, International relations",
+      "documentNumber": "193404",
+      "documentType": "NARA item",
+      "topics": [
+        "Defense"
+      ],
+      "url": "https://catalog.archives.gov/id/193404",
+      "officialUrl": "https://catalog.archives.gov/id/193404",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/4/1934/193404/content/arcmedia/media/images/40/24/40-2313a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/4/1934/193404/content/arcmedia/media/images/40/24/40-2313a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 4 Purchase of Uranium From Foreign Countries. NAID 193404.",
+      "summary": "Memorandum for the Secretary of Defense on purchasing uranium from foreign countries.",
+      "sourceNote": "Use restriction: Unrestricted"
     },
     {
       "id": "frus-frus1961-63v20-d22",
@@ -3694,6 +3783,31 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume I, Vietnam, 1961, Document 9",
       "summary": "Is it possible for us to distribute the available forces we now have in Vietnam more effectively in order to increase the effectiveness of anti-guerilla activities. Are there troops stationed along the border who could be made available for this activity? It is my recollection that the Vietnam...",
       "sourceNote": ""
+    },
+    {
+      "id": "nara-193410",
+      "title": "National Security Action Memorandum No. 10 Policy for Cuba",
+      "date": "1961-02-06",
+      "endDate": "1961-02-06",
+      "displayDate": "Feb 6, 1961",
+      "day": 18,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Memorandums, National security, International relations",
+      "documentNumber": "193410",
+      "documentType": "NARA item",
+      "topics": [
+        "Cuba"
+      ],
+      "url": "https://catalog.archives.gov/id/193410",
+      "officialUrl": "https://catalog.archives.gov/id/193410",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/10/1934/193410/content/arcmedia/media/images/40/24/40-2319a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/10/1934/193410/content/arcmedia/media/images/40/24/40-2319a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 10 Policy for Cuba. NAID 193410.",
+      "summary": "Memorandum for McGeorge Bundy on coordination of policy towards Cuba.",
+      "sourceNote": "Use restriction: Unrestricted"
     },
     {
       "id": "nara-193411",
@@ -4288,6 +4402,31 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume IX, Foreign Economic Policy, Document 90",
       "summary": "I am in general agreement with the thesis that it is desirable to attempt at the highest political level to obtain a political decision on the part of European governments to engage in an increased economic aid effort to be related to a similar increased aid effort on our part. As I understand it,...",
       "sourceNote": ""
+    },
+    {
+      "id": "nara-193413",
+      "title": "National Security Action Memorandum No. 13 Exchange of Persons Behind the Iron Curtain",
+      "date": "1961-02-08",
+      "endDate": "1961-02-08",
+      "displayDate": "Feb 8, 1961",
+      "day": 20,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Memorandums, National security, International relations",
+      "documentNumber": "193413",
+      "documentType": "NARA item",
+      "topics": [
+        "Diplomacy"
+      ],
+      "url": "https://catalog.archives.gov/id/193413",
+      "officialUrl": "https://catalog.archives.gov/id/193413",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/13/1934/193413/content/arcmedia/media/images/40/24/40-2322a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/13/1934/193413/content/arcmedia/media/images/40/24/40-2322a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 13 Exchange of Persons Behind the Iron Curtain. NAID 193413.",
+      "summary": "Memorandum for Secretary of State concerning the administration's exchange of persons behind the Iron Curtain.",
+      "sourceNote": "Use restriction: Unrestricted"
     },
     {
       "id": "nsarchive-21609-rusk-israeli-reactor",
@@ -5022,6 +5161,33 @@
       "sourceNote": "Use restriction: Unrestricted"
     },
     {
+      "id": "nara-193417",
+      "title": "National Security Action Memorandum No. 17 Various 2/13/61",
+      "date": "1961-02-13",
+      "endDate": "1961-02-13",
+      "displayDate": "Feb 13, 1961",
+      "day": 25,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, International relations",
+      "documentNumber": "193417",
+      "documentType": "NARA item",
+      "topics": [
+        "Cuba",
+        "Berlin",
+        "Diplomacy"
+      ],
+      "url": "https://catalog.archives.gov/id/193417",
+      "officialUrl": "https://catalog.archives.gov/id/193417",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/17/1934/193417/content/arcmedia/media/images/40/24/40-2326a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/17/1934/193417/content/arcmedia/media/images/40/24/40-2326a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 17 Various 2/13/61. NAID 193417.",
+      "summary": "Memorandum for Secretary of State on varioU. S. topics including Denmark, Germany, and Cuba.",
+      "sourceNote": "Use restriction: Unrestricted"
+    },
+    {
       "id": "nsarchive-21610-israel-reactor-inspection",
       "title": "Memorandum of Conversation, \"Inspection of Israel's New Atomic Reactor,\" Secret",
       "date": "1961-02-13",
@@ -5413,6 +5579,31 @@
       "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/51/1932/193251/content/arcmedia/media/images/33/21/33-2095a.jpg",
       "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. Annex No. 9 Military Evaluation of the Cuba Plan. NAID 193251.",
       "summary": "Supplemental material used in Maxwell Taylor's report on the Bay of Pigs operation.",
+      "sourceNote": "Use restriction: Unrestricted"
+    },
+    {
+      "id": "nara-193352",
+      "title": "Peace Corps International",
+      "date": "1961-02-14",
+      "endDate": "1961-02-14",
+      "displayDate": "Feb 14, 1961",
+      "day": 26,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Department and Agency Files",
+      "section": "ACTION. Peace Corps. (07/01/1971 - 1982), Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums",
+      "documentNumber": "193352",
+      "documentType": "NARA item",
+      "topics": [
+        "Peace Corps"
+      ],
+      "url": "https://catalog.archives.gov/id/193352",
+      "officialUrl": "https://catalog.archives.gov/id/193352",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/52/1933/193352/content/arcmedia/media/images/33/24/33-2342a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/52/1933/193352/content/arcmedia/media/images/33/24/33-2342a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. Peace Corps International. NAID 193352.",
+      "summary": "Memorandum from Kenneth Landon to Walt Rostow arguing the need to establish an international peace corp organization.",
       "sourceNote": "Use restriction: Unrestricted"
     },
     {
@@ -6367,6 +6558,32 @@
       "sourceNote": ""
     },
     {
+      "id": "state-foia-f199104896-doc11",
+      "title": "Memorandum to the Secretary on Ramfis Trujillo",
+      "date": "1961-02-18",
+      "endDate": "1961-02-18",
+      "displayDate": "Feb 18, 1961",
+      "day": 30,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America",
+      "section": "Dominican Republic",
+      "documentNumber": "F-1991-04896 doc 11",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Latin America",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000011/C09000011.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1991-04896",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000011/C09000011.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1991-04896, document 11, ARA memorandum to the Secretary, Ramfis Trujillo, February 18, 1961.",
+      "summary": "Assistant Secretary-level memorandum to Secretary Rusk on Ramfis Trujillo and a possible orderly transition in the Dominican Republic.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
       "id": "frus-frus1961-63v22-d4",
       "title": "4. Memorandum From the Assistant Secretary of State for Far Eastern Affairs ( Parsons ) to Secretary of State Rusk",
       "date": "1961-02-19",
@@ -6767,6 +6984,34 @@
       "sourceNote": "Document page and PDF hosted by the National Security Archive."
     },
     {
+      "id": "state-foia-f199202535-doc1",
+      "title": "Memorandum of conversation: Diefenbaker visit",
+      "date": "1961-02-20",
+      "endDate": "1961-02-20",
+      "displayDate": "Feb 20, 1961",
+      "day": 32,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1992-02535: 1961 nuclear weapons and Minuteman correspondence",
+      "section": "Canada, NATO, and nuclear policy",
+      "documentNumber": "F-1992-02535 doc 1",
+      "documentType": "State FOIA release",
+      "topics": [
+        "NATO",
+        "Nuclear",
+        "Defense",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000001/C09000001.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1992-02535",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000001/C09000001.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1992-02535, document 1, Memorandum of Conversation, Diefenbaker Visit, February 20, 1961.",
+      "summary": "White House memorandum of conversation from Canadian Prime Minister John Diefenbaker's February 1961 visit, released in a State FOIA case on 1961 nuclear weapons and Minuteman correspondence.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
       "id": "frus-frus1961-63v01-d13",
       "title": "13. Memorandum of a Conversation, Department of State",
       "date": "1961-02-21",
@@ -7076,6 +7321,34 @@
       "sourceNote": "Document page and PDF hosted by the National Security Archive."
     },
     {
+      "id": "state-foia-f199202535-doc2",
+      "title": "Memorandum of conversation: NATO",
+      "date": "1961-02-21",
+      "endDate": "1961-02-21",
+      "displayDate": "Feb 21, 1961",
+      "day": 33,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1992-02535: 1961 nuclear weapons and Minuteman correspondence",
+      "section": "NATO and nuclear policy",
+      "documentNumber": "F-1992-02535 doc 2",
+      "documentType": "State FOIA release",
+      "topics": [
+        "NATO",
+        "Nuclear",
+        "Defense",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000002/C09000002.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1992-02535",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000002/C09000002.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1992-02535, document 2, Memorandum of Conversation, NATO, February 21, 1961.",
+      "summary": "State FOIA memorandum of conversation on NATO from February 21, 1961, in the Kennedy administration nuclear-policy case file.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
       "id": "frus-frus1961-63v07-09mSupp-d343",
       "title": "343. Letter from Ball to Dillon , February 22",
       "date": "1961-02-22",
@@ -7204,6 +7477,32 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume VI, Kennedy-Khrushchev Exchanges, Document 7",
       "summary": "Dear Mr. Chairman : I have had an opportunity, due to the return of Ambassador Thompson , to have an extensive review of all aspects of our relations with the Secretary of State and with him. In these consultations, we have been able to explore, in general, not only those subjects which are of...",
       "sourceNote": ""
+    },
+    {
+      "id": "state-foia-f199104896-doc12",
+      "title": "Memorandum of conversation on political and economic conditions in the Dominican Republic",
+      "date": "1961-02-22",
+      "endDate": "1961-02-22",
+      "displayDate": "Feb 22, 1961",
+      "day": 34,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America",
+      "section": "Dominican Republic",
+      "documentNumber": "F-1991-04896 doc 12",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Latin America",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000012/C09000012.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1991-04896",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000012/C09000012.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1991-04896, document 12, Memorandum of Conversation, Political and Economic Conditions in the Dominican Republic, February 22, 1961.",
+      "summary": "State Department memorandum of conversation with a U.S. businessman familiar with conditions in the Dominican Republic.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
     },
     {
       "id": "frus-frus1961-63v23-d149",
@@ -7629,6 +7928,33 @@
       "sourceNote": "Document page and PDF hosted by the National Security Archive."
     },
     {
+      "id": "state-foia-f199104896-doc15",
+      "title": "Telegram from Ciudad Trujillo on dissidents and regime reaction",
+      "date": "1961-02-24",
+      "endDate": "1961-02-24",
+      "displayDate": "Feb 24, 1961",
+      "day": 36,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America",
+      "section": "Dominican Republic",
+      "documentNumber": "F-1991-04896 doc 15",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Latin America",
+        "Diplomacy",
+        "Intelligence"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000015/C09000015.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1991-04896",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000015/C09000015.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1991-04896, document 15, Incoming telegram from Ciudad Trujillo, February 24, 1961.",
+      "summary": "Incoming telegram reporting conversations about dissidents, Trujillo regime reactions, and possible U.S. policy implications.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
       "id": "frus-frus1961-63v25-d28",
       "title": "28. Memorandum From the President’s Special Assistant for National Security Affairs ( Bundy ) to President Kennedy",
       "date": "1961-02-25",
@@ -7940,6 +8266,31 @@
       "citation": "Papers of John F. Kennedy: Presidential Papers: President's Office Files. Peace Corps, 1961: January-June. NAID 193717.",
       "summary": "This file contains material collected by the office of President John F. Kennedy's secretary, Evelyn Lincoln, concerning the Peace Corps. Materials include an evaluation form for prospective Peace Corps volunteers, announcements of Peace Corps projects, a statement by Director of the Peace Corps Sargent Shriver on...",
       "sourceNote": "Use restriction: Restricted - Possibly - According to the letter of transfer 1965, copyright of these materials has been assigned to the United States. Documents in this file that were prepared by officials of the United States as part of their official..."
+    },
+    {
+      "id": "nara-193424",
+      "title": "National Security Action Memorandum No. 24 RB-47 Reconnaissance Flights",
+      "date": "1961-02-27",
+      "endDate": "1961-02-27",
+      "displayDate": "Feb 27, 1961",
+      "day": 39,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, National security",
+      "documentNumber": "193424",
+      "documentType": "NARA item",
+      "topics": [
+        "Defense"
+      ],
+      "url": "https://catalog.archives.gov/id/193424",
+      "officialUrl": "https://catalog.archives.gov/id/193424",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/24/1934/193424/content/arcmedia/media/images/40/24/40-2333a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/24/1934/193424/content/arcmedia/media/images/40/24/40-2333a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 24 RB-47 Reconnaissance Flights. NAID 193424.",
+      "summary": "Memorandum for Secretary of Defense on resumption of RB-47 reconnaissance flights.",
+      "sourceNote": "Use restriction: Unrestricted"
     },
     {
       "id": "frus-frus1961-63v01-d15",
@@ -8475,6 +8826,32 @@
       "sourceNote": "Use restriction: Unrestricted"
     },
     {
+      "id": "nara-193425",
+      "title": "National Security Action Memorandum No. 25 Recommendation As to Whether or Not President Should Send Letter to Iraq Government",
+      "date": "1961-03-01",
+      "endDate": "1961-03-01",
+      "displayDate": "Mar 1, 1961",
+      "day": 41,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, International relations",
+      "documentNumber": "193425",
+      "documentType": "NARA item",
+      "topics": [
+        "Middle East",
+        "Diplomacy"
+      ],
+      "url": "https://catalog.archives.gov/id/193425",
+      "officialUrl": "https://catalog.archives.gov/id/193425",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/25/1934/193425/content/arcmedia/media/images/40/24/40-2335a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/25/1934/193425/content/arcmedia/media/images/40/24/40-2335a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 25 Recommendation As to Whether or Not President Should Send Letter to Iraq Government. NAID 193425.",
+      "summary": "Memorandum for Secretary of State on whether or not the President should send a personal letter to the head of the Iraq government.",
+      "sourceNote": "Use restriction: Unrestricted"
+    },
+    {
       "id": "nara-193238",
       "title": "Paramilitary Study Group Report Indexes of Annexes and Operations Maps",
       "date": "1961-03-01",
@@ -9000,6 +9377,32 @@
       "sourceNote": "Source: Archive of the President of the Russian Federation; translation by Adam Mayle and Svetlana Savranskaya."
     },
     {
+      "id": "state-foia-f199104896-doc18",
+      "title": "Telegram from Ciudad Trujillo on Ramfis Trujillo departure",
+      "date": "1961-03-03",
+      "endDate": "1961-03-03",
+      "displayDate": "Mar 3, 1961",
+      "day": 43,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America",
+      "section": "Dominican Republic",
+      "documentNumber": "F-1991-04896 doc 18",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Latin America",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000018/C09000018.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1991-04896",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000018/C09000018.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1991-04896, document 18, Incoming telegram from Ciudad Trujillo, March 3, 1961.",
+      "summary": "Telegram on General Trujillo Jr. (Ramfis) departing the Dominican Republic for New York.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
       "id": "frus-frus1961-63v22-d10",
       "title": "10. Telegram From the Department of State to the Embassy in Poland",
       "date": "1961-03-04",
@@ -9284,6 +9687,33 @@
       "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 26 Ambassador Timberlake's Notification to Turn Around Ships. NAID 193426.",
       "summary": "Memorandum for Secretary of State and Secretary of Defense asking if Ambassador Timberlake gave notification before requesting the ships to turn around.",
       "sourceNote": "Use restriction: Unrestricted"
+    },
+    {
+      "id": "state-foia-f199104896-doc20",
+      "title": "Telegram from Ciudad Trujillo on Dominican weekend developments",
+      "date": "1961-03-06",
+      "endDate": "1961-03-06",
+      "displayDate": "Mar 6, 1961",
+      "day": 46,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America",
+      "section": "Dominican Republic",
+      "documentNumber": "F-1991-04896 doc 20",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Latin America",
+        "Diplomacy",
+        "Intelligence"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000020/C09000020.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1991-04896",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000020/C09000020.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1991-04896, document 20, Incoming telegram from Ciudad Trujillo, March 6, 1961.",
+      "summary": "Telegram to the Secretary of State and other agencies on Dominican Republic developments during the Trujillo crisis.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
     },
     {
       "id": "frus-frus1961-63v22-d11",
@@ -9748,6 +10178,33 @@
       "sourceNote": ""
     },
     {
+      "id": "state-foia-f199104896-doc22",
+      "title": "Telegram from Ciudad Trujillo on Dominican Republic developments",
+      "date": "1961-03-08",
+      "endDate": "1961-03-08",
+      "displayDate": "Mar 8, 1961",
+      "day": 48,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America",
+      "section": "Dominican Republic",
+      "documentNumber": "F-1991-04896 doc 22",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Latin America",
+        "Diplomacy",
+        "Intelligence"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000022/C09000022.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1991-04896",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000022/C09000022.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1991-04896, document 22, Incoming telegram from Ciudad Trujillo, March 8, 1961.",
+      "summary": "March 8 telegram from the U.S. post at Ciudad Trujillo during the Dominican Republic transition crisis.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
       "id": "frus-frus1961-63v24-d25",
       "title": "25. Memorandum of Conference With President Kennedy",
       "date": "1961-03-09",
@@ -9823,6 +10280,34 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume XX, Congo Crisis, Document 46",
       "summary": "1971. Dept fully concurs in views expressed by Ambassador Stevenson in USUN tel 2404 to Dept rptd Léopoldville 1970. You requested convey substance this message at highest available level as US position. In so doing you should indicate US believes departure of Dayal should be seized on by GOC...",
       "sourceNote": ""
+    },
+    {
+      "id": "nara-193428",
+      "title": "National Security Action Memorandum No. 28 Guerilla Operations in Vietnam Territory",
+      "date": "1961-03-09",
+      "endDate": "1961-03-09",
+      "displayDate": "Mar 9, 1961",
+      "day": 49,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, International relations",
+      "documentNumber": "193428",
+      "documentType": "NARA item",
+      "topics": [
+        "Cuba",
+        "Vietnam",
+        "Intelligence",
+        "Defense"
+      ],
+      "url": "https://catalog.archives.gov/id/193428",
+      "officialUrl": "https://catalog.archives.gov/id/193428",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/28/1934/193428/content/arcmedia/media/images/40/24/40-2338a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/28/1934/193428/content/arcmedia/media/images/40/24/40-2338a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 28 Guerilla Operations in Vietnam Territory. NAID 193428.",
+      "summary": "Memorandum for Secretary of Defense and Director of Central Intelligence on guerilla operations in Cuba.",
+      "sourceNote": "Use restriction: Unrestricted"
     },
     {
       "id": "frus-frus1961-63v22-d12",
@@ -11462,6 +11947,60 @@
       "sourceNote": "Use restriction: Unrestricted"
     },
     {
+      "id": "state-foia-f199104896-doc25",
+      "title": "Memorandum of conversation on the current situation in the Dominican Republic",
+      "date": "1961-03-15",
+      "endDate": "1961-03-15",
+      "displayDate": "Mar 15, 1961",
+      "day": 55,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America",
+      "section": "Dominican Republic",
+      "documentNumber": "F-1991-04896 doc 25",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Latin America",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000025/C09000025.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1991-04896",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000025/C09000025.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1991-04896, document 25, Memorandum of Conversation, Current Situation in the Dominican Republic, March 15, 1961.",
+      "summary": "Conversation with a former Dominican government official on the current situation in the Dominican Republic.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
+      "id": "state-foia-f199603635-doc2",
+      "title": "Reactions to and revisions of the CIA revised paramilitary plan for Cuba",
+      "date": "1961-03-15",
+      "endDate": "1961-04-16",
+      "displayDate": "March-April 1961",
+      "day": 55,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1996-03635: Bay of Pigs, Cuba from 1/61 to 9/62",
+      "section": "Cuba and Bay of Pigs",
+      "documentNumber": "F-1996-03635 doc 2",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Bay of Pigs",
+        "Cuba",
+        "Intelligence",
+        "Defense"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000002/C09000002.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1996-03635",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000002/C09000002.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1996-03635, document 2, Reactions to and Revisions of the CIA Revised Para-Military Plan for an Invasion at the Bay of Pigs, March-April 1961.",
+      "summary": "State FOIA PDF covering March-April 1961 revisions to the CIA paramilitary plan for the Cuba operation.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
       "id": "frus-frus1961-63v14-d11",
       "title": "11. Telegram From the Embassy in the Soviet Union to the Department of State",
       "date": "1961-03-16",
@@ -11823,6 +12362,33 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume IX, Foreign Economic Policy, Document 98",
       "summary": "1415. Department calling in Economic Counselors Embassies DAG countries Monday March 20 for delivery following paper as US paper for new DAG agenda item. Make text available appropriate officials earliest opportunity, Monday at latest. Washington Embassies will be told you have text.",
       "sourceNote": ""
+    },
+    {
+      "id": "nara-193430",
+      "title": "National Security Action Memorandum No. 30 Agreement of Cooperation with Republic of Italy",
+      "date": "1961-03-17",
+      "endDate": "1961-03-17",
+      "displayDate": "Mar 17, 1961",
+      "day": 57,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, National security",
+      "documentNumber": "193430",
+      "documentType": "NARA item",
+      "topics": [
+        "Nuclear",
+        "Defense",
+        "Diplomacy"
+      ],
+      "url": "https://catalog.archives.gov/id/193430",
+      "officialUrl": "https://catalog.archives.gov/id/193430",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/30/1934/193430/content/arcmedia/media/images/40/24/40-2341a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/30/1934/193430/content/arcmedia/media/images/40/24/40-2341a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 30 Agreement of Cooperation with Republic of Italy. NAID 193430.",
+      "summary": "Memorandum for Secretary of State, Secretary of Defense, Chairman of Atomic Energy Commission on agreement with Italy on U. S.es of atomic energy.",
+      "sourceNote": "Use restriction: Unrestricted"
     },
     {
       "id": "frus-frus1961-63v17-d23",
@@ -14846,6 +15412,60 @@
       "sourceNote": ""
     },
     {
+      "id": "state-foia-f198201141-doc83",
+      "title": "Telegram from Saigon reporting signature of U.S.-Viet-Nam treaty",
+      "date": "1961-04-03",
+      "endDate": "1961-04-03",
+      "displayDate": "Apr 3, 1961",
+      "day": 74,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1982-01141: FCN agreement, U.S.-Vietnam",
+      "section": "Vietnam and treaty relations",
+      "documentNumber": "F-1982-01141 doc 83",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Vietnam",
+        "Asia",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_June2024/F-1982-01141/DOC_0C09000083/C09000083.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1982-01141",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_June2024/F-1982-01141/DOC_0C09000083/C09000083.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1982-01141, document 83, Telegram from Saigon, April 3, 1961.",
+      "summary": "Incoming State Department telegram from Saigon reporting signature of the Treaty of Amity and Economic Relations with the Republic of Viet-Nam.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
+      "id": "state-foia-f198201141-doc85",
+      "title": "Treaty of Amity and Economic Relations between the United States and Viet-Nam",
+      "date": "1961-04-03",
+      "endDate": "1961-04-03",
+      "displayDate": "Apr 3, 1961",
+      "day": 74,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1982-01141: FCN agreement, U.S.-Vietnam",
+      "section": "Vietnam and treaty relations",
+      "documentNumber": "F-1982-01141 doc 85",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Vietnam",
+        "Asia",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_June2024/F-1982-01141/DOC_0C09000085/C09000085.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1982-01141",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_June2024/F-1982-01141/DOC_0C09000085/C09000085.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1982-01141, document 85, Treaty of Amity and Economic Relations Between the United States of America and Viet-Nam, signed at Saigon, April 3, 1961.",
+      "summary": "Treaty text and related State Department material for the U.S.-Viet-Nam agreement signed at Saigon on April 3, 1961.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
       "id": "frus-frus1961-63v25-d12",
       "title": "12. Memorandum From the President’s Special Assistant for National Security Affairs ( Bundy ) to President Kennedy",
       "date": "1961-04-04",
@@ -15798,8 +16418,8 @@
       "sourceNote": "Released through ISCAP appeal 2014-030 for records located at the John F. Kennedy Presidential Library and Museum."
     },
     {
-      "id": "nara-193436",
-      "title": "National Security Action Memorandum No. 36 Improving the Security of Nuclear Weapons In NATO Europe Against Unauthorized Use",
+      "id": "nara-193435",
+      "title": "National Security Action Memorandum No. 35 Deployment of IRBM's to Turkey",
       "date": "1961-04-06",
       "endDate": "1961-04-06",
       "displayDate": "Apr 6, 1961",
@@ -15809,19 +16429,20 @@
       "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
       "container": "Meeting Records and Memoranda",
       "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, National security",
-      "documentNumber": "193436",
+      "documentNumber": "193435",
       "documentType": "NARA item",
       "topics": [
-        "NATO",
         "Nuclear",
-        "Defense"
+        "Intelligence",
+        "Defense",
+        "Diplomacy"
       ],
-      "url": "https://catalog.archives.gov/id/193436",
-      "officialUrl": "https://catalog.archives.gov/id/193436",
-      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/36/1934/193436/content/arcmedia/media/images/40/24/40-2347a.gif",
-      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/36/1934/193436/content/arcmedia/media/images/40/24/40-2347a.gif",
-      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 36 Improving the Security of Nuclear Weapons In NATO Europe Against Unauthorized Use. NAID 193436.",
-      "summary": "Memorandum for Secretary of Defense on unauthorized use of nuclear weapons in Europe.",
+      "url": "https://catalog.archives.gov/id/193435",
+      "officialUrl": "https://catalog.archives.gov/id/193435",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/35/1934/193435/content/arcmedia/media/images/40/24/40-2346a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/35/1934/193435/content/arcmedia/media/images/40/24/40-2346a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 35 Deployment of IRBM's to Turkey. NAID 193435.",
+      "summary": "Memorandum for Secretary of State, Secretary of Defense, and Director of Central Intelligence Agency on deployment of IRBM's in Turkey.",
       "sourceNote": "Use restriction: Unrestricted"
     },
     {
@@ -16012,30 +16633,32 @@
       "sourceNote": ""
     },
     {
-      "id": "nara-193656",
-      "title": "Memorandum for President John F. Kennedy from C. Douglas Dillon, Discussions with Chancellor Adenauer on Balance of Payments, 7 April 1961",
+      "id": "state-foia-f199603635-doc3",
+      "title": "Final decisions and the invasion of Cuba by the Cuban Brigade",
       "date": "1961-04-07",
-      "endDate": "1961-04-07",
-      "displayDate": "Apr 7, 1961",
+      "endDate": "1961-04-17",
+      "displayDate": "April 7-17, 1961",
       "day": 78,
-      "source": "NARA Catalog",
-      "repository": "John F. Kennedy Presidential Library and Museum",
-      "collection": "Papers of John F. Kennedy: Presidential Papers: President's Office Files",
-      "container": "Country Files",
-      "section": "Germany, Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums",
-      "documentNumber": "193656",
-      "documentType": "NARA item",
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1996-03635: Bay of Pigs, Cuba from 1/61 to 9/62",
+      "section": "Cuba and Bay of Pigs",
+      "documentNumber": "F-1996-03635 doc 3",
+      "documentType": "State FOIA release",
       "topics": [
-        "Berlin",
+        "Bay of Pigs",
+        "Cuba",
+        "Intelligence",
         "Defense"
       ],
-      "url": "https://catalog.archives.gov/id/193656",
-      "officialUrl": "https://catalog.archives.gov/id/193656",
-      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/56/1936/193656/content/arcmedia/media/images/40/12/40-1146a.gif",
-      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/56/1936/193656/content/arcmedia/media/images/40/12/40-1146a.gif",
-      "citation": "Papers of John F. Kennedy: Presidential Papers: President's Office Files. Memorandum for President John F. Kennedy from C. Douglas Dillon, Discussions with Chancellor Adenauer on Balance of Payments, 7 April 1961. NAID 193656.",
-      "summary": "Memorandum from Secretary of the Treasury C. Douglas Dillon to President John F. Kennedy regarding points of discussion for the President's meeting with Chancellor of Germany (Federal Republic) Konrad Adenauer. Specifically, Dillon requests that the President discuss Germany's military procurement in the United States.",
-      "sourceNote": "Use restriction: Unrestricted"
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000003/C09000003.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1996-03635",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000003/C09000003.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1996-03635, document 3, Final Decisions and the Invasion of Cuba by the Cuban Brigade at the Bay of Pigs, April 1961.",
+      "summary": "State FOIA PDF containing final decision documents, including April 7 and April 10 materials, for the Bay of Pigs operation.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
     },
     {
       "id": "frus-frus1961-63v07-d14",
@@ -17033,6 +17656,62 @@
       "sourceNote": "Source: John F. Kennedy Presidential Library."
     },
     {
+      "id": "state-foia-f199202535-doc4",
+      "title": "Memorandum of conversation: Adenauer visit and NATO nuclear questions",
+      "date": "1961-04-12",
+      "endDate": "1961-04-12",
+      "displayDate": "Apr 12, 1961",
+      "day": 83,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1992-02535: 1961 nuclear weapons and Minuteman correspondence",
+      "section": "Germany, NATO, and nuclear policy",
+      "documentNumber": "F-1992-02535 doc 4",
+      "documentType": "State FOIA release",
+      "topics": [
+        "NATO",
+        "Berlin",
+        "Nuclear",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000004/C09000004.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1992-02535",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000004/C09000004.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1992-02535, document 4, Memorandum of Conversation, Adenauer Visit, April 12, 1961.",
+      "summary": "Additional State FOIA memorandum from the Adenauer visit touching NATO, Germany, and early Kennedy nuclear-policy questions.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
+      "id": "state-foia-f199202535-doc3",
+      "title": "Memorandum of conversation: Adenauer visit, NATO and East-West relations",
+      "date": "1961-04-12",
+      "endDate": "1961-04-12",
+      "displayDate": "Apr 12, 1961",
+      "day": 83,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1992-02535: 1961 nuclear weapons and Minuteman correspondence",
+      "section": "Germany, NATO, and East-West relations",
+      "documentNumber": "F-1992-02535 doc 3",
+      "documentType": "State FOIA release",
+      "topics": [
+        "NATO",
+        "Berlin",
+        "Nuclear",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000003/C09000003.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1992-02535",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_2/F-1992-02535/DOC_0C09000003/C09000003.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1992-02535, document 3, Memorandum of Conversation, Adenauer Visit, NATO and East-West Relations, April 12, 1961.",
+      "summary": "White House memorandum of conversation with Chancellor Adenauer covering NATO and East-West relations during the April 1961 visit.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
       "id": "frus-frus1961-63v09-d104",
       "title": "104. Memorandum of Conversation Between President Kennedy and Foreign Minister von Brentano",
       "date": "1961-04-13",
@@ -17928,32 +18607,6 @@
       "sourceNote": ""
     },
     {
-      "id": "nara-193438",
-      "title": "National Security Action Memorandum No. 38 Questions arising from CIA support of certain activities",
-      "date": "1961-04-15",
-      "endDate": "1961-04-15",
-      "displayDate": "Apr 15, 1961",
-      "day": 86,
-      "source": "NARA Catalog",
-      "repository": "John F. Kennedy Presidential Library and Museum",
-      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
-      "container": "Meeting Records and Memoranda",
-      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, International relations",
-      "documentNumber": "193438",
-      "documentType": "NARA item",
-      "topics": [
-        "NATO",
-        "Intelligence"
-      ],
-      "url": "https://catalog.archives.gov/id/193438",
-      "officialUrl": "https://catalog.archives.gov/id/193438",
-      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/38/1934/193438/content/arcmedia/media/images/40/24/40-2349a.gif",
-      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/38/1934/193438/content/arcmedia/media/images/40/24/40-2349a.gif",
-      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 38 Questions arising from CIA support of certain activities. NAID 193438.",
-      "summary": "Memorandum for Director of the Bureau of the Budget concerning CIA support for certain activities including Radio Free Europe.",
-      "sourceNote": "Use restriction: Unrestricted"
-    },
-    {
       "id": "frus-frus1961-63v10-d105",
       "title": "105. Telegram From the Mission to the United Nations to the Department of State",
       "date": "1961-04-16",
@@ -18533,6 +19186,60 @@
       "citation": "Memorandum of Conversation, U.S. Visit to Dimona, April 17, 1961.",
       "summary": "Memorandum on secrecy, timing, and conditions for the U.S. visit to Dimona before Kennedy met Ben-Gurion.",
       "sourceNote": "Document page and PDF hosted by the National Security Archive."
+    },
+    {
+      "id": "state-foia-f199104896-doc35",
+      "title": "Dispatch from Ciudad Trujillo on the political significance of 1958-1961",
+      "date": "1961-04-17",
+      "endDate": "1961-04-17",
+      "displayDate": "Apr 17, 1961",
+      "day": 88,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1991-04896: Dominican Republic, downfall of Trujillo, democracy in Latin America",
+      "section": "Dominican Republic",
+      "documentNumber": "F-1991-04896 doc 35",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Latin America",
+        "Diplomacy"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000035/C09000035.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1991-04896",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Dec2024_4/F-1991-04896/DOC_0C09000035/C09000035.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1991-04896, document 35, Foreign Service dispatch from Ciudad Trujillo, April 17, 1961.",
+      "summary": "Foreign Service dispatch assessing the political significance of the 1958-1961 period in the Dominican Republic and the Trujillo regime's position.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
+    },
+    {
+      "id": "state-foia-f199603635-doc4",
+      "title": "Reports and meetings assessing the Bay of Pigs failure",
+      "date": "1961-04-17",
+      "endDate": "1961-05-31",
+      "displayDate": "April-May 1961",
+      "day": 88,
+      "source": "State FOIA",
+      "repository": "U.S. Department of State",
+      "collection": "Department of State FOIA Library",
+      "container": "F-1996-03635: Bay of Pigs, Cuba from 1/61 to 9/62",
+      "section": "Cuba and Bay of Pigs",
+      "documentNumber": "F-1996-03635 doc 4",
+      "documentType": "State FOIA release",
+      "topics": [
+        "Bay of Pigs",
+        "Cuba",
+        "Intelligence",
+        "Defense"
+      ],
+      "url": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000004/C09000004.pdf",
+      "officialUrl": "https://foia.state.gov/FOIALIBRARY/SearchResults.aspx?caseNumber=F-1996-03635",
+      "dataUrl": "https://foia.state.gov/DOCUMENTS/FOIA_Micro_Final_6/F-1996-03635/DOC_0C09000004/C09000004.pdf",
+      "thumbnailUrl": "",
+      "citation": "Department of State FOIA Library, case F-1996-03635, document 4, Reports and Meetings Assessing the Failure of the Bay of Pigs Operation, April-May 1961.",
+      "summary": "State FOIA PDF with April 17 and later reporting and meeting records assessing the failed Cuba operation.",
+      "sourceNote": "Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library."
     },
     {
       "id": "frus-frus1961-63v06-d10",

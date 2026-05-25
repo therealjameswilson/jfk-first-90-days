@@ -2,6 +2,7 @@ export type ArchiveSource =
   | 'FRUS'
   | 'JFK Library'
   | 'NARA Catalog'
+  | 'State FOIA'
   | 'ISCAP'
   | 'National Security Archive'
   | 'Nitze Interviews';
