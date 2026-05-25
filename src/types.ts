@@ -2,6 +2,7 @@ export type ArchiveSource =
   | 'FRUS'
   | 'JFK Library'
   | 'NARA Catalog'
+  | 'DOD History'
   | 'CIA FOIA'
   | 'State FOIA'
   | 'ISCAP'

@@ -121,7 +121,8 @@ function App() {
           <h1>JFK First 90 Days</h1>
           <p className="lede">
             January 20 through April 20, 1961, indexed from FRUS first, then JFK
-            Library, NARA, ISCAP, and National Security Archive records.
+            Library, NARA, DOD History, FOIA, ISCAP, and National Security
+            Archive records.
           </p>
         </div>
       </header>
@@ -360,6 +361,7 @@ function sourceIcon(sourceName: ArchiveSource) {
   if (sourceName === 'FRUS') return <BookOpen />;
   if (sourceName === 'JFK Library') return <Library />;
   if (sourceName === 'NARA Catalog') return <Archive />;
+  if (sourceName === 'DOD History') return <Shield />;
   if (sourceName === 'CIA FOIA') return <Shield />;
   if (sourceName === 'State FOIA') return <FileText />;
   if (sourceName === 'ISCAP') return <Shield />;

@@ -331,6 +331,12 @@
   background: var(--olive-soft);
 }
 
+.source-chip--dod-history {
+  border-color: #9aa0a8;
+  color: #374151;
+  background: #eef0f2;
+}
+
 .source-chip--cia-foia {
   border-color: #b5a574;
   color: #5c4a12;

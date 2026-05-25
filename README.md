@@ -2,7 +2,7 @@
 
 An interactive archive site for John F. Kennedy foreign-policy primary sources from January 20 through April 20, 1961.
 
-The corpus starts with the State Department's official FRUS Kennedy administration volumes and supplements, then adds JFK Library, National Archives Catalog, ISCAP, and National Security Archive records that overlap the same date window and match foreign-policy topics.
+The corpus starts with the State Department's official FRUS Kennedy administration volumes and supplements, then adds JFK Library, National Archives Catalog, DOD History, FOIA, ISCAP, and National Security Archive records that overlap the same date window and match foreign-policy topics.
 
 ## Sources
 
@@ -13,6 +13,9 @@ The corpus starts with the State Department's official FRUS Kennedy administrati
 - JFK Library speeches: https://www.jfklibrary.org/archives/other-resources/john-f-kennedy-speeches
 - National Archives Catalog: https://catalog.archives.gov/
 - NARA Berlin Crisis of 1961 documents: https://www.archives.gov/research/foreign-policy/cold-war/1961-berlin-crisis/nara-documents.html
+- DOD Historical Office: https://history.defense.gov/
+- DOD Secretary of Defense Historical Series: https://history.defense.gov/Publications/Secretary-of-Defense-Historical-Series/
+- DOD oral history transcripts: https://history.defense.gov/DOD-History/Oral-History/
 - CIA FOIA Electronic Reading Room: https://www.cia.gov/readingroom/
 - CIA Current/Central Intelligence Bulletin Collection: https://www.cia.gov/readingroom/collection/currentcentral-intelligence-bulletin
 - CIA Bay of Pigs Release: https://www.cia.gov/readingroom/collection/bay-pigs-release
@@ -34,4 +37,4 @@ npm run build
 npm run lint
 ```
 
-`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, curated CIA FOIA/State FOIA/ISCAP/National Security Archive source files, and the selected Nitze interview PDFs.
+`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, curated DOD History/CIA FOIA/State FOIA/ISCAP/National Security Archive source files, and the selected Nitze interview PDFs.

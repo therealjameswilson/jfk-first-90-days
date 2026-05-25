@@ -5,6 +5,7 @@ const NARA_BERLIN_URL =
   'https://www.archives.gov/research/foreign-policy/cold-war/1961-berlin-crisis/nara-documents.html';
 const STATE_FOIA_BASE = 'https://foia.state.gov';
 const NSARCHIVE_BASE = 'https://nsarchive.gwu.edu';
+const DOD_HISTORY_BASE = 'https://history.defense.gov';
 const NSARCHIVE_BAY_OF_PIGS_2 = 'https://nsarchive2.gwu.edu/bayofpigs/press2.html';
 const NSARCHIVE_BAY_OF_PIGS_3 = 'https://nsarchive2.gwu.edu/bayofpigs/press3.html';
 const SITE_BASE = '/jfk-first-90-days';
@@ -22,6 +23,8 @@ const naraCatalogRecord = (id) => `https://catalog.archives.gov/id/${id}`;
 const stateFoiaCase = (caseNumber) =>
   `${STATE_FOIA_BASE}/FOIALIBRARY/SearchResults.aspx?caseNumber=${caseNumber}`;
 const stateFoiaPdf = (path) => `${STATE_FOIA_BASE}/${path}`;
+const dodHistoryPage = (path) => `${DOD_HISTORY_BASE}${path}`;
+const dodHistoryPdf = (path) => `${DOD_HISTORY_BASE}${path}`;
 const nitzePdf = (fileName) => `${SITE_BASE}/documents/nitze/${fileName}`;
 
 const iscapDefaults = {
@@ -623,6 +626,279 @@ const naraBerlinRecords = [
   citation: `National Archives, Berlin Crisis of 1961 documents, National Archives Identifier ${record.documentNumber}.`,
 }));
 
+const dodHistoryDefaults = {
+  source: 'DOD History',
+  repository: 'Office of the Secretary of Defense Historical Office',
+  collection: 'history.defense.gov',
+  container: 'Defense History source passages',
+  section: 'Defense policy',
+  documentType: 'DOD History passage',
+  officialUrl: DOD_HISTORY_BASE,
+  topics: ['Defense', 'Diplomacy'],
+  sourceNote: 'Official page or PDF hosted by the Office of the Secretary of Defense Historical Office.',
+};
+
+const dodMcnamaraBiography = dodHistoryPage(
+  '/Multimedia/Biographies/Article-View/Article/571271/robert-s-mcnamara/%20/lang/robert-s-mcnamara/',
+);
+const dodGilpatricBiography = dodHistoryPage(
+  '/DOD-History/Deputy-Secretaries-of-Defense/Article-View/Article/585241/roswell-l-gilpatric/',
+);
+const dodOsdVolume5 = dodHistoryPdf('/Portals/70/Documents/secretaryofdefense/OSDSeries_Vol5.pdf');
+const dodSpecialStudy4 = dodHistoryPdf('/Portals/70/Documents/special_studies/SpecStudy4.pdf');
+const dodIsaBriefHistory = dodHistoryPdf('/Portals/70/Documents/occasional_papers/ISABrochure.pdf');
+const dodNitzeOralHistory = dodHistoryPdf(
+  '/Portals/70/Documents/oral_history/OH_Trans_NitzePaul10-3-1984.pdf?ver=2020-01-07-111523-800',
+);
+const dodGilpatricOralHistory = dodHistoryPdf(
+  '/Portals/70/Documents/oral_history/OH_Trans_GilpatricRoswell11-14-1983.pdf?ver=2014-05-28-122506-547',
+);
+const dodLemnitzerOralHistory = dodHistoryPdf(
+  '/Portals/70/Documents/oral_history/OH_Trans_LemnitzerLyman1-19-1984.pdf?ver=2014-09-19-080942-640',
+);
+
+const dodHistoryRecords = [
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-mcnamara-biography-defense-program',
+    title: 'Robert S. McNamara biography: March 28 defense program reorientation',
+    date: '1961-03-28',
+    container: 'Secretaries of Defense biographies',
+    section: 'Defense program and flexible response',
+    documentNumber: 'Robert S. McNamara biography',
+    documentType: 'DOD biography passage',
+    topics: ['Defense', 'Nuclear', 'NATO', 'USSR', 'Diplomacy'],
+    url: dodMcnamaraBiography,
+    officialUrl: dodMcnamaraBiography,
+    dataUrl: dodMcnamaraBiography,
+    citation:
+      "Office of the Secretary of Defense Historical Office, Robert S. McNamara biography, passage on Kennedy's March 28, 1961 defense program message.",
+    summary:
+      "Defense Historical Office biography passage connecting President Kennedy's March 28, 1961 message to Congress with McNamara's reorientation of the defense program, including nuclear deterrence and broader military options.",
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-mcnamara-biography-bay-of-pigs',
+    title: 'Robert S. McNamara biography: Bay of Pigs recommendation and later regret',
+    date: '1961-04-17',
+    endDate: '1961-04-20',
+    displayDate: 'April 17-20, 1961',
+    container: 'Secretaries of Defense biographies',
+    section: 'Cuba and Bay of Pigs',
+    documentNumber: 'Robert S. McNamara biography',
+    documentType: 'DOD biography passage',
+    topics: ['Bay of Pigs', 'Cuba', 'Latin America', 'Defense', 'Intelligence', 'Diplomacy'],
+    url: dodMcnamaraBiography,
+    officialUrl: dodMcnamaraBiography,
+    dataUrl: dodMcnamaraBiography,
+    citation:
+      'Office of the Secretary of Defense Historical Office, Robert S. McNamara biography, Bay of Pigs passage.',
+    summary:
+      'Defense Historical Office biography passage noting McNamara later identified his recommendation that Kennedy proceed with the Bay of Pigs operation as his principal regret from office.',
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-gilpatric-biography-vietnam-task-force',
+    title: 'Roswell L. Gilpatric biography: Kennedy creates Vietnam task force',
+    date: '1961-04-20',
+    container: 'Deputy Secretaries of Defense biographies',
+    section: 'Vietnam',
+    documentNumber: 'Roswell L. Gilpatric biography',
+    documentType: 'DOD biography passage',
+    topics: ['Vietnam', 'Asia', 'Defense', 'Foreign Aid', 'Diplomacy'],
+    url: dodGilpatricBiography,
+    officialUrl: dodGilpatricBiography,
+    dataUrl: dodGilpatricBiography,
+    citation:
+      'Office of the Secretary of Defense Historical Office, Roswell L. Gilpatric biography, passage on the April 20, 1961 Vietnam task force.',
+    summary:
+      "Defense Historical Office biography passage saying Kennedy created a Vietnam task force under Gilpatric's direction on April 20, 1961 to assess South Vietnam and recommend preventive strategy.",
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-gilpatric-biography-bay-of-pigs',
+    title: 'Roswell L. Gilpatric biography: Cuba and the Bay of Pigs',
+    date: '1961-04-17',
+    endDate: '1961-04-20',
+    displayDate: 'April 17-20, 1961',
+    container: 'Deputy Secretaries of Defense biographies',
+    section: 'Cuba and Bay of Pigs',
+    documentNumber: 'Roswell L. Gilpatric biography',
+    documentType: 'DOD biography passage',
+    topics: ['Bay of Pigs', 'Cuba', 'Latin America', 'Defense', 'Intelligence', 'Diplomacy'],
+    url: dodGilpatricBiography,
+    officialUrl: dodGilpatricBiography,
+    dataUrl: dodGilpatricBiography,
+    citation:
+      'Office of the Secretary of Defense Historical Office, Roswell L. Gilpatric biography, Bay of Pigs passage.',
+    summary:
+      "Defense Historical Office biography passage placing Gilpatric's Cuba work inside the CIA-trained exile plan Kennedy approved and the failed April 1961 Bay of Pigs invasion.",
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-osd-vol5-vietnam-counterinsurgency-plan',
+    title: 'The McNamara Ascendancy: Vietnam counterinsurgency plan reaches Kennedy team',
+    date: '1961-01-28',
+    container: 'Secretaries of Defense Historical Series, Volume 5',
+    section: 'Counterinsurgency and Vietnam',
+    documentNumber: 'OSD Historical Series Vol. 5',
+    topics: ['Vietnam', 'Asia', 'Defense', 'Foreign Aid', 'Diplomacy'],
+    url: dodOsdVolume5,
+    officialUrl: dodOsdVolume5,
+    dataUrl: dodOsdVolume5,
+    citation:
+      'Kaplan, Landa, and Drea, The McNamara Ascendancy, 1961-1965, Office of the Secretary of Defense Historical Office, passage on the January 1961 Vietnam counterinsurgency plan.',
+    summary:
+      'OSD historical series passage on the Pacific Command-originated Basic Counterinsurgency Plan for Vietnam, completed January 4, 1961, and likely introduced to President Kennedy at the January 28 meeting.',
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-osd-vol5-nsc-counterguerrilla-nsam2',
+    title: 'The McNamara Ascendancy: first Kennedy NSC meeting and counter-guerrilla forces',
+    date: '1961-02-01',
+    endDate: '1961-02-03',
+    displayDate: 'February 1-3, 1961',
+    container: 'Secretaries of Defense Historical Series, Volume 5',
+    section: 'Counterinsurgency and NSAM 2',
+    documentNumber: 'OSD Historical Series Vol. 5',
+    topics: ['Laos', 'Vietnam', 'Asia', 'Defense', 'Intelligence', 'Diplomacy'],
+    url: dodOsdVolume5,
+    officialUrl: dodOsdVolume5,
+    dataUrl: dodOsdVolume5,
+    citation:
+      'Kaplan, Landa, and Drea, The McNamara Ascendancy, 1961-1965, Office of the Secretary of Defense Historical Office, passage on Kennedy, McNamara, and NSAM 2.',
+    summary:
+      'OSD historical series passage saying Kennedy used his first regular NSC meeting on February 1 to direct McNamara and other agencies to emphasize counter-guerrilla forces, formalized by NSAM 2 on February 3.',
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-osd-vol5-fy1962-flexible-response',
+    title: 'The McNamara Ascendancy: FY 1962 budget, crises, and flexible response',
+    date: '1961-03-28',
+    container: 'Secretaries of Defense Historical Series, Volume 5',
+    section: 'Expanding the FY 1962 budget',
+    documentNumber: 'OSD Historical Series Vol. 5',
+    topics: ['Defense', 'Nuclear', 'Laos', 'Vietnam', 'Cuba', 'Berlin', 'Diplomacy'],
+    url: dodOsdVolume5,
+    officialUrl: dodOsdVolume5,
+    dataUrl: dodOsdVolume5,
+    citation:
+      'Kaplan, Landa, and Drea, The McNamara Ascendancy, 1961-1965, Office of the Secretary of Defense Historical Office, chapter on expanding the FY 1962 budget.',
+    summary:
+      'OSD historical series passage linking the early 1961 budget review to Laos, Vietnam, Cuba, and Berlin, and to the Kennedy administration shift toward stronger conventional forces and flexible response.',
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-special-study4-mcnamara-foreign-affairs-role',
+    title: 'Special Study 4: McNamara moves Defense into the foreign-policy process',
+    date: '1961-01-21',
+    container: 'Cold War Foreign Policy Series, Special Study 4',
+    section: 'The Ascendancy of the Secretary of Defense',
+    documentNumber: 'Special Study 4',
+    topics: ['Defense', 'Diplomacy', 'Nuclear', 'NATO'],
+    url: dodSpecialStudy4,
+    officialUrl: dodSpecialStudy4,
+    dataUrl: dodSpecialStudy4,
+    citation:
+      'Office of the Secretary of Defense Historical Office, The Ascendancy of the Secretary of Defense: Robert S. McNamara, 1961-1963, executive summary.',
+    summary:
+      'DOD Cold War Foreign Policy Series passage describing McNamara as playing a larger role in foreign affairs than any prior Secretary of Defense and moving Defense into the foreground of policy-making.',
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-special-study4-kennedy-nsc-restructuring',
+    title: 'Special Study 4: Kennedy restructures the NSC policy environment',
+    date: '1961-01-20',
+    container: 'Cold War Foreign Policy Series, Special Study 4',
+    section: 'Restructuring the National Security Council',
+    documentNumber: 'Special Study 4',
+    topics: ['Defense', 'Diplomacy', 'Intelligence'],
+    url: dodSpecialStudy4,
+    officialUrl: dodSpecialStudy4,
+    dataUrl: dodSpecialStudy4,
+    citation:
+      'Office of the Secretary of Defense Historical Office, The Ascendancy of the Secretary of Defense: Robert S. McNamara, 1961-1963, section on restructuring the National Security Council.',
+    summary:
+      "DOD special study passage on Kennedy's determination to overhaul the NSC system and seek a more vigorous policy process, a setting that helped expand McNamara's foreign-policy influence.",
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-isa-brief-nitze-arms-control',
+    title: 'ISA: A Brief History: Kennedy charges Nitze with arms-control work',
+    date: '1961-01-29',
+    endDate: '1961-04-20',
+    displayDate: 'January-April 1961',
+    container: 'Office of International Security Affairs brief history',
+    section: 'ISA and arms control in the 1960s',
+    documentNumber: 'ISA: A Brief History',
+    topics: ['Nuclear', 'Defense', 'USSR', 'Diplomacy'],
+    url: dodIsaBriefHistory,
+    officialUrl: dodIsaBriefHistory,
+    dataUrl: dodIsaBriefHistory,
+    citation:
+      'Office of the Secretary of Defense Historical Office, ISA: A Brief History, section on ISA and arms control in the 1960s.',
+    summary:
+      "DOD ISA history passage saying Paul Nitze arrived at the Pentagon in early 1961 with Kennedy's instruction to pay special attention to arms control and nuclear-policy review.",
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-nitze-oral-history-kennedy-decision-style',
+    title: "Paul Nitze OSD oral history: Kennedy's issue-based decision style",
+    date: '',
+    displayDate: 'Retrospective interview; covers 1961 decision-making',
+    container: 'OSD Historical Office oral history transcripts',
+    section: 'Kennedy foreign-policy process',
+    documentNumber: 'Paul Nitze oral history, October 3, 1984',
+    documentType: 'DOD oral history transcript',
+    topics: ['Defense', 'Diplomacy', 'Intelligence'],
+    url: dodNitzeOralHistory,
+    officialUrl: dodNitzeOralHistory,
+    dataUrl: dodNitzeOralHistory,
+    citation:
+      'Paul H. Nitze oral history interview, October 3, 1984, Office of the Secretary of Defense Historical Office.',
+    summary:
+      'OSD oral history passage in which Nitze contrasts Kennedy decision-making with formal office hierarchy, emphasizing meetings with people who understood the issue under review.',
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-gilpatric-oral-history-arms-control-beginning',
+    title: 'Roswell Gilpatric OSD oral history: arms control at the beginning of the Kennedy administration',
+    date: '',
+    displayDate: 'Retrospective interview; covers early Kennedy administration',
+    container: 'OSD Historical Office oral history transcripts',
+    section: 'Arms control and ACDA',
+    documentNumber: 'Roswell Gilpatric oral history, November 14, 1983',
+    documentType: 'DOD oral history transcript',
+    topics: ['Nuclear', 'Defense', 'USSR', 'Diplomacy'],
+    url: dodGilpatricOralHistory,
+    officialUrl: dodGilpatricOralHistory,
+    dataUrl: dodGilpatricOralHistory,
+    citation:
+      'Roswell L. Gilpatric oral history interview, November 14, 1983, Office of the Secretary of Defense Historical Office.',
+    summary:
+      'OSD oral history passage in which Gilpatric recalls his arms-control work starting at the beginning of the Kennedy administration, including support for creating ACDA and coordinating with the Joint Chiefs.',
+  },
+  {
+    ...dodHistoryDefaults,
+    id: 'dod-history-lemnitzer-oral-history-bay-of-pigs-laos',
+    title: 'Lyman Lemnitzer OSD oral history: Bay of Pigs and Laos recollections',
+    date: '',
+    displayDate: 'Retrospective interview; covers early 1961 crises',
+    container: 'OSD Historical Office oral history transcripts',
+    section: 'Bay of Pigs and Laos',
+    documentNumber: 'Lyman Lemnitzer oral history, January 19, 1984',
+    documentType: 'DOD oral history transcript',
+    topics: ['Bay of Pigs', 'Cuba', 'Laos', 'Asia', 'Defense', 'Intelligence'],
+    url: dodLemnitzerOralHistory,
+    officialUrl: dodLemnitzerOralHistory,
+    dataUrl: dodLemnitzerOralHistory,
+    citation:
+      'General Lyman L. Lemnitzer oral history interview, January 19, 1984, Office of the Secretary of Defense Historical Office.',
+    summary:
+      'OSD oral history transcript from the Joint Chiefs chairman during the Kennedy transition and first crises, with recollections relevant to Bay of Pigs planning and Laos decision-making.',
+  },
+];
+
 const nitzeDefaults = {
   source: 'Nitze Interviews',
   repository: 'Paul H. Nitze interview files',
@@ -642,6 +918,7 @@ export const supplementalRecords = [
   ...jfkSpeechRecords,
   ...jfkFolderRecords,
   ...naraBerlinRecords,
+  ...dodHistoryRecords,
   {
     ...iscapDefaults,
     id: 'iscap-2014-030-doc-1',

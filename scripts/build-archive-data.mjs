@@ -595,8 +595,8 @@ async function main() {
       windowStart: START_DATE,
       windowEnd: END_DATE,
       scopeNote:
-        'Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy, JFK Library digital pages, JFK public-statement pages, and NARA thematic release pages. CIA FOIA, State FOIA, ISCAP, and National Security Archive records are curated from their release pages, search results, and Virtual Reading Room document pages, with direct PDF links where available. Nitze Interviews contains the four local PDF files selected from the Nitze OCR search because they discuss Kennedy foreign-policy work in the first 90 days.',
-      sourceOrder: ['FRUS', 'JFK Library', 'NARA Catalog', 'CIA FOIA', 'State FOIA', 'ISCAP', 'National Security Archive', 'Nitze Interviews'],
+        'Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy, JFK Library digital pages, JFK public-statement pages, and NARA thematic release pages. DOD History passages come from official Defense Historical Office pages, historical series volumes, special studies, and oral-history transcripts. CIA FOIA, State FOIA, ISCAP, and National Security Archive records are curated from their release pages, search results, and Virtual Reading Room document pages, with direct PDF links where available. Nitze Interviews contains the four local PDF files selected from the Nitze OCR search because they discuss Kennedy foreign-policy work in the first 90 days.',
+      sourceOrder: ['FRUS', 'JFK Library', 'NARA Catalog', 'DOD History', 'CIA FOIA', 'State FOIA', 'ISCAP', 'National Security Archive', 'Nitze Interviews'],
       officialSources: [
         {
           label: 'FRUS Kennedy Administration volumes',
@@ -625,6 +625,18 @@ async function main() {
         {
           label: 'NARA Berlin Crisis of 1961 documents',
           url: 'https://www.archives.gov/research/foreign-policy/cold-war/1961-berlin-crisis/nara-documents.html',
+        },
+        {
+          label: 'DOD Historical Office',
+          url: 'https://history.defense.gov/',
+        },
+        {
+          label: 'DOD Secretary of Defense Historical Series',
+          url: 'https://history.defense.gov/Publications/Secretary-of-Defense-Historical-Series/',
+        },
+        {
+          label: 'DOD oral history transcripts',
+          url: 'https://history.defense.gov/DOD-History/Oral-History/',
         },
         {
           label: 'CIA FOIA Electronic Reading Room',
