@@ -1,0 +1,24 @@
+# JFK First 90 Days
+
+An interactive archive site for John F. Kennedy foreign-policy primary sources from January 20 through April 20, 1961.
+
+The corpus starts with the State Department's official FRUS Kennedy administration volumes and supplements, then adds JFK Library and National Archives Catalog records that overlap the same date window and match foreign-policy topics.
+
+## Sources
+
+- FRUS Kennedy administration volumes: https://history.state.gov/historicaldocuments/kennedy
+- HistoryAtState FRUS XML repository: https://github.com/HistoryAtState/frus
+- JFK Library Digital Archives: https://www.jfklibrary.org/archives
+- National Archives Catalog: https://catalog.archives.gov/
+
+## Commands
+
+```bash
+npm install
+npm run build:data
+npm run dev
+npm run build
+npm run lint
+```
+
+`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML and NARA Catalog records.
