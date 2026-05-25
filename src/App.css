@@ -368,6 +368,12 @@
   background: #edf1f6;
 }
 
+.source-chip--nitze-interviews {
+  border-color: #cfb58f;
+  color: #664313;
+  background: #f6efe3;
+}
+
 .document-card h3 {
   margin: 0;
   color: var(--ink);

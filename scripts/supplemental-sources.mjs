@@ -2,12 +2,14 @@ const ISCAP_2014_030_URL = 'https://www.archives.gov/declassification/iscap/pdf/
 const NSARCHIVE_BASE = 'https://nsarchive.gwu.edu';
 const NSARCHIVE_BAY_OF_PIGS_2 = 'https://nsarchive2.gwu.edu/bayofpigs/press2.html';
 const NSARCHIVE_BAY_OF_PIGS_3 = 'https://nsarchive2.gwu.edu/bayofpigs/press3.html';
+const SITE_BASE = '/jfk-first-90-days';
 
 const iscapPdf = (number) =>
   `https://www.archives.gov/files/declassification/iscap/pdf/2014-030-document-${number}-release-508-complete.pdf`;
 
 const nsarchiveDocument = (path) => `${NSARCHIVE_BASE}${path}`;
 const bayOfPigsPdf = (fileName) => `https://nsarchive2.gwu.edu/bayofpigs/${fileName}`;
+const nitzePdf = (fileName) => `${SITE_BASE}/documents/nitze/${fileName}`;
 
 const iscapDefaults = {
   source: 'ISCAP',
@@ -42,6 +44,18 @@ const bayOfPigsDefaults = {
   sourceNote: 'Released on the National Security Archive Bay of Pigs 40th anniversary website.',
 };
 
+const nitzeDefaults = {
+  source: 'Nitze Interviews',
+  repository: 'Paul H. Nitze interview files',
+  collection: 'Nitze oral-history and interview PDFs',
+  container: 'Local OCR search results',
+  section: 'Kennedy foreign policy, first 90 days',
+  documentType: 'Nitze interview PDF',
+  topics: ['Defense', 'Diplomacy'],
+  sourceNote:
+    'Local PDF copy selected from the Nitze OCR search because it contains interview material on Kennedy foreign-policy work during January-April 1961.',
+};
+
 export const supplementalRecords = [
   {
     ...iscapDefaults,
@@ -52,6 +66,69 @@ export const supplementalRecords = [
     dataUrl: iscapPdf(1),
     citation: 'ISCAP Appeal 2014-030, document 1. Letter to Chester Clifton from Allen Dulles, February 20, 1961.',
     summary: 'Declassified CIA-related correspondence from Allen Dulles to Brig. Gen. Chester V. Clifton concerning Laos and related regional policy.',
+  },
+  {
+    ...nitzeDefaults,
+    id: 'nitze-air-force-oral-history-to-page-308',
+    title: 'Paul H. Nitze Air Force oral history, transition through page 308',
+    date: '',
+    displayDate: 'Retrospective interview; covers Jan-Apr 1961',
+    documentNumber: 'Air Force oral history to p. 308',
+    topics: ['Defense', 'Diplomacy', 'Laos', 'Congo', 'NATO', 'Nuclear'],
+    url: nitzePdf('nitze-air-force-oral-history-to-page-308.pdf'),
+    officialUrl: nitzePdf('nitze-air-force-oral-history-to-page-308.pdf'),
+    dataUrl: nitzePdf('nitze-air-force-oral-history-to-page-308.pdf'),
+    citation:
+      'Paul H. Nitze, Air Force oral history transcript PDF, transition and Kennedy administration sections through transcript page 308.',
+    summary:
+      'OCR hits cover Kennedy assigning Nitze early problems, McNamara placing him at ISA, the policy-making vacuum, Laos and Congo in spring 1961, NATO nuclear issues, de Gaulle, and Rusk-McNamara roles.',
+  },
+  {
+    ...nitzeDefaults,
+    id: 'nitze-air-force-oral-history-to-page-324',
+    title: 'Paul H. Nitze Air Force oral history, Bay of Pigs continuation through page 324',
+    date: '',
+    displayDate: 'Retrospective interview; covers Apr 1961',
+    documentNumber: 'Air Force oral history to p. 324',
+    topics: ['Bay of Pigs', 'Cuba', 'Latin America', 'Defense', 'Diplomacy', 'Asia'],
+    url: nitzePdf('nitze-air-force-oral-history-to-page-324.pdf'),
+    officialUrl: nitzePdf('nitze-air-force-oral-history-to-page-324.pdf'),
+    dataUrl: nitzePdf('nitze-air-force-oral-history-to-page-324.pdf'),
+    citation:
+      'Paul H. Nitze, Air Force oral history transcript PDF, post-Bay of Pigs and related Kennedy administration sections through transcript page 324.',
+    summary:
+      'Continuation includes Nitze on Kennedy assigning him post-Bay of Pigs policy toward Cuba and Latin America, and moving the work into a State Department task force.',
+  },
+  {
+    ...nitzeDefaults,
+    id: 'nitze-air-force-oral-history-to-page-348',
+    title: 'Paul H. Nitze Air Force oral history, task-force staff through page 348',
+    date: '',
+    displayDate: 'Retrospective interview; covers Apr 1961',
+    documentNumber: 'Air Force oral history to p. 348',
+    topics: ['Bay of Pigs', 'Cuba', 'Latin America', 'Diplomacy'],
+    url: nitzePdf('nitze-air-force-oral-history-to-page-348.pdf'),
+    officialUrl: nitzePdf('nitze-air-force-oral-history-to-page-348.pdf'),
+    dataUrl: nitzePdf('nitze-air-force-oral-history-to-page-348.pdf'),
+    citation:
+      'Paul H. Nitze, Air Force oral history transcript PDF, later continuation with post-Bay of Pigs task-force staff recollections.',
+    summary:
+      'OCR hits identify personnel around the post-Bay of Pigs Cuba and Latin America task force, including Richard Goodwin and Adolph Berle.',
+  },
+  {
+    ...nitzeDefaults,
+    id: 'nitze-herken-interviews',
+    title: 'Paul H. Nitze Herken interviews',
+    date: '',
+    displayDate: 'Retrospective interview notes; covers 1961',
+    documentNumber: 'Herken interviews',
+    topics: ['Defense', 'Nuclear', 'USSR'],
+    url: nitzePdf('nitze-herken-interviews.pdf'),
+    officialUrl: nitzePdf('nitze-herken-interviews.pdf'),
+    dataUrl: nitzePdf('nitze-herken-interviews.pdf'),
+    citation: 'Paul H. Nitze, Herken interview notes PDF.',
+    summary:
+      'OCR hits note that JFK appointed Nitze to ISA in 1961 and directed attention to arms control, with later work on test-ban and strategic-limitation issues.',
   },
   {
     ...iscapDefaults,

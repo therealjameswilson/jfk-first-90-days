@@ -595,8 +595,8 @@ async function main() {
       windowStart: START_DATE,
       windowEnd: END_DATE,
       scopeNote:
-        'Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy and link back to official asset or catalog pages. ISCAP and National Security Archive records are curated from their release pages and Virtual Reading Room document pages, with direct PDF links where available.',
-      sourceOrder: ['FRUS', 'JFK Library', 'NARA Catalog', 'ISCAP', 'National Security Archive'],
+        'Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy and link back to official asset or catalog pages. ISCAP and National Security Archive records are curated from their release pages and Virtual Reading Room document pages, with direct PDF links where available. Nitze Interviews contains the four local PDF files selected from the Nitze OCR search because they discuss Kennedy foreign-policy work in the first 90 days.',
+      sourceOrder: ['FRUS', 'JFK Library', 'NARA Catalog', 'ISCAP', 'National Security Archive', 'Nitze Interviews'],
       officialSources: [
         {
           label: 'FRUS Kennedy Administration volumes',
@@ -629,6 +629,10 @@ async function main() {
         {
           label: 'National Security Archive Bay of Pigs release',
           url: 'https://nsarchive2.gwu.edu/bayofpigs/press3.html',
+        },
+        {
+          label: 'Paul Nitze interview PDFs',
+          url: '/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-308.pdf',
         },
       ],
     },

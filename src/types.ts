@@ -3,7 +3,8 @@ export type ArchiveSource =
   | 'JFK Library'
   | 'NARA Catalog'
   | 'ISCAP'
-  | 'National Security Archive';
+  | 'National Security Archive'
+  | 'Nitze Interviews';
 
 export interface ArchiveDocument {
   id: string;

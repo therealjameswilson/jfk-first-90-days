@@ -367,6 +367,7 @@ function sourceIcon(sourceName: ArchiveSource) {
   if (sourceName === 'JFK Library') return <Library />;
   if (sourceName === 'NARA Catalog') return <Archive />;
   if (sourceName === 'ISCAP') return <Shield />;
+  if (sourceName === 'Nitze Interviews') return <FileText />;
   return <Globe2 />;
 }
 

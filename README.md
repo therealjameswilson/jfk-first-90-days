@@ -14,6 +14,7 @@ The corpus starts with the State Department's official FRUS Kennedy administrati
 - ISCAP releases: https://www.archives.gov/declassification/iscap/releases
 - National Security Archive Virtual Reading Room: https://nsarchive.gwu.edu/virtual-reading-room
 - National Security Archive Bay of Pigs release: https://nsarchive2.gwu.edu/bayofpigs/press3.html
+- Paul Nitze interview PDFs: local OCR-selected copies in `public/documents/nitze/`
 
 ## Commands
 
@@ -25,4 +26,4 @@ npm run build
 npm run lint
 ```
 
-`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, and curated ISCAP/National Security Archive source files.
+`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, curated ISCAP/National Security Archive source files, and the selected Nitze interview PDFs.

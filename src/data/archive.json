@@ -2,16 +2,17 @@
   "metadata": {
     "title": "JFK First 90 Days",
     "subtitle": "Foreign policy primary-source index",
-    "generatedAt": "2026-05-25T14:00:00.464Z",
+    "generatedAt": "2026-05-25T14:49:05.589Z",
     "windowStart": "1961-01-20",
     "windowEnd": "1961-04-20",
-    "scopeNote": "Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy and link back to official asset or catalog pages. ISCAP and National Security Archive records are curated from their release pages and Virtual Reading Room document pages, with direct PDF links where available.",
+    "scopeNote": "Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy and link back to official asset or catalog pages. ISCAP and National Security Archive records are curated from their release pages and Virtual Reading Room document pages, with direct PDF links where available. Nitze Interviews contains the four local PDF files selected from the Nitze OCR search because they discuss Kennedy foreign-policy work in the first 90 days.",
     "sourceOrder": [
       "FRUS",
       "JFK Library",
       "NARA Catalog",
       "ISCAP",
-      "National Security Archive"
+      "National Security Archive",
+      "Nitze Interviews"
     ],
     "officialSources": [
       {
@@ -45,49 +46,55 @@
       {
         "label": "National Security Archive Bay of Pigs release",
         "url": "https://nsarchive2.gwu.edu/bayofpigs/press3.html"
+      },
+      {
+        "label": "Paul Nitze interview PDFs",
+        "url": "/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-308.pdf"
       }
     ]
   },
   "stats": {
     "bySource": {
       "FRUS": 682,
-      "NARA Catalog": 43,
+      "NARA Catalog": 42,
       "National Security Archive": 49,
       "JFK Library": 6,
-      "ISCAP": 6
+      "ISCAP": 6,
+      "Nitze Interviews": 4
     },
     "byTopic": {
-      "USSR": 103,
-      "NATO": 67,
-      "Diplomacy": 409,
-      "Congo": 50,
-      "Cuba": 204,
-      "Latin America": 44,
-      "Intelligence": 73,
-      "Laos": 65,
-      "Defense": 175,
+      "USSR": 104,
+      "NATO": 68,
+      "Diplomacy": 412,
+      "Congo": 51,
+      "Cuba": 206,
+      "Latin America": 46,
+      "Intelligence": 72,
+      "Laos": 66,
+      "Defense": 178,
       "United Nations": 93,
       "Africa": 50,
       "Foreign Aid": 16,
-      "Nuclear": 113,
+      "Nuclear": 115,
       "General": 29,
-      "Middle East": 49,
-      "Bay of Pigs": 30,
-      "Berlin": 29,
-      "Vietnam": 31,
-      "Asia": 72,
-      "Peace Corps": 4,
-      "Europe": 5
+      "Middle East": 48,
+      "Bay of Pigs": 32,
+      "Berlin": 30,
+      "Vietnam": 30,
+      "Asia": 73,
+      "Europe": 5,
+      "Peace Corps": 3
     },
     "byType": {
       "FRUS primary document": 682,
-      "NARA item": 43,
+      "NARA item": 42,
       "National Security Archive document": 35,
       "NARA file unit": 6,
       "National Security Archive Bay of Pigs release": 14,
-      "ISCAP release": 6
+      "ISCAP release": 6,
+      "Nitze interview PDF": 4
     },
-    "total": 786
+    "total": 789
   },
   "documents": [
     {
@@ -3381,31 +3388,6 @@
       "sourceNote": ""
     },
     {
-      "id": "nara-193404",
-      "title": "National Security Action Memorandum No. 4 Purchase of Uranium From Foreign Countries",
-      "date": "1961-02-04",
-      "endDate": "1961-02-04",
-      "displayDate": "Feb 4, 1961",
-      "day": 16,
-      "source": "NARA Catalog",
-      "repository": "John F. Kennedy Presidential Library and Museum",
-      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
-      "container": "Meeting Records and Memoranda",
-      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, International relations",
-      "documentNumber": "193404",
-      "documentType": "NARA item",
-      "topics": [
-        "Defense"
-      ],
-      "url": "https://catalog.archives.gov/id/193404",
-      "officialUrl": "https://catalog.archives.gov/id/193404",
-      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/4/1934/193404/content/arcmedia/media/images/40/24/40-2313a.gif",
-      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/4/1934/193404/content/arcmedia/media/images/40/24/40-2313a.gif",
-      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 4 Purchase of Uranium From Foreign Countries. NAID 193404.",
-      "summary": "Memorandum for the Secretary of Defense on purchasing uranium from foreign countries.",
-      "sourceNote": "Use restriction: Unrestricted"
-    },
-    {
       "id": "frus-frus1961-63v20-d22",
       "title": "22. Telegram From the Department of State to the Embassy in France",
       "date": "1961-02-05",
@@ -3712,31 +3694,6 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume I, Vietnam, 1961, Document 9",
       "summary": "Is it possible for us to distribute the available forces we now have in Vietnam more effectively in order to increase the effectiveness of anti-guerilla activities. Are there troops stationed along the border who could be made available for this activity? It is my recollection that the Vietnam...",
       "sourceNote": ""
-    },
-    {
-      "id": "nara-193410",
-      "title": "National Security Action Memorandum No. 10 Policy for Cuba",
-      "date": "1961-02-06",
-      "endDate": "1961-02-06",
-      "displayDate": "Feb 6, 1961",
-      "day": 18,
-      "source": "NARA Catalog",
-      "repository": "John F. Kennedy Presidential Library and Museum",
-      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
-      "container": "Meeting Records and Memoranda",
-      "section": "Memorandums, National security, International relations",
-      "documentNumber": "193410",
-      "documentType": "NARA item",
-      "topics": [
-        "Cuba"
-      ],
-      "url": "https://catalog.archives.gov/id/193410",
-      "officialUrl": "https://catalog.archives.gov/id/193410",
-      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/10/1934/193410/content/arcmedia/media/images/40/24/40-2319a.gif",
-      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/10/1934/193410/content/arcmedia/media/images/40/24/40-2319a.gif",
-      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 10 Policy for Cuba. NAID 193410.",
-      "summary": "Memorandum for McGeorge Bundy on coordination of policy towards Cuba.",
-      "sourceNote": "Use restriction: Unrestricted"
     },
     {
       "id": "nara-193411",
@@ -4331,31 +4288,6 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume IX, Foreign Economic Policy, Document 90",
       "summary": "I am in general agreement with the thesis that it is desirable to attempt at the highest political level to obtain a political decision on the part of European governments to engage in an increased economic aid effort to be related to a similar increased aid effort on our part. As I understand it,...",
       "sourceNote": ""
-    },
-    {
-      "id": "nara-193413",
-      "title": "National Security Action Memorandum No. 13 Exchange of Persons Behind the Iron Curtain",
-      "date": "1961-02-08",
-      "endDate": "1961-02-08",
-      "displayDate": "Feb 8, 1961",
-      "day": 20,
-      "source": "NARA Catalog",
-      "repository": "John F. Kennedy Presidential Library and Museum",
-      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
-      "container": "Meeting Records and Memoranda",
-      "section": "Memorandums, National security, International relations",
-      "documentNumber": "193413",
-      "documentType": "NARA item",
-      "topics": [
-        "Diplomacy"
-      ],
-      "url": "https://catalog.archives.gov/id/193413",
-      "officialUrl": "https://catalog.archives.gov/id/193413",
-      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/13/1934/193413/content/arcmedia/media/images/40/24/40-2322a.gif",
-      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/13/1934/193413/content/arcmedia/media/images/40/24/40-2322a.gif",
-      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 13 Exchange of Persons Behind the Iron Curtain. NAID 193413.",
-      "summary": "Memorandum for Secretary of State concerning the administration's exchange of persons behind the Iron Curtain.",
-      "sourceNote": "Use restriction: Unrestricted"
     },
     {
       "id": "nsarchive-21609-rusk-israeli-reactor",
@@ -5040,6 +4972,31 @@
       "sourceNote": ""
     },
     {
+      "id": "nara-193415",
+      "title": "National Security Action Memorandum No. 15 Legislation for Reallocation of Sugar Quotas",
+      "date": "1961-02-13",
+      "endDate": "1961-02-13",
+      "displayDate": "Feb 13, 1961",
+      "day": 25,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, National security",
+      "documentNumber": "193415",
+      "documentType": "NARA item",
+      "topics": [
+        "Diplomacy"
+      ],
+      "url": "https://catalog.archives.gov/id/193415",
+      "officialUrl": "https://catalog.archives.gov/id/193415",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/15/1934/193415/content/arcmedia/media/images/40/24/40-2324a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/15/1934/193415/content/arcmedia/media/images/40/24/40-2324a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 15 Legislation for Reallocation of Sugar Quotas. NAID 193415.",
+      "summary": "Memorandum for Secretary of State concerning legislation on allocating sugar quotas.",
+      "sourceNote": "Use restriction: Unrestricted"
+    },
+    {
       "id": "nara-193416",
       "title": "National Security Action Memorandum No. 16 Economic Support for Newly Independent Areas",
       "date": "1961-02-13",
@@ -5459,31 +5416,6 @@
       "sourceNote": "Use restriction: Unrestricted"
     },
     {
-      "id": "nara-193352",
-      "title": "Peace Corps International",
-      "date": "1961-02-14",
-      "endDate": "1961-02-14",
-      "displayDate": "Feb 14, 1961",
-      "day": 26,
-      "source": "NARA Catalog",
-      "repository": "John F. Kennedy Presidential Library and Museum",
-      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
-      "container": "Department and Agency Files",
-      "section": "ACTION. Peace Corps. (07/01/1971 - 1982), Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums",
-      "documentNumber": "193352",
-      "documentType": "NARA item",
-      "topics": [
-        "Peace Corps"
-      ],
-      "url": "https://catalog.archives.gov/id/193352",
-      "officialUrl": "https://catalog.archives.gov/id/193352",
-      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/52/1933/193352/content/arcmedia/media/images/33/24/33-2342a.gif",
-      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/52/1933/193352/content/arcmedia/media/images/33/24/33-2342a.gif",
-      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. Peace Corps International. NAID 193352.",
-      "summary": "Memorandum from Kenneth Landon to Walt Rostow arguing the need to establish an international peace corp organization.",
-      "sourceNote": "Use restriction: Unrestricted"
-    },
-    {
       "id": "frus-frus1961-63v17-d11",
       "title": "11. Memorandum From the Assistant Secretary of State for Near Eastern and South Asian Affairs ( Jones ) to Secretary of State Rusk",
       "date": "1961-02-15",
@@ -5716,6 +5648,31 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume VI, Kennedy-Khrushchev Exchanges, Document 6",
       "summary": "Received your telegram of congratulations on the occasion of the launching of the Soviet cosmic spaceship to the planet Venus. I express gratitude to you for this telegram giving high appraisal to this outstanding achievement of peaceful science and for wishes for success in the new stage of the...",
       "sourceNote": ""
+    },
+    {
+      "id": "nara-193419",
+      "title": "National Security Action Memorandum No. 19 Cutting Importations from Cuba to the US",
+      "date": "1961-02-15",
+      "endDate": "1961-02-15",
+      "displayDate": "Feb 15, 1961",
+      "day": 27,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, National security",
+      "documentNumber": "193419",
+      "documentType": "NARA item",
+      "topics": [
+        "Cuba"
+      ],
+      "url": "https://catalog.archives.gov/id/193419",
+      "officialUrl": "https://catalog.archives.gov/id/193419",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/19/1934/193419/content/arcmedia/media/images/40/24/40-2328a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/19/1934/193419/content/arcmedia/media/images/40/24/40-2328a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 19 Cutting Importations from Cuba to the US. NAID 193419.",
+      "summary": "Memorandum for McGeorge Bundy on cutting imports to Cuba.",
+      "sourceNote": "Use restriction: Unrestricted"
     },
     {
       "id": "nsarchive-19684-millar-turkey",
@@ -8518,32 +8475,6 @@
       "sourceNote": "Use restriction: Unrestricted"
     },
     {
-      "id": "nara-193425",
-      "title": "National Security Action Memorandum No. 25 Recommendation As to Whether or Not President Should Send Letter to Iraq Government",
-      "date": "1961-03-01",
-      "endDate": "1961-03-01",
-      "displayDate": "Mar 1, 1961",
-      "day": 41,
-      "source": "NARA Catalog",
-      "repository": "John F. Kennedy Presidential Library and Museum",
-      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
-      "container": "Meeting Records and Memoranda",
-      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, International relations",
-      "documentNumber": "193425",
-      "documentType": "NARA item",
-      "topics": [
-        "Middle East",
-        "Diplomacy"
-      ],
-      "url": "https://catalog.archives.gov/id/193425",
-      "officialUrl": "https://catalog.archives.gov/id/193425",
-      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/25/1934/193425/content/arcmedia/media/images/40/24/40-2335a.gif",
-      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/25/1934/193425/content/arcmedia/media/images/40/24/40-2335a.gif",
-      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 25 Recommendation As to Whether or Not President Should Send Letter to Iraq Government. NAID 193425.",
-      "summary": "Memorandum for Secretary of State on whether or not the President should send a personal letter to the head of the Iraq government.",
-      "sourceNote": "Use restriction: Unrestricted"
-    },
-    {
       "id": "nara-193238",
       "title": "Paramilitary Study Group Report Indexes of Annexes and Operations Maps",
       "date": "1961-03-01",
@@ -9329,6 +9260,32 @@
       "sourceNote": ""
     },
     {
+      "id": "nara-193426",
+      "title": "National Security Action Memorandum No. 26 Ambassador Timberlake's Notification to Turn Around Ships",
+      "date": "1961-03-06",
+      "endDate": "1961-03-06",
+      "displayDate": "Mar 6, 1961",
+      "day": 46,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, National security",
+      "documentNumber": "193426",
+      "documentType": "NARA item",
+      "topics": [
+        "Defense",
+        "Diplomacy"
+      ],
+      "url": "https://catalog.archives.gov/id/193426",
+      "officialUrl": "https://catalog.archives.gov/id/193426",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/26/1934/193426/content/arcmedia/media/images/40/24/40-2336a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/26/1934/193426/content/arcmedia/media/images/40/24/40-2336a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 26 Ambassador Timberlake's Notification to Turn Around Ships. NAID 193426.",
+      "summary": "Memorandum for Secretary of State and Secretary of Defense asking if Ambassador Timberlake gave notification before requesting the ships to turn around.",
+      "sourceNote": "Use restriction: Unrestricted"
+    },
+    {
       "id": "frus-frus1961-63v22-d11",
       "title": "11. Telegram From the Embassy in Poland to the Department of State",
       "date": "1961-03-07",
@@ -9866,34 +9823,6 @@
       "citation": "Foreign Relations of the United States, 1961–1963, Volume XX, Congo Crisis, Document 46",
       "summary": "1971. Dept fully concurs in views expressed by Ambassador Stevenson in USUN tel 2404 to Dept rptd Léopoldville 1970. You requested convey substance this message at highest available level as US position. In so doing you should indicate US believes departure of Dayal should be seized on by GOC...",
       "sourceNote": ""
-    },
-    {
-      "id": "nara-193428",
-      "title": "National Security Action Memorandum No. 28 Guerilla Operations in Vietnam Territory",
-      "date": "1961-03-09",
-      "endDate": "1961-03-09",
-      "displayDate": "Mar 9, 1961",
-      "day": 49,
-      "source": "NARA Catalog",
-      "repository": "John F. Kennedy Presidential Library and Museum",
-      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
-      "container": "Meeting Records and Memoranda",
-      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, International relations",
-      "documentNumber": "193428",
-      "documentType": "NARA item",
-      "topics": [
-        "Cuba",
-        "Vietnam",
-        "Intelligence",
-        "Defense"
-      ],
-      "url": "https://catalog.archives.gov/id/193428",
-      "officialUrl": "https://catalog.archives.gov/id/193428",
-      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/28/1934/193428/content/arcmedia/media/images/40/24/40-2338a.gif",
-      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/28/1934/193428/content/arcmedia/media/images/40/24/40-2338a.gif",
-      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 28 Guerilla Operations in Vietnam Territory. NAID 193428.",
-      "summary": "Memorandum for Secretary of Defense and Director of Central Intelligence on guerilla operations in Cuba.",
-      "sourceNote": "Use restriction: Unrestricted"
     },
     {
       "id": "frus-frus1961-63v22-d12",
@@ -10566,6 +10495,31 @@
       "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/53/1932/193253/content/arcmedia/media/images/33/22/33-2159a.jpg",
       "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. Annex No. 11 Proposed Operation Against Cuba. NAID 193253.",
       "summary": "Supplemental material used in Maxwell Taylor's report on the Bay of Pigs operation.",
+      "sourceNote": "Use restriction: Unrestricted"
+    },
+    {
+      "id": "nara-193431",
+      "title": "National Security Action Memorandum No. 31 Memo of Discussion on Cuba",
+      "date": "1961-03-11",
+      "endDate": "1961-03-11",
+      "displayDate": "Mar 11, 1961",
+      "day": 51,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: National Security Files",
+      "container": "Meeting Records and Memoranda",
+      "section": "Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums, National security",
+      "documentNumber": "193431",
+      "documentType": "NARA item",
+      "topics": [
+        "Cuba"
+      ],
+      "url": "https://catalog.archives.gov/id/193431",
+      "officialUrl": "https://catalog.archives.gov/id/193431",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/31/1934/193431/content/arcmedia/media/images/40/24/40-2342a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/31/1934/193431/content/arcmedia/media/images/40/24/40-2342a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: National Security Files. National Security Action Memorandum No. 31 Memo of Discussion on Cuba. NAID 193431.",
+      "summary": "Memorandum on Cuban Policy.",
       "sourceNote": "Use restriction: Unrestricted"
     },
     {
@@ -16058,6 +16012,32 @@
       "sourceNote": ""
     },
     {
+      "id": "nara-193656",
+      "title": "Memorandum for President John F. Kennedy from C. Douglas Dillon, Discussions with Chancellor Adenauer on Balance of Payments, 7 April 1961",
+      "date": "1961-04-07",
+      "endDate": "1961-04-07",
+      "displayDate": "Apr 7, 1961",
+      "day": 78,
+      "source": "NARA Catalog",
+      "repository": "John F. Kennedy Presidential Library and Museum",
+      "collection": "Papers of John F. Kennedy: Presidential Papers: President's Office Files",
+      "container": "Country Files",
+      "section": "Germany, Kennedy, John F. (John Fitzgerald), 1917-1963, Memorandums",
+      "documentNumber": "193656",
+      "documentType": "NARA item",
+      "topics": [
+        "Berlin",
+        "Defense"
+      ],
+      "url": "https://catalog.archives.gov/id/193656",
+      "officialUrl": "https://catalog.archives.gov/id/193656",
+      "dataUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/56/1936/193656/content/arcmedia/media/images/40/12/40-1146a.gif",
+      "thumbnailUrl": "https://s3.amazonaws.com/NARAprodstorage/opastorage/live/56/1936/193656/content/arcmedia/media/images/40/12/40-1146a.gif",
+      "citation": "Papers of John F. Kennedy: Presidential Papers: President's Office Files. Memorandum for President John F. Kennedy from C. Douglas Dillon, Discussions with Chancellor Adenauer on Balance of Payments, 7 April 1961. NAID 193656.",
+      "summary": "Memorandum from Secretary of the Treasury C. Douglas Dillon to President John F. Kennedy regarding points of discussion for the President's meeting with Chancellor of Germany (Federal Republic) Konrad Adenauer. Specifically, Dillon requests that the President discuss Germany's military procurement in the United States.",
+      "sourceNote": "Use restriction: Unrestricted"
+    },
+    {
       "id": "frus-frus1961-63v07-d14",
       "title": "14. Memorandum From the Joint Chiefs of Staff to Secretary of Defense McNamara",
       "date": "1961-04-08",
@@ -20664,6 +20644,121 @@
       "citation": "ISCAP Appeal 2014-030, document 5. Cable, undated.",
       "summary": "Undated cable released with the ISCAP 2014-030 Laos, 1961 appeal file.",
       "sourceNote": "Released through ISCAP appeal 2014-030 for records located at the John F. Kennedy Presidential Library and Museum."
+    },
+    {
+      "id": "nitze-air-force-oral-history-to-page-324",
+      "title": "Paul H. Nitze Air Force oral history, Bay of Pigs continuation through page 324",
+      "date": "",
+      "endDate": "",
+      "displayDate": "Retrospective interview; covers Apr 1961",
+      "day": null,
+      "source": "Nitze Interviews",
+      "repository": "Paul H. Nitze interview files",
+      "collection": "Nitze oral-history and interview PDFs",
+      "container": "Local OCR search results",
+      "section": "Kennedy foreign policy, first 90 days",
+      "documentNumber": "Air Force oral history to p. 324",
+      "documentType": "Nitze interview PDF",
+      "topics": [
+        "Bay of Pigs",
+        "Cuba",
+        "Latin America",
+        "Defense",
+        "Diplomacy",
+        "Asia"
+      ],
+      "url": "/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-324.pdf",
+      "officialUrl": "/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-324.pdf",
+      "dataUrl": "/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-324.pdf",
+      "thumbnailUrl": "",
+      "citation": "Paul H. Nitze, Air Force oral history transcript PDF, post-Bay of Pigs and related Kennedy administration sections through transcript page 324.",
+      "summary": "Continuation includes Nitze on Kennedy assigning him post-Bay of Pigs policy toward Cuba and Latin America, and moving the work into a State Department task force.",
+      "sourceNote": "Local PDF copy selected from the Nitze OCR search because it contains interview material on Kennedy foreign-policy work during January-April 1961."
+    },
+    {
+      "id": "nitze-air-force-oral-history-to-page-348",
+      "title": "Paul H. Nitze Air Force oral history, task-force staff through page 348",
+      "date": "",
+      "endDate": "",
+      "displayDate": "Retrospective interview; covers Apr 1961",
+      "day": null,
+      "source": "Nitze Interviews",
+      "repository": "Paul H. Nitze interview files",
+      "collection": "Nitze oral-history and interview PDFs",
+      "container": "Local OCR search results",
+      "section": "Kennedy foreign policy, first 90 days",
+      "documentNumber": "Air Force oral history to p. 348",
+      "documentType": "Nitze interview PDF",
+      "topics": [
+        "Bay of Pigs",
+        "Cuba",
+        "Latin America",
+        "Diplomacy"
+      ],
+      "url": "/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-348.pdf",
+      "officialUrl": "/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-348.pdf",
+      "dataUrl": "/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-348.pdf",
+      "thumbnailUrl": "",
+      "citation": "Paul H. Nitze, Air Force oral history transcript PDF, later continuation with post-Bay of Pigs task-force staff recollections.",
+      "summary": "OCR hits identify personnel around the post-Bay of Pigs Cuba and Latin America task force, including Richard Goodwin and Adolph Berle.",
+      "sourceNote": "Local PDF copy selected from the Nitze OCR search because it contains interview material on Kennedy foreign-policy work during January-April 1961."
+    },
+    {
+      "id": "nitze-air-force-oral-history-to-page-308",
+      "title": "Paul H. Nitze Air Force oral history, transition through page 308",
+      "date": "",
+      "endDate": "",
+      "displayDate": "Retrospective interview; covers Jan-Apr 1961",
+      "day": null,
+      "source": "Nitze Interviews",
+      "repository": "Paul H. Nitze interview files",
+      "collection": "Nitze oral-history and interview PDFs",
+      "container": "Local OCR search results",
+      "section": "Kennedy foreign policy, first 90 days",
+      "documentNumber": "Air Force oral history to p. 308",
+      "documentType": "Nitze interview PDF",
+      "topics": [
+        "Defense",
+        "Diplomacy",
+        "Laos",
+        "Congo",
+        "NATO",
+        "Nuclear"
+      ],
+      "url": "/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-308.pdf",
+      "officialUrl": "/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-308.pdf",
+      "dataUrl": "/jfk-first-90-days/documents/nitze/nitze-air-force-oral-history-to-page-308.pdf",
+      "thumbnailUrl": "",
+      "citation": "Paul H. Nitze, Air Force oral history transcript PDF, transition and Kennedy administration sections through transcript page 308.",
+      "summary": "OCR hits cover Kennedy assigning Nitze early problems, McNamara placing him at ISA, the policy-making vacuum, Laos and Congo in spring 1961, NATO nuclear issues, de Gaulle, and Rusk-McNamara roles.",
+      "sourceNote": "Local PDF copy selected from the Nitze OCR search because it contains interview material on Kennedy foreign-policy work during January-April 1961."
+    },
+    {
+      "id": "nitze-herken-interviews",
+      "title": "Paul H. Nitze Herken interviews",
+      "date": "",
+      "endDate": "",
+      "displayDate": "Retrospective interview notes; covers 1961",
+      "day": null,
+      "source": "Nitze Interviews",
+      "repository": "Paul H. Nitze interview files",
+      "collection": "Nitze oral-history and interview PDFs",
+      "container": "Local OCR search results",
+      "section": "Kennedy foreign policy, first 90 days",
+      "documentNumber": "Herken interviews",
+      "documentType": "Nitze interview PDF",
+      "topics": [
+        "Defense",
+        "Nuclear",
+        "USSR"
+      ],
+      "url": "/jfk-first-90-days/documents/nitze/nitze-herken-interviews.pdf",
+      "officialUrl": "/jfk-first-90-days/documents/nitze/nitze-herken-interviews.pdf",
+      "dataUrl": "/jfk-first-90-days/documents/nitze/nitze-herken-interviews.pdf",
+      "thumbnailUrl": "",
+      "citation": "Paul H. Nitze, Herken interview notes PDF.",
+      "summary": "OCR hits note that JFK appointed Nitze to ISA in 1961 and directed attention to arms control, with later work on test-ban and strategic-limitation issues.",
+      "sourceNote": "Local PDF copy selected from the Nitze OCR search because it contains interview material on Kennedy foreign-policy work during January-April 1961."
     }
   ]
 }
