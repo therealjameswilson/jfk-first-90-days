@@ -9,7 +9,10 @@ The corpus starts with the State Department's official FRUS Kennedy administrati
 - FRUS Kennedy administration volumes: https://history.state.gov/historicaldocuments/kennedy
 - HistoryAtState FRUS XML repository: https://github.com/HistoryAtState/frus
 - JFK Library Digital Archives: https://www.jfklibrary.org/archives
+- JFK Library press conferences: https://www.jfklibrary.org/archives/other-resources/john-f-kennedy-press-conferences
+- JFK Library speeches: https://www.jfklibrary.org/archives/other-resources/john-f-kennedy-speeches
 - National Archives Catalog: https://catalog.archives.gov/
+- NARA Berlin Crisis of 1961 documents: https://www.archives.gov/research/foreign-policy/cold-war/1961-berlin-crisis/nara-documents.html
 - CIA FOIA Electronic Reading Room: https://www.cia.gov/readingroom/
 - CIA Current/Central Intelligence Bulletin Collection: https://www.cia.gov/readingroom/collection/currentcentral-intelligence-bulletin
 - CIA Bay of Pigs Release: https://www.cia.gov/readingroom/collection/bay-pigs-release

@@ -1,5 +1,8 @@
 const ISCAP_2014_030_URL = 'https://www.archives.gov/declassification/iscap/pdf/2014-030';
 const CIA_READING_ROOM_BASE = 'https://www.cia.gov/readingroom';
+const JFK_LIBRARY_BASE = 'https://www.jfklibrary.org';
+const NARA_BERLIN_URL =
+  'https://www.archives.gov/research/foreign-policy/cold-war/1961-berlin-crisis/nara-documents.html';
 const STATE_FOIA_BASE = 'https://foia.state.gov';
 const NSARCHIVE_BASE = 'https://nsarchive.gwu.edu';
 const NSARCHIVE_BAY_OF_PIGS_2 = 'https://nsarchive2.gwu.edu/bayofpigs/press2.html';
@@ -14,6 +17,8 @@ const bayOfPigsPdf = (fileName) => `https://nsarchive2.gwu.edu/bayofpigs/${fileN
 const ciaReadingRoomDocument = (documentNumber) => `${CIA_READING_ROOM_BASE}/document/${documentNumber}`;
 const ciaReadingRoomPdf = (fileName) => `${CIA_READING_ROOM_BASE}/docs/${fileName}`;
 const ciaCibPdf = (pdfId) => ciaReadingRoomPdf(`CENTRAL%20INTELLIGENCE%20BULL%5B${pdfId}%5D.pdf`);
+const jfkLibraryPage = (path) => `${JFK_LIBRARY_BASE}${path}`;
+const naraCatalogRecord = (id) => `https://catalog.archives.gov/id/${id}`;
 const stateFoiaCase = (caseNumber) =>
   `${STATE_FOIA_BASE}/FOIALIBRARY/SearchResults.aspx?caseNumber=${caseNumber}`;
 const stateFoiaPdf = (path) => `${STATE_FOIA_BASE}/${path}`;
@@ -255,6 +260,369 @@ const ciaBayOfPigsRecords = [
   sourceNote: `CIA Bay of Pigs Release PDF (${record.size}).`,
 }));
 
+const jfkLibraryDefaults = {
+  source: 'JFK Library',
+  repository: 'John F. Kennedy Presidential Library and Museum',
+  collection: 'JFK Library Digital Archives',
+  documentType: 'JFK Library digital folder',
+  sourceNote: 'Digitized record page hosted by the John F. Kennedy Presidential Library and Museum.',
+};
+
+const jfkPressConferenceRecords = [
+  {
+    id: 'jfk-library-news-conference-1',
+    title: 'News Conference 1, January 25, 1961',
+    date: '1961-01-25',
+    url: jfkLibraryPage('/archives/other-resources/john-f-kennedy-press-conferences/news-conference-1'),
+    summary:
+      'Official transcript of Kennedy press conference covering nuclear test-ban negotiations, Congo famine relief, Cuba, and communications with Khrushchev.',
+    topics: ['Nuclear', 'Congo', 'Cuba', 'USSR', 'Laos', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-news-conference-2',
+    title: 'News Conference 2, February 1, 1961',
+    date: '1961-02-01',
+    url: jfkLibraryPage('/archives/other-resources/john-f-kennedy-press-conferences/news-conference-2'),
+    summary:
+      'Official transcript of Kennedy press conference with early-administration questions on foreign affairs and national security.',
+    topics: ['Diplomacy', 'Defense', 'USSR', 'Cuba'],
+  },
+  {
+    id: 'jfk-library-news-conference-3',
+    title: 'News Conference 3, February 8, 1961',
+    date: '1961-02-08',
+    url: jfkLibraryPage('/archives/other-resources/john-f-kennedy-press-conferences/news-conference-3'),
+    summary:
+      'Official transcript including Kennedy on relations with the Soviet Union, Laos, Congo, Communist China, and the State of the Union warning about international danger.',
+    topics: ['USSR', 'Laos', 'Congo', 'Asia', 'Diplomacy', 'Defense'],
+  },
+  {
+    id: 'jfk-library-news-conference-4',
+    title: 'News Conference 4, February 15, 1961',
+    date: '1961-02-15',
+    url: jfkLibraryPage('/archives/other-resources/john-f-kennedy-press-conferences/news-conference-4'),
+    summary:
+      'Official transcript from Kennedy press conference during the early Laos, Congo, Cuba, and disarmament policy period.',
+    topics: ['Laos', 'Congo', 'Cuba', 'Nuclear', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-news-conference-5',
+    title: 'News Conference 5, March 1, 1961',
+    date: '1961-03-01',
+    url: jfkLibraryPage('/archives/other-resources/john-f-kennedy-press-conferences/news-conference-5'),
+    summary:
+      'Official transcript including announcements on Chancellor Adenauer, the Peace Corps, and questions on Congo, nuclear disarmament, and U.S.-Soviet relations.',
+    topics: ['Berlin', 'NATO', 'Peace Corps', 'Congo', 'Nuclear', 'USSR', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-news-conference-6',
+    title: 'News Conference 6, March 8, 1961',
+    date: '1961-03-08',
+    url: jfkLibraryPage('/archives/other-resources/john-f-kennedy-press-conferences/news-conference-6'),
+    summary:
+      'Official transcript including Radio Free Europe, Latin America, Cuba, Laos, and foreign-policy questions before the Alliance for Progress address.',
+    topics: ['Europe', 'Latin America', 'Cuba', 'Laos', 'USSR', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-news-conference-7',
+    title: 'News Conference 7, March 15, 1961',
+    date: '1961-03-15',
+    url: jfkLibraryPage('/archives/other-resources/john-f-kennedy-press-conferences/news-conference-7'),
+    summary:
+      'Official transcript covering the Canada treaty announcement, Israel credit, United Nations, disarmament, test ban, Laos, Latin America, and Geneva talks.',
+    topics: ['Nuclear', 'United Nations', 'Laos', 'Latin America', 'Middle East', 'NATO', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-news-conference-8',
+    title: 'News Conference 8, March 23, 1961',
+    date: '1961-03-23',
+    url: jfkLibraryPage('/archives/other-resources/john-f-kennedy-press-conferences/news-conference-8'),
+    summary:
+      'Official transcript of Kennedy press conference opening with a major statement on Laos and answering questions on Laos, foreign aid, and related policy.',
+    topics: ['Laos', 'Foreign Aid', 'Asia', 'Diplomacy', 'Defense'],
+  },
+  {
+    id: 'jfk-library-news-conference-9',
+    title: 'News Conference 9, April 12, 1961',
+    date: '1961-04-12',
+    url: jfkLibraryPage('/archives/other-resources/john-f-kennedy-press-conferences/news-conference-9'),
+    summary:
+      'Official transcript including the foreign-aid advisory group, Cuba, Yuri Gagarin and Soviet space achievement, Red China and the United Nations, Taiwan, and Laos.',
+    topics: ['Foreign Aid', 'Cuba', 'USSR', 'Asia', 'United Nations', 'Laos', 'Diplomacy'],
+  },
+].map((record) => ({
+  ...jfkLibraryDefaults,
+  ...record,
+  container: 'JFK press conferences',
+  section: 'Public statements and transcripts',
+  documentNumber: record.id.replace('jfk-library-news-conference-', 'News Conference '),
+  documentType: 'JFK press conference transcript',
+  officialUrl: record.url,
+  dataUrl: record.url,
+  citation: `John F. Kennedy Presidential Library, ${record.title}.`,
+}));
+
+const jfkSpeechRecords = [
+  {
+    id: 'jfk-library-inaugural-address-19610120',
+    title: 'Inaugural Address, January 20, 1961',
+    date: '1961-01-20',
+    url: jfkLibraryPage('/archives/other-resources/john-f-kennedy-speeches/inaugural-address-19610120'),
+    summary:
+      'Official JFK Library transcript of Kennedy foreign-policy pledges to allies, new states, Latin America, the United Nations, and adversaries in the nuclear age.',
+    topics: ['USSR', 'Nuclear', 'United Nations', 'Latin America', 'Foreign Aid', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-state-of-union-19610130',
+    title: 'State of the Union Message, 30 January 1961',
+    date: '1961-01-30',
+    url: jfkLibraryPage('/asset-viewer/archives/blbpp-mf10-012'),
+    summary:
+      'JFK Library digitized booklet of Kennedy January 30, 1961 State of the Union message, a public statement framing the early foreign-policy agenda.',
+    topics: ['Diplomacy', 'Defense', 'Foreign Aid', 'Nuclear', 'USSR'],
+  },
+  {
+    id: 'jfk-library-alliance-for-progress-address-19610313',
+    title: 'Address to Latin American diplomats announcing the Alliance for Progress',
+    date: '1961-03-13',
+    url: jfkLibraryPage(
+      '/archives/other-resources/john-f-kennedy-speeches/latin-american-diplomats-washington-dc-19610313',
+    ),
+    summary:
+      'Official JFK Library transcript of Kennedy remarks outlining the Alliance for Progress and a hemispheric program for development and democratic reform.',
+    topics: ['Latin America', 'Foreign Aid', 'Cuba', 'Diplomacy'],
+  },
+].map((record) => ({
+  ...jfkLibraryDefaults,
+  ...record,
+  container: 'JFK speeches',
+  section: 'Public statements and transcripts',
+  documentNumber: record.id.replace('jfk-library-', ''),
+  documentType: 'JFK speech transcript',
+  officialUrl: record.url,
+  dataUrl: record.url,
+  citation: `John F. Kennedy Presidential Library, ${record.title}.`,
+}));
+
+const jfkFolderRecords = [
+  {
+    id: 'jfk-library-pof-press-conference-19610125',
+    title: 'President Office Files: 25 January 1961 press conference folder',
+    date: '1961-01-23',
+    endDate: '1961-01-25',
+    displayDate: 'January 23-25, 1961',
+    documentNumber: 'JFKPOF-054-001',
+    url: jfkLibraryPage('/asset-viewer/archives/jfkpof-054-001'),
+    container: 'President Office Files, Press Conferences',
+    section: 'Press conferences',
+    summary:
+      'Folder of briefing materials and transcripts for News Conference 1, including nuclear test-ban talks, Congo famine relief, Laos, Cuba, and Khrushchev communications.',
+    topics: ['Nuclear', 'Congo', 'Laos', 'Cuba', 'USSR', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-pof-press-conference-19610308',
+    title: 'President Office Files: 8 March 1961 press conference folder',
+    date: '1961-03-08',
+    documentNumber: 'JFKPOF-054-008',
+    url: jfkLibraryPage('/asset-viewer/archives/jfkpof-054-008'),
+    container: 'President Office Files, Press Conferences',
+    section: 'Press conferences',
+    summary:
+      'Briefing-material folder for News Conference 6 with nuclear weapons and disarmament, NATO, U.S.-Soviet relations, Congo, Laos, and U.S.-Cuban relations.',
+    topics: ['Nuclear', 'NATO', 'USSR', 'Congo', 'Laos', 'Cuba', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-pof-cia-1961-jan-may',
+    title: 'Central Intelligence Agency (CIA), 1961: January-May',
+    date: '1961-02-11',
+    endDate: '1961-05-06',
+    displayDate: 'February-May 1961',
+    documentNumber: 'JFKPOF-072-002',
+    url: jfkLibraryPage('/asset-viewer/archives/jfkpof-072-002'),
+    container: "President's Office Files",
+    section: 'Departments and agencies',
+    summary:
+      'Folder on CIA materials, including CIA Bulletins on Laos, Congo, Soviet Union, Libya, France and Algeria, and possible U.S. courses of action against Castro.',
+    topics: ['Intelligence', 'Laos', 'Congo', 'USSR', 'Africa', 'Cuba', 'Defense'],
+  },
+  {
+    id: 'jfk-library-nsf-vietnam-1961-jan-mar',
+    title: 'Vietnam: General, 1961: January-March',
+    date: '1961-01-27',
+    endDate: '1961-03-29',
+    displayDate: 'January-March 1961',
+    documentNumber: 'JFKNSF-193-004',
+    url: jfkLibraryPage('/asset-viewer/archives/jfknsf-193-004'),
+    container: 'National Security Files, Countries',
+    section: 'Vietnam',
+    summary:
+      'Folder of telegrams and memoranda on Vietnam, including counterinsurgency planning, Cambodia-Laos-Thailand relations, communism in the region, and Kenneth Young reporting.',
+    topics: ['Vietnam', 'Laos', 'Asia', 'Defense', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-nsf-cuba-1961-jan-apr',
+    title: 'Cuba: General, 1961: January-April',
+    date: '1961-01-27',
+    endDate: '1961-04-28',
+    displayDate: 'January-April 1961',
+    documentNumber: 'JFKNSF-035-017',
+    url: jfkLibraryPage('/asset-viewer/archives/jfknsf-035-017'),
+    container: 'National Security Files, Countries',
+    section: 'Cuba',
+    summary:
+      'Folder of Cuba memoranda, including Bay of Pigs planning, OAS questions, U.S. Cuba policy, Castro, and Schlesinger memorandum on political, diplomatic, and economic problems.',
+    topics: ['Cuba', 'Bay of Pigs', 'Latin America', 'Intelligence', 'Defense', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-nsf-laos-general-19610320',
+    title: 'Laos: General, March 1961: 20-22',
+    date: '1961-03-20',
+    endDate: '1961-03-22',
+    displayDate: 'March 20-22, 1961',
+    documentNumber: 'JFKNSF-130-010',
+    url: jfkLibraryPage('/asset-viewer/archives/jfknsf-130-010'),
+    container: 'National Security Files, Countries',
+    section: 'Laos',
+    summary:
+      'Folder of correspondence and memoranda on Laos surrounding Kennedy March 23 press conference and the neutral Laos policy crisis.',
+    topics: ['Laos', 'Asia', 'Defense', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-pof-laos-security-19610401',
+    title: 'Laos: Security, April 1961: 1-20',
+    date: '1961-04-01',
+    endDate: '1961-04-17',
+    displayDate: 'April 1-17, 1961',
+    documentNumber: 'JFKPOF-121a-005',
+    url: jfkLibraryPage('/asset-viewer/archives/jfkpof-121a-005'),
+    container: "President's Office Files",
+    section: 'Laos',
+    summary:
+      "Folder collected by Evelyn Lincoln concerning Laotian neutrality and the possibility of a Soviet-supported Pathet Lao rebellion.",
+    topics: ['Laos', 'Asia', 'USSR', 'Defense', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-nsf-uar-nasser-1961-jan-apr',
+    title: 'United Arab Republic: Nasser correspondence, 1961: 20 January-30 April',
+    date: '1961-01-20',
+    endDate: '1961-04-30',
+    displayDate: 'January-April 1961',
+    documentNumber: 'JFKNSF-169-003',
+    url: jfkLibraryPage('/asset-viewer/archives/jfknsf-169-003'),
+    container: 'National Security Files, Countries',
+    section: 'United Arab Republic',
+    summary:
+      'Folder of memoranda and correspondence between the State Department, Kennedy, and Gamal Abdel Nasser on U.S. foreign policy, Congo, United Nations response, and Cuba.',
+    topics: ['Middle East', 'Africa', 'Congo', 'Cuba', 'United Nations', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-nsf-bowles-1961-jan-apr',
+    title: 'Staff memoranda: Bowles, Chester, 1961: January-April',
+    date: '1961-02-12',
+    endDate: '1961-04-14',
+    displayDate: 'February-April 1961',
+    documentNumber: 'JFKNSF-319a-003',
+    url: jfkLibraryPage('/asset-viewer/archives/jfknsf-319a-003'),
+    container: 'National Security Files, Meetings and Memoranda',
+    section: 'Staff memoranda',
+    summary:
+      'Folder with Chester Bowles-related materials on Peace Corps concerns in Nigeria and an Indo-American development program paper.',
+    topics: ['Peace Corps', 'Foreign Aid', 'Africa', 'Asia', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-nsf-alliance-for-progress-1961',
+    title: 'Alliance for Progress: General, 1961: January-December',
+    date: '1961-03-06',
+    endDate: '1961-11-17',
+    displayDate: 'March-November 1961',
+    documentNumber: 'JFKNSF-290-019',
+    url: jfkLibraryPage('/asset-viewer/archives/jfknsf-290-019'),
+    container: 'National Security Files, Subjects',
+    section: 'Alliance for Progress',
+    summary:
+      'Folder of memoranda, correspondence, an address, and press release on creating and managing the Alliance for Progress foreign-aid initiative in Latin America.',
+    topics: ['Latin America', 'Foreign Aid', 'Diplomacy'],
+  },
+  {
+    id: 'jfk-library-nsf-foreign-aid-1961-mar-apr',
+    title: 'Foreign aid: General, 1961: March-April',
+    date: '1961-02-03',
+    endDate: '1961-04-26',
+    displayDate: 'February-April 1961',
+    documentNumber: 'JFKNSF-297-002',
+    url: jfkLibraryPage('/asset-viewer/archives/jfknsf-297-002'),
+    container: 'National Security Files, Subjects',
+    section: 'Foreign aid',
+    summary:
+      'Folder of press release and memoranda concerning an Emergency Freedom Fund and reorganization and funding of the U.S. foreign-aid program.',
+    topics: ['Foreign Aid', 'Diplomacy', 'Defense'],
+  },
+  {
+    id: 'jfk-library-nsf-presidents-speeches-1961',
+    title: "President's speeches: miscellaneous drafts and comments, 1961-1963",
+    date: '1961-03-18',
+    endDate: '1963-11-05',
+    displayDate: 'March 1961-November 1963',
+    documentNumber: 'JFKNSF-305-004',
+    url: jfkLibraryPage('/asset-viewer/archives/jfknsf-305-004'),
+    container: 'National Security Files, Subjects',
+    section: 'Presidential speeches',
+    summary:
+      'Folder of letters, memoranda, and speech drafts on foreign aid, communism, nuclear weapons, international relations, Berlin, Cuba, the Soviet Union, and Latin America.',
+    topics: ['Foreign Aid', 'Nuclear', 'Berlin', 'Cuba', 'USSR', 'Latin America', 'Diplomacy'],
+  },
+].map((record) => ({
+  ...jfkLibraryDefaults,
+  ...record,
+  officialUrl: record.url,
+  dataUrl: record.url,
+  citation: `John F. Kennedy Presidential Library, ${record.title}, ${record.documentNumber}.`,
+}));
+
+const naraBerlinRecords = [
+  {
+    id: 'nara-berlin-6036974',
+    title:
+      'Report of the Four-Power Working Group on Germany Including Berlin on planning for a separate peace treaty',
+    date: '1961-03-03',
+    documentNumber: '6036974',
+    url: 'https://nara-media-001.s3.amazonaws.com/arcmedia/research/1961-berlin-crisis/959001-6-6-untabbed/95901-6-6.pdf',
+    summary:
+      'NARA Berlin Crisis PDF on quadripartite planning for a possible Soviet-GDR separate peace treaty and Berlin contingency issues.',
+  },
+  {
+    id: 'nara-berlin-6035203',
+    title: 'Clandestine Action in Support of the U.S. Berlin Policy',
+    date: '1961-03-23',
+    documentNumber: '6035203',
+    url: 'https://nara-media-001.s3.amazonaws.com/arcmedia/research/1961-berlin-crisis/32229-2-3-6/32229-2-3-6.pdf',
+    summary:
+      'NARA Berlin Crisis PDF on clandestine support for U.S. Berlin policy during early Kennedy contingency planning.',
+  },
+  {
+    id: 'nara-berlin-6036997',
+    title: 'Memorandum of Conversation: European Integration and the Six and Seven Problem',
+    date: '1961-04-13',
+    documentNumber: '6036997',
+    url: 'https://nara-media-001.s3.amazonaws.com/arcmedia/research/1961-berlin-crisis/941139-1-3-36/941139-1-3-36.pdf',
+    summary:
+      'NARA Berlin Crisis PDF of an April 13 memorandum of conversation on European integration and the Six and Seven problem.',
+  },
+].map((record) => ({
+  source: 'NARA Catalog',
+  repository: 'National Archives and Records Administration',
+  collection: 'Berlin Crisis of 1961: Documents at the National Archives',
+  container: 'Berlin Crisis of 1961 documents',
+  section: 'Berlin Crisis',
+  documentType: 'NARA Berlin Crisis release',
+  topics: ['Berlin', 'Europe', 'NATO', 'USSR', 'Diplomacy', 'Defense', 'Intelligence'],
+  sourceNote: 'PDF listed on the National Archives Berlin Crisis of 1961 documents page.',
+  ...record,
+  officialUrl: naraCatalogRecord(record.documentNumber),
+  dataUrl: record.url,
+  citation: `National Archives, Berlin Crisis of 1961 documents, National Archives Identifier ${record.documentNumber}.`,
+}));
+
 const nitzeDefaults = {
   source: 'Nitze Interviews',
   repository: 'Paul H. Nitze interview files',
@@ -270,6 +638,10 @@ const nitzeDefaults = {
 export const supplementalRecords = [
   ...ciaCibRecords,
   ...ciaBayOfPigsRecords,
+  ...jfkPressConferenceRecords,
+  ...jfkSpeechRecords,
+  ...jfkFolderRecords,
+  ...naraBerlinRecords,
   {
     ...iscapDefaults,
     id: 'iscap-2014-030-doc-1',

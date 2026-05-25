@@ -595,7 +595,7 @@ async function main() {
       windowStart: START_DATE,
       windowEnd: END_DATE,
       scopeNote:
-        'Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy and link back to official asset or catalog pages. CIA FOIA, State FOIA, ISCAP, and National Security Archive records are curated from their release pages, search results, and Virtual Reading Room document pages, with direct PDF links where available. Nitze Interviews contains the four local PDF files selected from the Nitze OCR search because they discuss Kennedy foreign-policy work in the first 90 days.',
+        'Documents are included when their date metadata overlaps January 20 through April 20, 1961 and the record text matches foreign-policy topics. FRUS documents are extracted from official State Department TEI/XML; JFK Library/NARA records come from the National Archives Catalog proxy, JFK Library digital pages, JFK public-statement pages, and NARA thematic release pages. CIA FOIA, State FOIA, ISCAP, and National Security Archive records are curated from their release pages, search results, and Virtual Reading Room document pages, with direct PDF links where available. Nitze Interviews contains the four local PDF files selected from the Nitze OCR search because they discuss Kennedy foreign-policy work in the first 90 days.',
       sourceOrder: ['FRUS', 'JFK Library', 'NARA Catalog', 'CIA FOIA', 'State FOIA', 'ISCAP', 'National Security Archive', 'Nitze Interviews'],
       officialSources: [
         {
@@ -611,8 +611,20 @@ async function main() {
           url: 'https://www.jfklibrary.org/archives',
         },
         {
+          label: 'JFK Library press conferences',
+          url: 'https://www.jfklibrary.org/archives/other-resources/john-f-kennedy-press-conferences',
+        },
+        {
+          label: 'JFK Library speeches',
+          url: 'https://www.jfklibrary.org/archives/other-resources/john-f-kennedy-speeches',
+        },
+        {
           label: 'National Archives Catalog',
           url: 'https://catalog.archives.gov/',
+        },
+        {
+          label: 'NARA Berlin Crisis of 1961 documents',
+          url: 'https://www.archives.gov/research/foreign-policy/cold-war/1961-berlin-crisis/nara-documents.html',
         },
         {
           label: 'CIA FOIA Electronic Reading Room',
