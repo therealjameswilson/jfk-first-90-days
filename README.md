@@ -10,6 +10,9 @@ The corpus starts with the State Department's official FRUS Kennedy administrati
 - HistoryAtState FRUS XML repository: https://github.com/HistoryAtState/frus
 - JFK Library Digital Archives: https://www.jfklibrary.org/archives
 - National Archives Catalog: https://catalog.archives.gov/
+- CIA FOIA Electronic Reading Room: https://www.cia.gov/readingroom/
+- CIA Current/Central Intelligence Bulletin Collection: https://www.cia.gov/readingroom/collection/currentcentral-intelligence-bulletin
+- CIA Bay of Pigs Release: https://www.cia.gov/readingroom/collection/bay-pigs-release
 - Department of State FOIA Library: https://foia.state.gov/FOIALIBRARY/SearchResults.aspx
 - Department of State FOIA microfiche releases: https://foia.state.gov/FOIALIBRARY/Microfiche2.aspx
 - ISCAP release 2014-030, Laos 1961: https://www.archives.gov/declassification/iscap/pdf/2014-030
@@ -28,4 +31,4 @@ npm run build
 npm run lint
 ```
 
-`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, curated State FOIA/ISCAP/National Security Archive source files, and the selected Nitze interview PDFs.
+`npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, curated CIA FOIA/State FOIA/ISCAP/National Security Archive source files, and the selected Nitze interview PDFs.

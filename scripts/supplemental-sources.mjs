@@ -1,4 +1,5 @@
 const ISCAP_2014_030_URL = 'https://www.archives.gov/declassification/iscap/pdf/2014-030';
+const CIA_READING_ROOM_BASE = 'https://www.cia.gov/readingroom';
 const STATE_FOIA_BASE = 'https://foia.state.gov';
 const NSARCHIVE_BASE = 'https://nsarchive.gwu.edu';
 const NSARCHIVE_BAY_OF_PIGS_2 = 'https://nsarchive2.gwu.edu/bayofpigs/press2.html';
@@ -10,6 +11,9 @@ const iscapPdf = (number) =>
 
 const nsarchiveDocument = (path) => `${NSARCHIVE_BASE}${path}`;
 const bayOfPigsPdf = (fileName) => `https://nsarchive2.gwu.edu/bayofpigs/${fileName}`;
+const ciaReadingRoomDocument = (documentNumber) => `${CIA_READING_ROOM_BASE}/document/${documentNumber}`;
+const ciaReadingRoomPdf = (fileName) => `${CIA_READING_ROOM_BASE}/docs/${fileName}`;
+const ciaCibPdf = (pdfId) => ciaReadingRoomPdf(`CENTRAL%20INTELLIGENCE%20BULL%5B${pdfId}%5D.pdf`);
 const stateFoiaCase = (caseNumber) =>
   `${STATE_FOIA_BASE}/FOIALIBRARY/SearchResults.aspx?caseNumber=${caseNumber}`;
 const stateFoiaPdf = (path) => `${STATE_FOIA_BASE}/${path}`;
@@ -58,6 +62,199 @@ const stateFoiaDefaults = {
     'Located through FOIA.state.gov search and microfiche indexes; direct PDF hosted by the Department of State FOIA Library.',
 };
 
+const ciaFoiaDefaults = {
+  source: 'CIA FOIA',
+  repository: 'Central Intelligence Agency',
+  collection: 'CIA FOIA Electronic Reading Room',
+  documentType: 'CIA FOIA release',
+  topics: ['Intelligence'],
+  officialUrl: `${CIA_READING_ROOM_BASE}/`,
+  sourceNote: 'Located through the CIA FOIA Electronic Reading Room; direct PDF hosted by CIA.',
+};
+
+const ciaCibIssues = [
+  ['1961-01-21', '02000177', 23, '15815782', '1.12 MB'],
+  ['1961-01-23', '02000178', 16, '15815635', '833.72 KB'],
+  ['1961-01-24', '02000179', 14, '15815639', '670.92 KB'],
+  ['1961-01-25', '02000180', 17, '15815787', '786.36 KB'],
+  ['1961-01-26', '02000181', 19, '15815554', '927.91 KB'],
+  ['1961-01-27', '02000182', 19, '15815781', '841.29 KB'],
+  ['1961-01-28', '02000183', 34, '15815742', '1.5 MB'],
+  ['1961-01-30', '02000184', 20, '15815531', '938.34 KB'],
+  ['1961-01-31', '02000185', 20, '15815598', '990.26 KB'],
+  ['1961-02-01', '03174712', 15, '15815760', '748.74 KB'],
+  ['1961-02-02', '06788696', 22, '15815637', '986.38 KB'],
+  ['1961-02-03', '02000186', 20, '15815638', '937.26 KB'],
+  ['1961-02-04', '02000187', 15, '15815578', '616.15 KB'],
+  ['1961-02-06', '02000188', 25, '15815785', '1.16 MB'],
+  ['1961-02-07', '02000189', 24, '15815623', '1.16 MB'],
+  ['1961-02-09', '02000191', 18, '15815535', '753.94 KB'],
+  ['1961-02-10', '02000192', 15, '15815791', '747.47 KB'],
+  ['1961-02-11', '02000193', 17, '15815597', '843.37 KB'],
+  ['1961-02-13', '02000194', 21, '15815741', '977.85 KB'],
+  ['1961-02-14', '02000195', 17, '15815627', '695.58 KB'],
+  ['1961-02-15', '02000196', 26, '15815532', '1.18 MB'],
+  ['1961-02-16', '02000197', 19, '15815583', '813.02 KB'],
+  ['1961-02-17', '02000198', 19, '15815784', '876.37 KB'],
+  ['1961-02-18', '03172677', 20, '15815559', '963.23 KB'],
+  ['1961-02-22', '03184172', 11, '15815556', '521.2 KB'],
+  ['1961-02-23', '02026613', 21, '15815764', '1022.02 KB'],
+  ['1961-02-24', '03007376', 14, '15815770', '607.91 KB'],
+  ['1961-02-25', '03172678', 21, '15815631', '942.67 KB'],
+  ['1961-02-27', '03172679', 24, '15815580', '1.27 MB'],
+  ['1961-02-28', '02989742', 13, '15815789', '632.45 KB'],
+  ['1961-03-02', '02026614', 16, '15815609', '838.94 KB'],
+  ['1961-03-04', '02026616', 17, '15815744', '796.16 KB'],
+  ['1961-03-08', '02026617', 19, '15815788', '901.13 KB'],
+  ['1961-03-09', '03184093', 18, '15815793', '846.83 KB'],
+  ['1961-03-10', '02001967', 16, '15815537', '731.22 KB'],
+  ['1961-03-11', '03184094', 20, '15815797', '881.14 KB'],
+  ['1961-03-13', '02001968', 18, '15815558', '773.93 KB'],
+  ['1961-03-14', '02001969', 15, '15815534', '659.53 KB'],
+  ['1961-03-15', '03007380', 21, '15815792', '1 MB'],
+  ['1961-03-16', '03186011', 18, '15815762', '814.13 KB'],
+  ['1961-03-17', '03007381', 19, '15815796', '931.19 KB'],
+  ['1961-03-18', '03007382', 17, '15815799', '773.73 KB'],
+  ['1961-03-20', '02001970', 20, '15815539', '988.96 KB'],
+  ['1961-03-21', '03007383', 14, '15815585', '607.76 KB'],
+  ['1961-03-22', '03007384', 19, '15815769', '1004 KB'],
+  ['1961-03-23', '03007385', 21, '15815795', '989.13 KB'],
+  ['1961-03-24', '02001971', 19, '15815749', '842.27 KB'],
+  ['1961-03-25', '03007386', 16, '15815582', '616.34 KB'],
+  ['1961-03-27', '02731969', 20, '15815536', '865.63 KB'],
+  ['1961-03-28', '02001972', 12, '15815563', '610.59 KB'],
+  ['1961-03-29', '02001973', 24, '15815773', '1.08 MB'],
+  ['1961-03-30', '03007387', 18, '15815768', '869.59 KB'],
+  ['1961-03-31', '03186012', 18, '15815743', '819.14 KB'],
+  ['1961-04-01', '02001974', 20, '15815560', '880.9 KB'],
+  ['1961-04-03', '02001975', 21, '15815541', '941.44 KB'],
+  ['1961-04-04', '03186013', 15, '15815748', '617.31 KB'],
+  ['1961-04-06', '02001977', 22, '15815772', '996.29 KB'],
+  ['1961-04-07', '02001978', 19, '15815538', '805.86 KB'],
+  ['1961-04-08', '06788695', 13, '15815555', '527.81 KB'],
+  ['1961-04-10', '02001979', 21, '15815543', '880.23 KB'],
+  ['1961-04-11', '02001980', 21, '15815798', '1.02 MB'],
+  ['1961-04-12', '02001981', 21, '15815540', '850.49 KB'],
+  ['1961-04-13', '02001982', 22, '15815613', '1.11 MB'],
+  ['1961-04-14', '02001983', 23, '15815608', '1.01 MB'],
+  ['1961-04-15', '02001984', 23, '15815612', '1.07 MB'],
+  ['1961-04-17', '02001985', 16, '15815746', '766.43 KB'],
+  ['1961-04-18', '02001986', 23, '15815545', '1.03 MB'],
+  ['1961-04-19', '02001987', 22, '15815617', '1.1 MB'],
+  ['1961-04-20', '02001988', 18, '15815751', '798.77 KB'],
+];
+
+const ciaCibRecords = ciaCibIssues.map(([date, documentNumber, pages, pdfId, size]) => ({
+  ...ciaFoiaDefaults,
+  id: `cia-cib-${date}`,
+  title: `Central Intelligence Bulletin - ${date}`,
+  date,
+  container: 'Current/Central Intelligence Bulletin, 2 January-30 June 1961',
+  section: 'Daily intelligence briefings',
+  documentNumber: `CIA document ${documentNumber}`,
+  documentType: 'Central Intelligence Bulletin',
+  topics: ['Intelligence', 'USSR', 'Laos', 'Congo', 'Cuba', 'Defense', 'Diplomacy'],
+  url: ciaCibPdf(pdfId),
+  officialUrl: ciaReadingRoomDocument(documentNumber),
+  dataUrl: ciaCibPdf(pdfId),
+  citation: `Central Intelligence Bulletin, ${date}, CIA FOIA Reading Room, document ${documentNumber}.`,
+  summary:
+    "Daily CIA intelligence digest in the 2 January-30 June 1961 CIB release, covering Kennedy-era foreign-policy crises including Laos, Congo, Soviet military and space developments, and Cuba.",
+  sourceNote: `CIA Reading Room PDF in the Current/Central Intelligence Bulletin collection (${pages} pages, ${size}).`,
+}));
+
+const ciaBayOfPigsRecords = [
+  {
+    id: 'cia-bay-of-pigs-vol1-part1',
+    title: 'Official History of the Bay of Pigs Operation, Volume I, Part 1',
+    documentNumber: '5076ddc4993247d4d82b58d9',
+    pdfFile: 'bop-vol1-part1.pdf',
+    size: '11.61 MB',
+    summary:
+      'CIA staff history volume section on air operations for the Bay of Pigs operation, covering March 1960-April 1961.',
+  },
+  {
+    id: 'cia-bay-of-pigs-vol1-part2',
+    title: 'Official History of the Bay of Pigs Operation, Volume I, Part 2',
+    documentNumber: '5076ddc4993247d4d82b58da',
+    pdfFile: 'bop-vol1-part2.pdf',
+    size: '6.86 MB',
+    summary:
+      'Continuation of the CIA staff history on air operations for the Bay of Pigs operation and its April 1961 execution.',
+  },
+  {
+    id: 'cia-bay-of-pigs-vol1-part3',
+    title: 'Official History of the Bay of Pigs Operation, Volume I, Part 3',
+    documentNumber: '5076ddc4993247d4d82b58d6',
+    pdfFile: 'bop-vol1-part3.pdf',
+    size: '2.61 MB',
+    summary:
+      'Final section of the CIA staff history volume on air operations for the Bay of Pigs invasion.',
+  },
+  {
+    id: 'cia-bay-of-pigs-vol2-part1',
+    title: 'Official History of the Bay of Pigs Operation, Volume II, Part 1',
+    documentNumber: '5076ddc4993247d4d82b58d5',
+    pdfFile: 'bop-vol2-part1.pdf',
+    size: '5.73 MB',
+    summary:
+      'CIA staff history volume on participation in the conduct of foreign policy during the Bay of Pigs operation.',
+  },
+  {
+    id: 'cia-bay-of-pigs-vol2-part2',
+    title: 'Official History of the Bay of Pigs Operation, Volume II, Part 2',
+    documentNumber: '5076ddc4993247d4d82b58d7',
+    pdfFile: 'bop-vol2-part2.pdf',
+    size: '2.36 MB',
+    summary:
+      'Continuation of the CIA staff history on policy participation and high-level decision-making around the Bay of Pigs operation.',
+  },
+  {
+    id: 'cia-bay-of-pigs-vol3',
+    title: 'Official History of the Bay of Pigs Operation, Volume III',
+    documentNumber: '5076ddc4993247d4d82b58d4',
+    pdfFile: 'bop-vol3.pdf',
+    size: '14.14 MB',
+    summary:
+      'CIA staff history volume on the evolution of CIA anti-Castro policies through January 1961, giving transition context for Kennedy-era Cuba policy.',
+  },
+  {
+    id: 'cia-bay-of-pigs-vol4',
+    title: 'Official History of the Bay of Pigs Operation, Volume IV',
+    documentNumber: '5076ddc4993247d4d82b58d8',
+    pdfFile: 'bop-vol4.pdf',
+    size: '11.39 MB',
+    summary:
+      'CIA staff history volume on the Taylor Committee investigation into the Bay of Pigs failure.',
+  },
+  {
+    id: 'cia-bay-of-pigs-vol5-draft',
+    title: "Official History of the Bay of Pigs Operation, Draft Volume V: CIA's Internal Investigation",
+    documentNumber: '0001254908',
+    pdfFile: 'C01254908.pdf',
+    size: '8.4 MB',
+    summary:
+      "Draft CIA staff history volume on the agency's internal investigation of the Bay of Pigs operation.",
+  },
+].map((record) => ({
+  ...ciaFoiaDefaults,
+  id: record.id,
+  title: record.title,
+  date: '',
+  displayDate: 'CIA official history; covers Bay of Pigs, 1960-1961',
+  container: 'Bay of Pigs Release',
+  section: 'Cuba and Bay of Pigs',
+  documentNumber: `CIA document ${record.documentNumber}`,
+  documentType: 'CIA official history',
+  topics: ['Bay of Pigs', 'Cuba', 'Latin America', 'Intelligence', 'Defense', 'Diplomacy'],
+  url: ciaReadingRoomPdf(record.pdfFile),
+  officialUrl: ciaReadingRoomDocument(record.documentNumber),
+  dataUrl: ciaReadingRoomPdf(record.pdfFile),
+  citation: `CIA FOIA Reading Room, Bay of Pigs Release, ${record.title}.`,
+  summary: record.summary,
+  sourceNote: `CIA Bay of Pigs Release PDF (${record.size}).`,
+}));
+
 const nitzeDefaults = {
   source: 'Nitze Interviews',
   repository: 'Paul H. Nitze interview files',
@@ -71,6 +268,8 @@ const nitzeDefaults = {
 };
 
 export const supplementalRecords = [
+  ...ciaCibRecords,
+  ...ciaBayOfPigsRecords,
   {
     ...iscapDefaults,
     id: 'iscap-2014-030-doc-1',

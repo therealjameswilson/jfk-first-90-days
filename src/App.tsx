@@ -366,6 +366,7 @@ function sourceIcon(sourceName: ArchiveSource) {
   if (sourceName === 'FRUS') return <BookOpen />;
   if (sourceName === 'JFK Library') return <Library />;
   if (sourceName === 'NARA Catalog') return <Archive />;
+  if (sourceName === 'CIA FOIA') return <Shield />;
   if (sourceName === 'State FOIA') return <FileText />;
   if (sourceName === 'ISCAP') return <Shield />;
   if (sourceName === 'Nitze Interviews') return <FileText />;

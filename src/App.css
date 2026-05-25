@@ -356,6 +356,12 @@
   background: var(--olive-soft);
 }
 
+.source-chip--cia-foia {
+  border-color: #b5a574;
+  color: #5c4a12;
+  background: #f4efd9;
+}
+
 .source-chip--state-foia {
   border-color: #7ca6b8;
   color: #245366;
