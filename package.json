@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build:data": "node scripts/build-archive-data.mjs",
+    "build:eisenhower": "node scripts/build-eisenhower-chronology.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

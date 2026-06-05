@@ -1,0 +1,68 @@
+{
+  "corpusDir": "/Users/jameswilson/research/jfk-1961-chronology/jfk/jfk_files_md",
+  "documentsScanned": 2138,
+  "endDate": "1961-01-19",
+  "generatedAt": "2026-06-05T01:47:18.439Z",
+  "outputDir": "/Users/jameswilson/Documents/JFK/public/eisenhower-chronology",
+  "startDate": "1953-01-20",
+  "totalDateHits": 19129,
+  "uniqueDocumentsWithHits": 603,
+  "daysInScope": 2922,
+  "daysWithHits": 2714,
+  "byYear": {
+    "1953": {
+      "dateHits": 1551,
+      "daysInScope": 346,
+      "daysWithHits": 321,
+      "uniqueDocuments": 181
+    },
+    "1954": {
+      "dateHits": 1522,
+      "daysInScope": 365,
+      "daysWithHits": 335,
+      "uniqueDocuments": 191
+    },
+    "1955": {
+      "dateHits": 1442,
+      "daysInScope": 365,
+      "daysWithHits": 318,
+      "uniqueDocuments": 186
+    },
+    "1956": {
+      "dateHits": 1660,
+      "daysInScope": 366,
+      "daysWithHits": 333,
+      "uniqueDocuments": 176
+    },
+    "1957": {
+      "dateHits": 2061,
+      "daysInScope": 365,
+      "daysWithHits": 342,
+      "uniqueDocuments": 193
+    },
+    "1958": {
+      "dateHits": 2032,
+      "daysInScope": 365,
+      "daysWithHits": 335,
+      "uniqueDocuments": 225
+    },
+    "1959": {
+      "dateHits": 2094,
+      "daysInScope": 365,
+      "daysWithHits": 348,
+      "uniqueDocuments": 239
+    },
+    "1960": {
+      "dateHits": 6478,
+      "daysInScope": 366,
+      "daysWithHits": 363,
+      "uniqueDocuments": 345
+    },
+    "1961": {
+      "dateHits": 289,
+      "daysInScope": 19,
+      "daysWithHits": 19,
+      "uniqueDocuments": 90
+    }
+  }
+}
