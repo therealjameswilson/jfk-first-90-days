@@ -13,6 +13,8 @@ const OUTPUT_DIR =
 
 const START_DATE = '1953-01-20';
 const END_DATE = '1961-01-19';
+const PFIAB_END_DATE = '1960-12-31';
+const PFIAB_SECTION_DIR = 'pfiab';
 const RELEASE_URL = 'https://www.archives.gov/research/jfk/release-2025';
 const SOURCE_BASE_URL = 'https://github.com/doctly/jfk/blob/main/jfk_files_md';
 const CONTEXT_CHARS = 300;
@@ -260,6 +262,27 @@ function lineField(lines, fieldName) {
   return found ? normalizeSpaces(found.match(expression)?.[1] || '') : '';
 }
 
+function lineFieldWithContinuation(lines, fieldName, maxContinuationLines = 8) {
+  const expression = new RegExp(`^\\s*${fieldName}\\s*:\\s*(.*?)\\s*$`, 'i');
+  const index = lines.findIndex((line) => expression.test(line));
+  if (index === -1) return '';
+
+  const first = normalizeSpaces(lines[index].match(expression)?.[1] || '');
+  const values = first ? [first] : [];
+  for (let offset = 1; offset <= maxContinuationLines && index + offset < lines.length; offset += 1) {
+    const line = normalizeSpaces(lines[index + offset]);
+    if (!line) {
+      if (values.length) break;
+      continue;
+    }
+    if (/^[A-Z][A-Z0-9 /().,'"-]{1,60}\s*:/i.test(line)) break;
+    if (/^(Agency Information|Document Information|NW\s|[-]{3,}|Page\s+\d+)/i.test(line)) break;
+    values.push(line);
+    if (values.join(' ').length > 300) break;
+  }
+  return normalizeSpaces(values.join(' '));
+}
+
 function parseCableDate(text) {
   const match = new RegExp(`\\b(\\d{2})(\\d{2})(?:\\d{2})?Z\\s+(${monthPattern})\\s+(\\d{2})\\b`, 'i').exec(
     normalizeForMatching(text.slice(0, 1600)),
@@ -274,9 +297,20 @@ function parseMetadata(rawText, relPath) {
   const filename = path.basename(relPath, '.md');
   const prefix = relPath.split(path.sep)[0]?.split('-')[0] || '';
   const recordNumber = lineField(lines, 'RECORD NUMBER') || filename.replace(/(?:_multirif.*| \\(.+\\))$/i, '');
+  const originator = lineField(lines, 'ORIGINATOR');
+  const title = lineField(lines, 'TITLE');
+  const pfiabTitle = lineFieldWithContinuation(lines, 'TITLE', 4);
+  const pfiabSubjects = lineFieldWithContinuation(lines, 'SUBJECTS');
+  const pfiabSubject = lineFieldWithContinuation(lines, 'SUBJECT');
+  const pfiabDescriptor = [
+    originator,
+    pfiabTitle,
+    pfiabSubjects,
+    pfiabSubject,
+  ].join(' ');
   const agency =
     lineField(lines, 'AGENCY') ||
-    lineField(lines, 'ORIGINATOR') ||
+    originator ||
     agencyByPrefix.get(prefix) ||
     prefix ||
     'Unknown agency';
@@ -305,10 +339,14 @@ function parseMetadata(rawText, relPath) {
     agency: agency.toUpperCase(),
     classification,
     docDate,
+    displayTitle: pfiabTitle || pfiabSubject || pfiabSubjects || subject,
+    originator,
+    pfiabDescriptor,
     recordNumber,
     relPath,
     sourceName: path.basename(relPath),
     subject,
+    title,
     url: sourceUrl(relPath),
   };
 }
@@ -512,7 +550,7 @@ function excerptHtml(context) {
     .join('\n');
 }
 
-function renderReleaseBanner(prefix) {
+function renderReleaseBanner(searchPrefix) {
   return `
 <aside class="release-banner" role="note">
   <strong>Declassification note:</strong>
@@ -521,7 +559,7 @@ function renderReleaseBanner(prefix) {
   and are presented as declassified public records. Any classification markings shown in the original files indicate their original classifications, not a current classification status.
 </aside>
 
-<form class="site-search" id="site-search-form" action="${prefix}search.html" method="get" role="search">
+<form class="site-search" id="site-search-form" action="${searchPrefix}search.html" method="get" role="search">
   <label for="site-search-input">Search this chronology</label>
   <div class="site-search-row">
     <input id="site-search-input" name="q" type="search" placeholder="Date, document ID, agency, excerpt..." autocomplete="off">
@@ -530,7 +568,7 @@ function renderReleaseBanner(prefix) {
 </form>`;
 }
 
-function pageShell({ title, prefix = '', intro = '', body }) {
+function pageShell({ title, prefix = '', searchPrefix = prefix, intro = '', body }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -540,7 +578,7 @@ function pageShell({ title, prefix = '', intro = '', body }) {
   <link rel="stylesheet" href="${prefix}style.css">
 </head>
 <body>
-${renderReleaseBanner(prefix)}
+${renderReleaseBanner(searchPrefix)}
 ${intro ? `<section class="page-intro" aria-label="Page introduction"><p>${html(intro)}</p></section>` : ''}
 ${body}
 </body>
@@ -585,6 +623,148 @@ function renderGroupedRetrospective(hits) {
 ${agencyHits.map((hit, index) => renderHit(hit, index)).join('\n')}`)
     .join('\n');
   return `<section class="chron-section retrospective"><h2>Retrospective</h2>${sections}</section>`;
+}
+
+function isPfiabDocument(meta) {
+  const descriptor = [meta.agency, meta.originator, meta.title, meta.subject, meta.pfiabDescriptor]
+    .filter(Boolean)
+    .join(' ');
+  return /\bPFIAB\b|PBIAB|President'?s Foreign Intelligence Advisory Board|President.?s Foreign Intelligence Advisory Board|Foreign Intelligence Advisory Board/i.test(
+    descriptor,
+  );
+}
+
+function isInPfiabEventScope(iso) {
+  return iso && iso >= START_DATE && iso <= PFIAB_END_DATE;
+}
+
+function pfiabRecordLabel(meta) {
+  return meta.displayTitle || meta.title || meta.subject || meta.recordNumber;
+}
+
+function pfiabDateLink(iso) {
+  return `${iso.slice(0, 4)}/${relativeDayLink(iso)}`;
+}
+
+function renderPfiabRecordRegister(records, hitsByRecord) {
+  const rows = [...records]
+    .sort((a, b) => compareIso(a.docDate, b.docDate) || a.recordNumber.localeCompare(b.recordNumber))
+    .map((meta) => {
+      const hitCount = hitsByRecord.get(meta.recordNumber)?.length || 0;
+      const docDateText = meta.docDate ? formatDate(meta.docDate) : 'Not identified';
+      const originator = meta.originator || meta.agency || 'Not identified';
+      return `<tr><td><a href="${attr(meta.url)}">${html(meta.recordNumber)}</a></td><td>${html(pfiabRecordLabel(meta))}</td><td>${html(docDateText)}</td><td>${html(originator)}</td><td>${hitCount.toLocaleString()}</td></tr>`;
+    })
+    .join('');
+  if (!rows) {
+    return '<p>No PFIAB-identified records were found in the scanned corpus.</p>';
+  }
+  return `<table>
+  <thead><tr><th>Record</th><th>Title / Subject</th><th>Document Date</th><th>Originator</th><th>1953-1960 Date Hits</th></tr></thead>
+  <tbody>${rows}</tbody>
+</table>`;
+}
+
+function renderPfiabLanding(years, hitsByDate, records, allHits) {
+  const hitsByRecord = Map.groupBy(allHits, (hit) => hit.meta.recordNumber);
+  const hitDates = [...hitsByDate.entries()].filter(([, hits]) => hits.length);
+  const rows = years
+    .map((year) => {
+      const yearDates = hitDates.filter(([iso]) => iso.startsWith(String(year)));
+      const hitCount = yearDates.reduce((sum, [, hits]) => sum + hits.length, 0);
+      const docs = new Set(yearDates.flatMap(([, hits]) => hits.map((hit) => hit.meta.recordNumber))).size;
+      return `<tr><th scope="row"><a href="${year}/index.html">${year}</a></th><td>${hitCount.toLocaleString()}</td><td>${yearDates.length.toLocaleString()}</td><td>${docs.toLocaleString()}</td></tr>`;
+    })
+    .join('');
+  const datedSection = allHits.length
+    ? `<h2>Dated PFIAB References</h2>
+<table>
+  <thead><tr><th>Year</th><th>Date References</th><th>Days With Hits</th><th>Unique Records</th></tr></thead>
+  <tbody>${rows}</tbody>
+</table>`
+    : `<h2>Dated PFIAB References</h2>
+<p class="notice">No PFIAB-identified records in the scanned 2025-release markdown corpus produced explicit date references from ${formatDate(
+        START_DATE,
+      )} through ${formatDate(PFIAB_END_DATE)} under the same extraction rules used by the main chronology.</p>`;
+  const body = `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> &gt; <span>PFIAB</span></nav>
+<h1>President's Foreign Intelligence Advisory Board Documents</h1>
+<p>This focused section keeps only records whose release metadata, title, or converted document heading identifies PFIAB or the President's Foreign Intelligence Advisory Board. It then filters those records to explicit references dated ${formatDate(
+    START_DATE,
+  )} through ${formatDate(PFIAB_END_DATE)}.</p>
+<p class="page-total"><em>${records.length.toLocaleString()} PFIAB-identified records scanned; ${allHits.length.toLocaleString()} dated references found.</em></p>
+${datedSection}
+<h2>PFIAB Records Checked</h2>
+${renderPfiabRecordRegister(records, hitsByRecord)}`;
+  return pageShell({
+    title: 'PFIAB Documents: 1953-1960 Event References',
+    prefix: '../',
+    searchPrefix: '',
+    intro:
+      "This page is a provenance-filtered subsection of the Eisenhower chronology for President's Foreign Intelligence Advisory Board records only.",
+    body,
+  });
+}
+
+function pfiabHitNav(hitDates, iso) {
+  const index = hitDates.indexOf(iso);
+  const previous = index > 0 ? hitDates[index - 1] : null;
+  const next = index < hitDates.length - 1 ? hitDates[index + 1] : null;
+  return `<nav class="day-nav" aria-label="PFIAB day navigation">
+  ${previous ? `<a href="../${pfiabDateLink(previous)}">&larr; ${formatDate(previous)}</a>` : '<span></span>'}
+  <a href="../index.html">PFIAB section</a>
+  ${next ? `<a href="../${pfiabDateLink(next)}">${formatDate(next)} &rarr;</a>` : '<span></span>'}
+</nav>`;
+}
+
+function renderPfiabDayPage(iso, hits, hitDates) {
+  const sorted = [...hits].sort(
+    (a, b) =>
+      compareIso(a.meta.docDate, b.meta.docDate) ||
+      a.meta.recordNumber.localeCompare(b.meta.recordNumber) ||
+      a.matchStart - b.matchStart,
+  );
+  const documentCount = new Set(sorted.map((hit) => hit.meta.recordNumber)).size;
+  const body = `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> &gt; <a href="../index.html">PFIAB</a> &gt; <span>${formatDate(
+    iso,
+  )}</span></nav>
+${pfiabHitNav(hitDates, iso)}
+<main class="daily-content">
+<h1>${formatDate(iso)}</h1>
+${renderHitSection('PFIAB Documents', 'contemporaneous', sorted)}
+<p class="page-total"><em>${sorted.length.toLocaleString()} references from ${documentCount.toLocaleString()} PFIAB-identified records in the 2025 NARA JFK release.</em></p>
+</main>
+${pfiabHitNav(hitDates, iso)}`;
+  return pageShell({
+    title: `PFIAB - ${formatDate(iso)}`,
+    prefix: '../../',
+    searchPrefix: '../',
+    intro: `This page gathers PFIAB-identified 2025-release records that explicitly mention ${formatDate(iso)}.`,
+    body,
+  });
+}
+
+function renderPfiabYearPage(year, hitDates, hitsByDate) {
+  const yearDates = hitDates.filter((iso) => iso.startsWith(String(year)));
+  const rows = yearDates
+    .map((iso) => {
+      const hits = hitsByDate.get(iso) || [];
+      const docs = new Set(hits.map((hit) => hit.meta.recordNumber)).size;
+      return `<tr><td><a href="${relativeDayLink(iso)}">${formatDate(iso)}</a></td><td>${hits.length.toLocaleString()}</td><td>${docs.toLocaleString()}</td></tr>`;
+    })
+    .join('');
+  const body = `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> &gt; <a href="../index.html">PFIAB</a> &gt; <span>${year}</span></nav>
+<h1>PFIAB References: ${year}</h1>
+<table>
+  <thead><tr><th>Date</th><th>References</th><th>Unique Records</th></tr></thead>
+  <tbody>${rows}</tbody>
+</table>`;
+  return pageShell({
+    title: `PFIAB References: ${year}`,
+    prefix: '../../',
+    searchPrefix: '../',
+    intro: `This yearly index includes only PFIAB-identified records with explicit ${year} date references.`,
+    body,
+  });
 }
 
 function dayNav(days, iso) {
@@ -767,7 +947,7 @@ function renderMonthPage(year, month, days, hitsByDate) {
   });
 }
 
-function renderLanding(years, days, hitsByDate, docsScanned, allHits) {
+function renderLanding(years, days, hitsByDate, docsScanned, allHits, pfiabSummary) {
   const rows = years
     .map((year) => {
       const yearDays = days.filter((iso) => iso.startsWith(String(year)));
@@ -802,6 +982,10 @@ function renderLanding(years, days, hitsByDate, docsScanned, allHits) {
 <ul class="year-links">
 ${years.map((year) => `<li><a href="${year}/index.html">${year} calendar</a></li>`).join('\n')}
 </ul>
+<h2>Focused Sections</h2>
+<ul class="year-links">
+  <li><a href="${PFIAB_SECTION_DIR}/index.html">PFIAB documents on 1953-1960 events</a> (${pfiabSummary.dateHits.toLocaleString()} dated references from ${pfiabSummary.records.toLocaleString()} PFIAB-identified records)</li>
+</ul>
 <h2>Sources</h2>
 <p>Source markdown links point to the public doctly/jfk conversion repository. The release banner links to NARA's 2025 JFK assassination records release page.</p>`;
   return pageShell({
@@ -812,14 +996,21 @@ ${years.map((year) => `<li><a href="${year}/index.html">${year} calendar</a></li
   });
 }
 
-function renderSearchPage() {
-  const body = `<h1>Search</h1>
-<p>Search dates, document IDs, agencies, key event labels, yearly calendars, monthly rollups, and excerpt text. Results link to the generated chronology pages.</p>
+function renderSearchPage(options = {}) {
+  const heading = options.heading || 'Search';
+  const description =
+    options.description ||
+    'Search dates, document IDs, agencies, key event labels, yearly calendars, monthly rollups, and excerpt text. Results link to the generated chronology pages.';
+  const body = `<h1>${html(heading)}</h1>
+<p>${html(description)}</p>
 <div id="search-results" class="search-results">Enter a search term above.</div>
 <script src="search.js" defer></script>`;
   return pageShell({
-    title: 'Search',
+    title: options.title || 'Search',
+    prefix: options.prefix || '',
+    searchPrefix: options.searchPrefix ?? options.prefix ?? '',
     intro:
+      options.intro ||
       'This search page looks across the generated daily pages, monthly rollups, calendars, and source excerpts in this public chronology.',
     body,
   });
@@ -943,6 +1134,7 @@ pre,
 .hit h4 { margin-bottom: 0.35rem; }
 .hit-meta,
 .excerpt-label,
+.notice,
 .page-total,
 .search-count,
 .search-empty,
@@ -1076,6 +1268,104 @@ function searchEntry({ title, url, meta = '', snippet = '', text }) {
   };
 }
 
+async function cleanGeneratedOutput(outputDir, years) {
+  await mkdir(outputDir, { recursive: true });
+  const generatedNames = [
+    'index.html',
+    'search.html',
+    'search.js',
+    'search-index.json',
+    'style.css',
+    'summary.json',
+    PFIAB_SECTION_DIR,
+    ...years.map(String),
+  ];
+  await Promise.all(
+    generatedNames.map((name) => rm(path.join(outputDir, name), { recursive: true, force: true })),
+  );
+}
+
+async function writePfiabSection(outputDir, records, hitsByDate, allHits) {
+  const sectionDir = path.join(outputDir, PFIAB_SECTION_DIR);
+  await mkdir(sectionDir, { recursive: true });
+  const hitDates = [...hitsByDate.keys()].filter((iso) => (hitsByDate.get(iso)?.length || 0) > 0);
+  const years = [...new Set(hitDates.map((iso) => Number(iso.slice(0, 4))))];
+
+  await writeFile(path.join(sectionDir, 'search.js'), searchScript);
+  await writeFile(
+    path.join(sectionDir, 'search.html'),
+    renderSearchPage({
+      title: 'Search PFIAB Documents',
+      heading: 'Search PFIAB Documents',
+      prefix: '../',
+      searchPrefix: '',
+      intro:
+        "This search page looks only across the President's Foreign Intelligence Advisory Board subsection.",
+      description:
+        'Search dates, document IDs, originators, titles, and excerpts within the PFIAB-focused subsection.',
+    }),
+  );
+  await writeFile(path.join(sectionDir, 'index.html'), renderPfiabLanding(years, hitsByDate, records, allHits));
+
+  for (const year of years) {
+    const yearDir = path.join(sectionDir, String(year));
+    await mkdir(yearDir, { recursive: true });
+    await writeFile(path.join(yearDir, 'index.html'), renderPfiabYearPage(year, hitDates, hitsByDate));
+    for (const iso of hitDates.filter((date) => date.startsWith(String(year)))) {
+      await writeFile(path.join(yearDir, relativeDayLink(iso)), renderPfiabDayPage(iso, hitsByDate.get(iso) || [], hitDates));
+    }
+  }
+
+  const searchIndex = [
+    searchEntry({
+      title: 'PFIAB Documents: 1953-1960 Event References',
+      url: 'index.html',
+      meta: `${formatDate(START_DATE)} through ${formatDate(PFIAB_END_DATE)}`,
+      snippet: `${records.length.toLocaleString()} PFIAB-identified records scanned; ${allHits.length.toLocaleString()} dated references found.`,
+    }),
+    ...records.map((meta) =>
+      searchEntry({
+        title: `${meta.recordNumber} - ${pfiabRecordLabel(meta)}`,
+        url: 'index.html',
+        meta: `${meta.originator || meta.agency}; ${meta.docDate ? formatDate(meta.docDate) : 'document date unknown'}`,
+        snippet: `${meta.title || ''} ${meta.subject || ''}`,
+      }),
+    ),
+    ...years.map((year) =>
+      searchEntry({
+        title: `PFIAB references: ${year}`,
+        url: `${year}/index.html`,
+        meta: 'PFIAB yearly index',
+        snippet: `PFIAB-identified records with explicit ${year} date references.`,
+      }),
+    ),
+    ...hitDates.flatMap((iso) => {
+      const hits = hitsByDate.get(iso) || [];
+      const baseEntry = searchEntry({
+        title: `PFIAB - ${formatDate(iso)}`,
+        url: pfiabDateLink(iso),
+        meta: `${hits.length.toLocaleString()} references`,
+        snippet: hits
+          .slice(0, 3)
+          .map((hit) => `${hit.meta.recordNumber} ${hit.evidence} ${hit.context}`)
+          .join(' '),
+      });
+      const hitEntries = hits.map((hit) =>
+        searchEntry({
+          title: `PFIAB - ${formatDate(iso)} - ${hit.meta.recordNumber}`,
+          url: pfiabDateLink(iso),
+          meta: `${hit.meta.originator || hit.meta.agency}; ${
+            hit.meta.docDate ? formatDate(hit.meta.docDate) : 'document date unknown'
+          }`,
+          snippet: `${hit.evidence}: ${hit.context}`,
+        }),
+      );
+      return [baseEntry, ...hitEntries];
+    }),
+  ];
+  await writeFile(path.join(sectionDir, 'search-index.json'), JSON.stringify(searchIndex));
+}
+
 async function main() {
   if (!existsSync(CORPUS_DIR)) {
     throw new Error(`Corpus directory not found: ${CORPUS_DIR}`);
@@ -1083,7 +1373,10 @@ async function main() {
 
   const markdownFiles = await listMarkdownFiles(CORPUS_DIR);
   const hitsByDate = new Map(eachDay().map((iso) => [iso, []]));
+  const pfiabHitsByDate = new Map(eachDay(START_DATE, PFIAB_END_DATE).map((iso) => [iso, []]));
   const allHits = [];
+  const pfiabAllHits = [];
+  const pfiabRecordsByPath = new Map();
   const metadataByRecord = new Map();
 
   for (const filePath of markdownFiles) {
@@ -1091,28 +1384,40 @@ async function main() {
     const text = await readFile(filePath, 'utf8');
     const meta = parseMetadata(text, relPath);
     metadataByRecord.set(meta.recordNumber, meta);
+    const pfiabDocument = isPfiabDocument(meta);
+    if (pfiabDocument) pfiabRecordsByPath.set(meta.relPath, meta);
     const hits = scanDates(text);
     for (const hit of hits) {
       const enriched = { ...hit, meta };
       hitsByDate.get(hit.iso)?.push(enriched);
       allHits.push(enriched);
+      if (pfiabDocument && isInPfiabEventScope(hit.iso)) {
+        pfiabHitsByDate.get(hit.iso)?.push(enriched);
+        pfiabAllHits.push(enriched);
+      }
     }
   }
 
   for (const hits of hitsByDate.values()) {
     hits.sort((a, b) => compareIso(a.meta.docDate, b.meta.docDate) || a.meta.recordNumber.localeCompare(b.meta.recordNumber));
   }
+  for (const hits of pfiabHitsByDate.values()) {
+    hits.sort((a, b) => compareIso(a.meta.docDate, b.meta.docDate) || a.meta.recordNumber.localeCompare(b.meta.recordNumber));
+  }
 
   const days = eachDay();
   const years = [...new Set(days.map((iso) => Number(iso.slice(0, 4))))];
-  await rm(OUTPUT_DIR, { recursive: true, force: true });
-  await mkdir(OUTPUT_DIR, { recursive: true });
+  const pfiabRecords = [...pfiabRecordsByPath.values()];
+  await cleanGeneratedOutput(OUTPUT_DIR, years);
   await writeFile(path.join(OUTPUT_DIR, 'style.css'), stylesheet);
   await writeFile(path.join(OUTPUT_DIR, 'search.js'), searchScript);
   await writeFile(path.join(OUTPUT_DIR, 'search.html'), renderSearchPage());
   await writeFile(
     path.join(OUTPUT_DIR, 'index.html'),
-    renderLanding(years, days, hitsByDate, markdownFiles.length, allHits),
+    renderLanding(years, days, hitsByDate, markdownFiles.length, allHits, {
+      dateHits: pfiabAllHits.length,
+      records: pfiabRecords.length,
+    }),
   );
 
   for (const year of years) {
@@ -1131,6 +1436,7 @@ async function main() {
       await writeFile(path.join(monthDir, 'index.html'), renderMonthPage(year, month, days, hitsByDate));
     }
   }
+  await writePfiabSection(OUTPUT_DIR, pfiabRecords, pfiabHitsByDate, pfiabAllHits);
 
   const searchIndex = [
     searchEntry({
@@ -1180,6 +1486,13 @@ async function main() {
     startDate: START_DATE,
     totalDateHits: allHits.length,
     uniqueDocumentsWithHits: new Set(allHits.map((hit) => hit.meta.recordNumber)).size,
+    pfiabSection: {
+      endDate: PFIAB_END_DATE,
+      recordsScanned: pfiabRecords.length,
+      totalDateHits: pfiabAllHits.length,
+      uniqueDocumentsWithHits: new Set(pfiabAllHits.map((hit) => hit.meta.recordNumber)).size,
+      daysWithHits: [...pfiabHitsByDate.values()].filter((hits) => hits.length > 0).length,
+    },
     daysInScope: days.length,
     daysWithHits: days.filter((iso) => (hitsByDate.get(iso)?.length || 0) > 0).length,
     byYear: Object.fromEntries(
