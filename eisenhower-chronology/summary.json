@@ -2,11 +2,18 @@
   "corpusDir": "/Users/jameswilson/research/jfk-1961-chronology/jfk/jfk_files_md",
   "documentsScanned": 2138,
   "endDate": "1961-01-19",
-  "generatedAt": "2026-06-05T01:47:18.439Z",
+  "generatedAt": "2026-06-06T00:25:38.991Z",
   "outputDir": "/Users/jameswilson/Documents/JFK/public/eisenhower-chronology",
   "startDate": "1953-01-20",
   "totalDateHits": 19129,
   "uniqueDocumentsWithHits": 603,
+  "pfiabSection": {
+    "endDate": "1960-12-31",
+    "recordsScanned": 3,
+    "totalDateHits": 0,
+    "uniqueDocumentsWithHits": 0,
+    "daysWithHits": 0
+  },
   "daysInScope": 2922,
   "daysWithHits": 2714,
   "byYear": {
