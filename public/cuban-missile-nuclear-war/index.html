@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cuban Missile Crisis Nuclear War Primary-Source Repository</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f7f4ec;
+        --panel: #fffdf8;
+        --ink: #1d2528;
+        --muted: #59666a;
+        --line: #d8d0c2;
+        --rust: #9f3c2d;
+        --teal: #1f6f78;
+        --olive: #5e6c3c;
+        --gold: #b87922;
+        --navy: #24384d;
+        --shadow: 0 18px 45px rgba(29, 37, 40, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: var(--teal);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      .shell {
+        width: min(1440px, 100%);
+        margin: 0 auto;
+      }
+
+      .masthead {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        gap: 28px;
+        align-items: stretch;
+        padding: 28px clamp(18px, 4vw, 56px) 18px;
+      }
+
+      .masthead__copy {
+        display: grid;
+        align-content: center;
+        gap: 18px;
+        min-height: 330px;
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: var(--rust);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 980px;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.2rem, 5vw, 5.4rem);
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 0.96;
+      }
+
+      .lede {
+        max-width: 760px;
+        margin: 0;
+        color: #344245;
+        font-size: clamp(1rem, 1.5vw, 1.22rem);
+      }
+
+      .masthead__media {
+        min-height: 330px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #e6dfd2;
+        box-shadow: var(--shadow);
+      }
+
+      .masthead__media img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 330px;
+        object-fit: cover;
+      }
+
+      .masthead__caption {
+        margin: 0;
+        padding: 10px 12px;
+        border-top: 1px solid var(--line);
+        background: rgba(255, 253, 248, 0.94);
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: grid;
+        grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(150px, 0.48fr));
+        gap: 12px;
+        padding: 14px clamp(18px, 4vw, 56px);
+        border-block: 1px solid var(--line);
+        background: rgba(247, 244, 236, 0.94);
+        backdrop-filter: blur(12px);
+      }
+
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+
+      .field label {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        color: var(--ink);
+        padding: 10px 12px;
+      }
+
+      .field input:focus,
+      .field select:focus,
+      .filter-button:focus,
+      .link-pill:focus {
+        outline: 3px solid rgba(31, 111, 120, 0.24);
+        outline-offset: 2px;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: minmax(220px, 310px) minmax(0, 1fr);
+        gap: 22px;
+        padding: 20px clamp(18px, 4vw, 56px) 48px;
+      }
+
+      .sidebar {
+        align-self: start;
+        display: grid;
+        gap: 16px;
+        position: sticky;
+        top: 96px;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .metric {
+        min-height: 94px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 1.7rem;
+        line-height: 1;
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .filter-group,
+      .exports,
+      .note-panel {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      .filter-group h2,
+      .exports h2,
+      .note-panel h2 {
+        margin: 0 0 10px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+      }
+
+      .button-list {
+        display: grid;
+        gap: 7px;
+      }
+
+      .filter-button {
+        display: flex;
+        min-height: 38px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #faf8f0;
+        color: var(--ink);
+        padding: 8px 10px;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .filter-button.is-active {
+        border-color: var(--teal);
+        background: #e9f2f1;
+        color: #123f45;
+      }
+
+      .filter-button span:last-child {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .exports {
+        display: grid;
+        gap: 9px;
+      }
+
+      .link-pill {
+        display: inline-flex;
+        min-height: 38px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #faf8f0;
+        color: var(--ink);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .note-panel p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .results {
+        min-width: 0;
+      }
+
+      .results__header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 14px;
+      }
+
+      .results__header h2 {
+        margin: 2px 0 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.7rem, 3vw, 2.7rem);
+        letter-spacing: 0;
+      }
+
+      .clear {
+        min-height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fffdf8;
+        padding: 8px 12px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .document-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .document-card {
+        display: grid;
+        gap: 12px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 12px 28px rgba(29, 37, 40, 0.06);
+      }
+
+      .document-card__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #f4efe3;
+        color: var(--muted);
+        padding: 4px 8px;
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .chip--source {
+        border-color: rgba(31, 111, 120, 0.35);
+        background: #e9f2f1;
+        color: #174e55;
+      }
+
+      .chip--category {
+        border-color: rgba(159, 60, 45, 0.35);
+        background: #f7e8e4;
+        color: #6d241a;
+      }
+
+      .chip--status {
+        border-color: rgba(94, 108, 60, 0.35);
+        background: #eef0e3;
+        color: #49542f;
+      }
+
+      .document-card h3 {
+        margin: 0;
+        color: var(--navy);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.25rem, 2vw, 1.75rem);
+        letter-spacing: 0;
+        line-height: 1.16;
+      }
+
+      .question {
+        margin: 0;
+        color: #374549;
+        font-weight: 800;
+      }
+
+      .summary,
+      .citation,
+      .source-note {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .citation {
+        color: #344245;
+        font-size: 0.94rem;
+      }
+
+      .tag-row,
+      .link-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        border-radius: 999px;
+        background: #ece5d7;
+        color: #59666a;
+        padding: 4px 9px;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .doc-link {
+        display: inline-flex;
+        min-height: 36px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #faf8f0;
+        padding: 7px 10px;
+        color: var(--ink);
+        font-size: 0.9rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .empty {
+        padding: 30px;
+        border: 1px dashed var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        color: var(--muted);
+      }
+
+      @media (max-width: 1050px) {
+        .masthead,
+        .content,
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+
+        .masthead__copy,
+        .masthead__media,
+        .masthead__media img {
+          min-height: 260px;
+        }
+
+        .sidebar {
+          position: static;
+        }
+
+        .metrics {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 660px) {
+        .metrics {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .results__header {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .clear {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="masthead">
+        <div class="masthead__copy">
+          <p class="eyebrow">Primary-source repository</p>
+          <h1>Cuban Missile Crisis Nuclear War Documents</h1>
+          <p class="lede">
+            A source-first register of documents for reconstructing the war plans,
+            escalation paths, nuclear-use authority, and operational flashpoints that
+            would have shaped a U.S.-Soviet nuclear war in October 1962.
+          </p>
+        </div>
+        <figure class="masthead__media">
+          <img
+            src="https://nsarchive.gwu.edu/sites/default/files/2022-10/CMC045.jpg"
+            alt="A military-history graphic of the U.S. invasion plan for Cuba in 1962"
+          />
+          <figcaption class="masthead__caption">
+            U.S. invasion-plan graphic reproduced in the National Security Archive's
+            Cuban Missile Crisis at 60 release.
+          </figcaption>
+        </figure>
+      </header>
+
+      <section class="toolbar" aria-label="Repository filters">
+        <div class="field">
+          <label for="search">Search</label>
+          <input id="search" type="search" placeholder="SIOP, Pliyev, air strike, B-59..." />
+        </div>
+        <div class="field">
+          <label for="source">Source</label>
+          <select id="source"></select>
+        </div>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category"></select>
+        </div>
+        <div class="field">
+          <label for="status">Status</label>
+          <select id="status"></select>
+        </div>
+      </section>
+
+      <div class="content">
+        <aside class="sidebar">
+          <section class="metrics" aria-label="Repository totals">
+            <div class="metric">
+              <strong id="total-count">0</strong>
+              <span>Documents</span>
+            </div>
+            <div class="metric">
+              <strong id="scan-count">0</strong>
+              <span>Scans</span>
+            </div>
+            <div class="metric">
+              <strong id="frus-count">0</strong>
+              <span>FRUS</span>
+            </div>
+            <div class="metric">
+              <strong id="soviet-count">0</strong>
+              <span>Soviet/Cuban</span>
+            </div>
+          </section>
+
+          <section class="filter-group" aria-label="Evidence roles">
+            <h2>Evidence Role</h2>
+            <div class="button-list" id="role-buttons"></div>
+          </section>
+
+          <section class="exports" aria-label="Exports">
+            <h2>Exports</h2>
+            <a class="link-pill" href="data/documents.json">JSON</a>
+            <a class="link-pill" href="data/documents.csv">CSV</a>
+            <a class="link-pill" href="data/source-register.md">Markdown</a>
+          </section>
+
+          <section class="note-panel">
+            <h2>Coverage</h2>
+            <p id="coverage-note"></p>
+          </section>
+        </aside>
+
+        <section class="results" aria-label="Document results">
+          <div class="results__header">
+            <div>
+              <p class="eyebrow" id="result-count">Loading records</p>
+              <h2>Source Register</h2>
+            </div>
+            <button class="clear" type="button" id="clear">Clear Filters</button>
+          </div>
+          <div class="document-list" id="documents"></div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const state = {
+        documents: [],
+        query: "",
+        source: "All",
+        category: "All",
+        status: "All",
+        role: "All"
+      };
+
+      const els = {
+        search: document.querySelector("#search"),
+        source: document.querySelector("#source"),
+        category: document.querySelector("#category"),
+        status: document.querySelector("#status"),
+        roles: document.querySelector("#role-buttons"),
+        documents: document.querySelector("#documents"),
+        resultCount: document.querySelector("#result-count"),
+        clear: document.querySelector("#clear"),
+        total: document.querySelector("#total-count"),
+        scans: document.querySelector("#scan-count"),
+        frus: document.querySelector("#frus-count"),
+        soviet: document.querySelector("#soviet-count"),
+        coverage: document.querySelector("#coverage-note")
+      };
+
+      fetch("data/documents.json")
+        .then((response) => response.json())
+        .then((data) => {
+          state.documents = data.documents;
+          els.coverage.textContent = data.metadata.coverageNote;
+          fillSelect(els.source, ["All", ...unique(data.documents.map((doc) => doc.source))]);
+          fillSelect(els.category, ["All", ...unique(data.documents.map((doc) => doc.category))]);
+          fillSelect(els.status, ["All", ...unique(data.documents.map((doc) => doc.status))]);
+          renderMetrics();
+          renderRoleButtons();
+          render();
+        });
+
+      els.search.addEventListener("input", (event) => {
+        state.query = event.target.value;
+        render();
+      });
+
+      els.source.addEventListener("change", (event) => {
+        state.source = event.target.value;
+        render();
+      });
+
+      els.category.addEventListener("change", (event) => {
+        state.category = event.target.value;
+        render();
+      });
+
+      els.status.addEventListener("change", (event) => {
+        state.status = event.target.value;
+        render();
+      });
+
+      els.clear.addEventListener("click", () => {
+        state.query = "";
+        state.source = "All";
+        state.category = "All";
+        state.status = "All";
+        state.role = "All";
+        els.search.value = "";
+        els.source.value = "All";
+        els.category.value = "All";
+        els.status.value = "All";
+        renderRoleButtons();
+        render();
+      });
+
+      function unique(values) {
+        return [...new Set(values)].sort((a, b) => a.localeCompare(b));
+      }
+
+      function fillSelect(select, values) {
+        select.innerHTML = values.map((value) => `<option>${escapeHtml(value)}</option>`).join("");
+      }
+
+      function renderMetrics() {
+        const docs = state.documents;
+        els.total.textContent = docs.length.toLocaleString();
+        els.scans.textContent = docs.filter((doc) => doc.scanUrl).length.toLocaleString();
+        els.frus.textContent = docs
+          .filter((doc) => doc.source === "FRUS" || doc.source === "FRUS Microfiche Supplement")
+          .length.toLocaleString();
+        els.soviet.textContent = docs
+          .filter((doc) => doc.source === "Soviet/Cuban release")
+          .length.toLocaleString();
+      }
+
+      function renderRoleButtons() {
+        const counts = new Map();
+        for (const doc of state.documents) {
+          counts.set(doc.evidenceRole, (counts.get(doc.evidenceRole) || 0) + 1);
+        }
+        const roles = ["All", ...[...counts.keys()].sort((a, b) => a.localeCompare(b))];
+        els.roles.innerHTML = roles
+          .map((role) => {
+            const count = role === "All" ? state.documents.length : counts.get(role);
+            const active = state.role === role ? " is-active" : "";
+            return `<button class="filter-button${active}" type="button" data-role="${escapeAttr(role)}"><span>${escapeHtml(role)}</span><span>${count}</span></button>`;
+          })
+          .join("");
+        els.roles.querySelectorAll("button").forEach((button) => {
+          button.addEventListener("click", () => {
+            state.role = button.dataset.role;
+            renderRoleButtons();
+            render();
+          });
+        });
+      }
+
+      function render() {
+        const docs = filteredDocuments();
+        els.resultCount.textContent = `Showing ${docs.length.toLocaleString()} of ${state.documents.length.toLocaleString()} records`;
+        els.documents.innerHTML = docs.length
+          ? docs.map(renderDocument).join("")
+          : `<div class="empty">No documents match the current filters.</div>`;
+      }
+
+      function filteredDocuments() {
+        const terms = state.query
+          .trim()
+          .toLowerCase()
+          .split(/\s+/)
+          .filter(Boolean);
+        return state.documents.filter((doc) => {
+          if (state.source !== "All" && doc.source !== state.source) return false;
+          if (state.category !== "All" && doc.category !== state.category) return false;
+          if (state.status !== "All" && doc.status !== state.status) return false;
+          if (state.role !== "All" && doc.evidenceRole !== state.role) return false;
+          if (!terms.length) return true;
+          const haystack = [
+            doc.title,
+            doc.originator,
+            doc.category,
+            doc.evidenceRole,
+            doc.warQuestion,
+            doc.summary,
+            doc.repository,
+            doc.citation,
+            doc.sourceNote,
+            doc.tags.join(" ")
+          ]
+            .join(" ")
+            .toLowerCase();
+          return terms.every((term) => haystack.includes(term));
+        });
+      }
+
+      function renderDocument(doc) {
+        const links = [
+          doc.url ? `<a class="doc-link" href="${escapeAttr(doc.url)}" target="_blank" rel="noreferrer">Record</a>` : "",
+          doc.scanUrl ? `<a class="doc-link" href="${escapeAttr(doc.scanUrl)}" target="_blank" rel="noreferrer">Scan</a>` : "",
+          doc.ocrUrl ? `<a class="doc-link" href="${escapeAttr(doc.ocrUrl)}" target="_blank" rel="noreferrer">OCR</a>` : ""
+        ]
+          .filter(Boolean)
+          .join("");
+
+        return `
+          <article class="document-card">
+            <div class="document-card__meta">
+              <span class="chip chip--source">${escapeHtml(doc.source)}</span>
+              <span class="chip">${escapeHtml(doc.displayDate)}</span>
+              <span class="chip chip--category">${escapeHtml(doc.category)}</span>
+              <span class="chip chip--status">${escapeHtml(doc.status)}</span>
+            </div>
+            <h3>${escapeHtml(doc.title)}</h3>
+            <p class="question">${escapeHtml(doc.warQuestion)}</p>
+            <p class="summary">${escapeHtml(doc.summary)}</p>
+            <p class="citation">${escapeHtml(doc.citation)}</p>
+            <p class="source-note">${escapeHtml(doc.sourceNote)}</p>
+            <div class="tag-row">${doc.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>
+            <div class="link-row">${links}</div>
+          </article>
+        `;
+      }
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, (char) => {
+          return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+          }[char];
+        });
+      }
+
+      function escapeAttr(value) {
+        return escapeHtml(value);
+      }
+    </script>
+  </body>
+</html>

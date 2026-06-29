@@ -44,3 +44,15 @@ npm run lint
 `npm run build:data` regenerates `src/data/archive.json` from official FRUS XML, NARA Catalog records, curated DOD History/JCS History/GovInfo PPP/CIA FOIA/State FOIA/ISCAP/National Security Archive source files, and the selected Nitze interview PDFs.
 
 Citations are normalized during data generation into a trade nonfiction notes format: issuing body or author, quoted document title, collection or volume, locator, and date.
+
+## Cuban Missile Crisis Nuclear War Repository
+
+The standalone primary-source repository lives at `public/cuban-missile-nuclear-war/index.html`.
+
+It compiles public primary documents and official archival listings for reconstructing what would have happened if the Cuban Missile Crisis escalated into U.S.-Soviet nuclear war: SIOP-62/SIOP-63 records, FRUS ExComm and intelligence documents, U.S. airstrike/invasion plans, Soviet/Cuban nuclear-use authority records, B-59 submarine materials, and post-crisis tactical-nuclear withdrawal evidence.
+
+```bash
+npm run build:cmc-nuclear-war
+```
+
+That command regenerates `public/cuban-missile-nuclear-war/data/documents.csv` and `public/cuban-missile-nuclear-war/data/source-register.md` from `public/cuban-missile-nuclear-war/data/documents.json`.

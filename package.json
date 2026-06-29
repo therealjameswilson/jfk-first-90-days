@@ -7,6 +7,7 @@
     "dev": "vite",
     "build:data": "node scripts/build-archive-data.mjs",
     "build:eisenhower": "node scripts/build-eisenhower-chronology.mjs",
+    "build:cmc-nuclear-war": "node scripts/build-cmc-nuclear-war-exports.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
